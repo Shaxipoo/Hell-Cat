@@ -1,0 +1,12 @@
+textId,characterName,characterImage,text,nextId,specialActionId,option1,option1NextId,option2,option2NextId,option3,option3NextId
+1,Annie,,"haha, ur funny",2,,,,,,,
+2,Charlie,,charlie is shit,3,,,,,,,
+3,Sharon,,Do you want to make me happy?,,1,Ok,4,Nope,5,,
+4,Sharon,,Thanks!,6,,,,,,,
+5,Sharon,,You motherfucker!,6,,,,,,,
+6,Sharon,,See u tomorow,7,,,,,,,
+7,Annie,,"Dont talk to sharon, be with me!",,1,good,8,NOOOOO,9,whats wrong with u!,10
+8,Annie,,I LOVE U,11,,,,,,,
+9,Annie,,you wanna make me cry??,11,,,,,,,
+10,Annie,,YOU ARE THE ONE WHO REALLY HAS A PROBLEM,11,,,,,,,
+11,Annie,,"Im tired of u, so... good bye, haha, thats all!",,2,,,,,,
