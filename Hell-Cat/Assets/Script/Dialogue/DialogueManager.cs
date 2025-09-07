@@ -29,12 +29,17 @@ public class DialogueManager : MonoBehaviour
     [Header("UI: Story Ending")]
     [SerializeField] private GameObject endStoryScreen;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("UI: Document Check")]
+    [SerializeField] private GameObject documentCheckScreen;
+    [SerializeField] private DocumentManager documentManager;
 
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         optionPanel.SetActive(false);
         endStoryScreen.SetActive(false);
+        documentCheckScreen.SetActive(false);
 
         currentTextId = startTextId;
         UpdateDialogue();
@@ -59,6 +64,9 @@ public class DialogueManager : MonoBehaviour
                     break;
                 // Show Document
                 case 3:
+                    documentCheckScreen.SetActive(true);
+                    documentManager.SetDocuments(dialogueLoader.dialogueDict[currentTextId].documentSetId);
+                    textClickPad.gameObject.SetActive(false);
                     break;
                 // No Events
                 default:
@@ -145,6 +153,18 @@ public class DialogueManager : MonoBehaviour
     public void EndStory()
     {
         endStoryScreen.SetActive(true);
+    }
+
+    public void OnClickSubmitFile()
+    {
+        if(documentManager.CheckAllItems())
+        {
+            textClickPad.gameObject.SetActive(true);
+            documentManager.ClearDocuments();
+            documentCheckScreen.SetActive(false);
+            currentTextId = dialogueLoader.dialogueDict[currentTextId].nextId;
+            UpdateDialogue();
+        }
     }
 
 }
