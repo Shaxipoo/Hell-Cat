@@ -17,7 +17,7 @@ public class DocumentUIHandler : MonoBehaviour, IBeginDragHandler, IDragHandler,
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        dragArea = GameObject.Find("DragArea").GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
