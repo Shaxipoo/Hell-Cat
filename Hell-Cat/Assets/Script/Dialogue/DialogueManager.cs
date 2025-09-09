@@ -173,7 +173,7 @@ public class DialogueManager : MonoBehaviour
 
     public void OnClickSubmitFile()
     {
-        if(documentManager.CheckAllItems())
+        if(documentManager.CheckAllItems(dialogueLoader.dialogueDict[currentTextId].documentSetId))
         {
             textClickPad.gameObject.SetActive(true);
             documentManager.ClearDocuments();

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -19,10 +20,12 @@ public class DocumentManager : MonoBehaviour
 
     [Header("Submit Check List")]
     [SerializeField] private List<TextMeshProUGUI> requiredInfoList;
+    [SerializeField] private GameObject moreInfoTips;
 
     //Load document data
     public void SetDocuments(int setId)
     {
+        moreInfoTips.SetActive(false);
         ClearDocuments();
         // Show new Doc
         for (int i = 0; i < documentSets[setId].DocumentList.Count;i++)
@@ -61,21 +64,34 @@ public class DocumentManager : MonoBehaviour
     }
 
 
-    public bool CheckAllItems()
+    public bool CheckAllItems(int documentSetId)
     {
-        foreach(TextMeshProUGUI t in requiredInfoList)
+        foreach(InfoType i in documentSets[documentSetId].requiredInfo)
         {
-            if(t.text == "")
+            foreach (TextMeshProUGUI tmp in requiredInfoList)
             {
-                return false;
+                if(tmp.gameObject.name == i.ToString())
+                {
+                    if (tmp.text == "")
+                    {
+                        StartCoroutine(ShowMoreInfoTips(2f));
+                        return false;
+                    }
+                }
             }
+
         }
+        
+        
+
         return true;
     }
 
+    IEnumerator ShowMoreInfoTips(float t)
+    {
+        moreInfoTips.SetActive(true);
+        yield return new WaitForSeconds(t);
+        moreInfoTips.SetActive(false);
 
-
-
-    
-
+    }
 }
