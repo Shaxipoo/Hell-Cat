@@ -105,7 +105,23 @@ public class DialogueManager : MonoBehaviour
         optionStringList.Add(dialogueLoader.dialogueDict[currentTextId].option3);
 
         optionPanel.SetActive(true);
-        if(dialogueLoader.dialogueDict[currentTextId].option3 != "-1")
+        if (dialogueLoader.dialogueDict[currentTextId].option5 != "-1")
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                optionButtonList[i].SetActive(true);
+                optionButtonList[i].GetComponentInChildren<TextMeshProUGUI>().text = optionStringList[i];
+            }
+        }
+        else if (dialogueLoader.dialogueDict[currentTextId].option4 != "-1")
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                optionButtonList[i].SetActive(true);
+                optionButtonList[i].GetComponentInChildren<TextMeshProUGUI>().text = optionStringList[i];
+            }
+        }
+        else if (dialogueLoader.dialogueDict[currentTextId].option3 != "-1")
         {
             for (int i = 0; i < 3; i++)
             {

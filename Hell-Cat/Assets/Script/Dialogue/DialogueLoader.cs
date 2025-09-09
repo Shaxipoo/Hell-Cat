@@ -25,6 +25,12 @@ public class DialogueLine
 
     public string option3;
     public int option3NextId;
+
+    public string option4;
+    public int option4NextId;
+
+    public string option5;
+    public int option5NextId;
 }
 
 public class DialogueLoader : MonoBehaviour
@@ -69,6 +75,11 @@ public class DialogueLoader : MonoBehaviour
             line.option2NextId = ParseIntOrDefault(values[10]);
             line.option3 = ParseStringOrDefault(values[11]);
             line.option3NextId = ParseIntOrDefault(values[12]);
+            line.option4 = ParseStringOrDefault(values[13]);
+            line.option4NextId = ParseIntOrDefault(values[14]);
+            line.option5 = ParseStringOrDefault(values[15]);
+            line.option5NextId = ParseIntOrDefault(values[16]);
+
 
             dialogueDict.Add(line.textId, line);
         }
