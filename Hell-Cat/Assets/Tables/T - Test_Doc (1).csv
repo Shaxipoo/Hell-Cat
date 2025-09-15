@@ -1,6 +1,6 @@
-textId,characterName,characterImage,text,nextId,specialActionId,documentSetId,option1,option1NextId,option2,option2NextId,option3,option3NextId,option4,option4NextId,option5,option5NextId
-1,Sharon,,Do you want to make me happy?,,1,,Ok,4,Nope,5,,,,,,
-2,Sharon,,Thanks!,4,,,,,,,,,,,,
-3,Sharon,,You motherfucker!,4,,,,,,,,,,,,
-4,Sharon,,Check my files!,5,3,0,,,,,,,,,,
-5,Sharon,,Thanks!,,2,,,,,,,,,,,
+textId,characterName,characterImage,text,nextId,specialActionId,fileId,documentSetId,option1,option1NextId,option2,option2NextId,option3,option3NextId,option4,option4NextId,option5,option5NextId
+1,Sharon,,Do you want to make me happy?,,1,,,Ok,4,Nope,5,,,,,,
+2,Sharon,,Thanks!,4,,,,,,,,,,,,,
+3,Sharon,,You motherfucker!,4,,,,,,,,,,,,,
+4,Sharon,,Check my files!,5,3,1,0,,,,,,,,,,
+5,Sharon,,Thanks!,,2,,,,,,,,,,,,

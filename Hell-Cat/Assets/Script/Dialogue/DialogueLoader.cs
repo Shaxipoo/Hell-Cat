@@ -17,6 +17,8 @@ public class DialogueLine
     public int specialActionId; //1=Option 2=End Story 3=Show Doc
     public int documentSetId;
 
+    public int fileId;
+
     public string option1;
     public int option1NextId;
 
@@ -44,7 +46,7 @@ public class DialogueLoader : MonoBehaviour
     {
         LoadCSV();
 
-        //Debug.Log(dialogueDict[1].characterName + "£º" + dialogueDict[1].text);
+        //Debug.Log(dialogueDict[1].characterName + "ï¿½ï¿½" + dialogueDict[1].text);
     }
 
     private void LoadCSV()
@@ -67,18 +69,22 @@ public class DialogueLoader : MonoBehaviour
             line.text = ParseStringOrDefault(values[3]);
             line.nextId = ParseIntOrDefault(values[4]);
             line.specialActionId = ParseIntOrDefault(values[5]);
-            line.documentSetId = ParseIntOrDefault(values[6]);
 
-            line.option1 = ParseStringOrDefault(values[7]);
-            line.option1NextId = ParseIntOrDefault(values[8]);
-            line.option2 = ParseStringOrDefault(values[9]);
-            line.option2NextId = ParseIntOrDefault(values[10]);
-            line.option3 = ParseStringOrDefault(values[11]);
-            line.option3NextId = ParseIntOrDefault(values[12]);
-            line.option4 = ParseStringOrDefault(values[13]);
-            line.option4NextId = ParseIntOrDefault(values[14]);
-            line.option5 = ParseStringOrDefault(values[15]);
-            line.option5NextId = ParseIntOrDefault(values[16]);
+            line.fileId = ParseIntOrDefault(values[6]);
+            line.documentSetId = ParseIntOrDefault(values[7]);
+
+            
+
+            line.option1 = ParseStringOrDefault(values[8]);
+            line.option1NextId = ParseIntOrDefault(values[9]);
+            line.option2 = ParseStringOrDefault(values[10]);
+            line.option2NextId = ParseIntOrDefault(values[11]);
+            line.option3 = ParseStringOrDefault(values[12]);
+            line.option3NextId = ParseIntOrDefault(values[13]);
+            line.option4 = ParseStringOrDefault(values[14]);
+            line.option4NextId = ParseIntOrDefault(values[15]);
+            line.option5 = ParseStringOrDefault(values[16]);
+            line.option5NextId = ParseIntOrDefault(values[17]);
 
 
             dialogueDict.Add(line.textId, line);

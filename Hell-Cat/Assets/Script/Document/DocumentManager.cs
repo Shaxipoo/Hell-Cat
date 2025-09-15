@@ -6,9 +6,14 @@ using UnityEngine;
 public class DocumentManager : MonoBehaviour
 {
     [Header("Require Info Text")]
-    [SerializeField] private TextMeshProUGUI Name;
-    [SerializeField] private TextMeshProUGUI Age;
-    [SerializeField] private TextMeshProUGUI Breed;
+    [SerializeField] public TextMeshProUGUI Name;
+    [SerializeField] public TextMeshProUGUI Age;
+    [SerializeField] public TextMeshProUGUI Breed;
+    [SerializeField] public TextMeshProUGUI CauseOfDeath;
+    [SerializeField] public TextMeshProUGUI CriminalRecord;
+    [SerializeField] public TextMeshProUGUI CriminalDegree;
+    [SerializeField] public TextMeshProUGUI Contraband;
+
 
     [Header("Document Set List")]
     [SerializeField] private List<DocumentSet> documentSets;
@@ -22,13 +27,14 @@ public class DocumentManager : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> requiredInfoList;
     [SerializeField] private GameObject moreInfoTips;
 
+
     //Load document data
     public void SetDocuments(int setId)
     {
         moreInfoTips.SetActive(false);
         ClearDocuments();
         // Show new Doc
-        for (int i = 0; i < documentSets[setId].DocumentList.Count;i++)
+        for (int i = 0; i < documentSets[setId].DocumentList.Count; i++)
         {
             int offsetX = 0 + i * offsetValue;
             int offsetY = 0 + i * offsetValue;
@@ -47,9 +53,9 @@ public class DocumentManager : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
     }
-    public void InputInfo(InfoType it,string s)
+    public void InputInfo(InfoType it, string s)
     {
-        switch(it)
+        switch (it)
         {
             case InfoType.Name:
                 Name.text = s;
@@ -60,17 +66,30 @@ public class DocumentManager : MonoBehaviour
             case InfoType.Breed:
                 Breed.text = s;
                 break;
+            case InfoType.CauseOfDeath:
+                CauseOfDeath.text = s;
+                break;
+            case InfoType.CriminalRecord:
+                CriminalRecord.text = s;
+                break;
+            case InfoType.CriminalDegree:
+                CriminalDegree.text = s;
+                break;
+            case InfoType.Contraband:
+                Contraband.text = s;
+                break;
+
         }
     }
 
 
     public bool CheckAllItems(int documentSetId)
     {
-        foreach(InfoType i in documentSets[documentSetId].requiredInfo)
+        foreach (InfoType i in documentSets[documentSetId].requiredInfo)
         {
             foreach (TextMeshProUGUI tmp in requiredInfoList)
             {
-                if(tmp.gameObject.name == i.ToString())
+                if (tmp.gameObject.name == i.ToString())
                 {
                     if (tmp.text == "")
                     {
@@ -81,8 +100,8 @@ public class DocumentManager : MonoBehaviour
             }
 
         }
-        
-        
+
+
 
         return true;
     }
@@ -94,4 +113,5 @@ public class DocumentManager : MonoBehaviour
         moreInfoTips.SetActive(false);
 
     }
+
 }

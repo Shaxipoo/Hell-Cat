@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -29,9 +30,15 @@ public class DialogueManager : MonoBehaviour
     [Header("UI: Story Ending")]
     [SerializeField] private GameObject endStoryScreen;
 
+    [Header("UI: Archive")]
+    [SerializeField] private GameObject archiveScreen;
+
     [Header("UI: Document Check")]
     [SerializeField] private GameObject documentCheckScreen;
     [SerializeField] private DocumentManager documentManager;
+
+
+    private Dictionary<int, FileInfo> fileList = new Dictionary<int, FileInfo>();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,6 +47,7 @@ public class DialogueManager : MonoBehaviour
         optionPanel.SetActive(false);
         endStoryScreen.SetActive(false);
         documentCheckScreen.SetActive(false);
+        archiveScreen.SetActive(false);
 
         currentTextId = startTextId;
         UpdateDialogue();
@@ -171,16 +179,78 @@ public class DialogueManager : MonoBehaviour
         endStoryScreen.SetActive(true);
     }
 
+
+    public void OnClickArhive()
+    {
+        archiveScreen.SetActive(true);
+
+        PrintFileList();
+    }
+
+    public void OnQuitArchive()
+    {
+        archiveScreen.SetActive(false);
+    }
+
+    // Test
+    private void PrintFileList()
+    {
+        if (fileList == null || fileList.Count == 0)
+        {
+            Debug.Log("fileList is null");
+            return;
+        }
+
+        foreach (var kvp in fileList)
+        {
+            int id = kvp.Key;
+            FileInfo file = kvp.Value;
+
+            Debug.Log($"FileId: {id}, Name: {file.Name}, Age: {file.Age}, Breed: {file.Breed}, CauseOfDeath: {file.CauseOfDeath}, CriminalRecord: {file.CriminalRecord}, CriminalDegree: {file.CriminalDegree}, Contraband: {file.Contraband}");
+        }
+    }
+
     public void OnClickSubmitFile()
     {
-        if(documentManager.CheckAllItems(dialogueLoader.dialogueDict[currentTextId].documentSetId))
+        if (documentManager.CheckAllItems(dialogueLoader.dialogueDict[currentTextId].documentSetId))
         {
             textClickPad.gameObject.SetActive(true);
             documentManager.ClearDocuments();
             documentCheckScreen.SetActive(false);
+
+            // Save in archive
+            SubmitFile(dialogueLoader.dialogueDict[currentTextId].fileId);
+            Debug.Log(dialogueLoader.dialogueDict[currentTextId].fileId);
+
             currentTextId = dialogueLoader.dialogueDict[currentTextId].nextId;
             UpdateDialogue();
         }
     }
 
+    private void SubmitFile(int fileId)
+    {
+        if (fileList.ContainsKey(fileId))
+        {
+            fileList[fileId].Name = documentManager.Name.text;
+            fileList[fileId].Age = documentManager.Age.text;
+            fileList[fileId].Breed = documentManager.Breed.text;
+            fileList[fileId].CauseOfDeath = documentManager.CauseOfDeath.text;
+            fileList[fileId].CriminalRecord = documentManager.CriminalRecord.text;
+            fileList[fileId].CriminalDegree = documentManager.CriminalDegree.text;
+            fileList[fileId].Contraband = documentManager.Contraband.text;
+        }
+        else
+        {
+            FileInfo fi = new FileInfo();
+            fileList.Add(fileId, fi);
+            fileList[fileId].FileId = fileId;
+            fileList[fileId].Name = documentManager.Name.text;
+            fileList[fileId].Age = documentManager.Age.text;
+            fileList[fileId].Breed = documentManager.Breed.text;
+            fileList[fileId].CauseOfDeath = documentManager.CauseOfDeath.text;
+            fileList[fileId].CriminalRecord = documentManager.CriminalRecord.text;
+            fileList[fileId].CriminalDegree = documentManager.CriminalDegree.text;
+            fileList[fileId].Contraband = documentManager.Contraband.text;
+        }
+    }
 }

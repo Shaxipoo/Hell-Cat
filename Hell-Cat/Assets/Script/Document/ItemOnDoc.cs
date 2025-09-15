@@ -6,6 +6,10 @@ public enum InfoType
     Name,
     Age,
     Breed,
+    CauseOfDeath,
+    CriminalRecord,
+    CriminalDegree,
+    Contraband,
 }
 
 public class ItemOnDoc : MonoBehaviour
