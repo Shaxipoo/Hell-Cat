@@ -15,6 +15,7 @@ public class DialogueLine
     public int nextId;
 
     public int specialActionId; //1=Option 2=End Story 3=Show Doc
+    public int documentSetId;
 
     public string option1;
     public int option1NextId;
@@ -24,6 +25,12 @@ public class DialogueLine
 
     public string option3;
     public int option3NextId;
+
+    public string option4;
+    public int option4NextId;
+
+    public string option5;
+    public int option5NextId;
 }
 
 public class DialogueLoader : MonoBehaviour
@@ -60,13 +67,19 @@ public class DialogueLoader : MonoBehaviour
             line.text = ParseStringOrDefault(values[3]);
             line.nextId = ParseIntOrDefault(values[4]);
             line.specialActionId = ParseIntOrDefault(values[5]);
+            line.documentSetId = ParseIntOrDefault(values[6]);
 
-            line.option1 = ParseStringOrDefault(values[6]);
-            line.option1NextId = ParseIntOrDefault(values[7]);
-            line.option2 = ParseStringOrDefault(values[8]);
-            line.option2NextId = ParseIntOrDefault(values[9]);
-            line.option3 = ParseStringOrDefault(values[10]);
-            line.option3NextId = ParseIntOrDefault(values[11]);
+            line.option1 = ParseStringOrDefault(values[7]);
+            line.option1NextId = ParseIntOrDefault(values[8]);
+            line.option2 = ParseStringOrDefault(values[9]);
+            line.option2NextId = ParseIntOrDefault(values[10]);
+            line.option3 = ParseStringOrDefault(values[11]);
+            line.option3NextId = ParseIntOrDefault(values[12]);
+            line.option4 = ParseStringOrDefault(values[13]);
+            line.option4NextId = ParseIntOrDefault(values[14]);
+            line.option5 = ParseStringOrDefault(values[15]);
+            line.option5NextId = ParseIntOrDefault(values[16]);
+
 
             dialogueDict.Add(line.textId, line);
         }
