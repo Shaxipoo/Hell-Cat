@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private DocumentManager documentManager;
 
 
-    private Dictionary<int, FileInfo> fileList = new Dictionary<int, FileInfo>();
+    public Dictionary<int, FileInfo> fileList = new Dictionary<int, FileInfo>();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -94,7 +94,69 @@ public class DialogueManager : MonoBehaviour
     public void UpdateDialogue()
     {
         speakerNameTMPro.text = dialogueLoader.dialogueDict[currentTextId].characterName;
+
+        // if no image, no speaker, hide image
+        // if have image, no speaker, darkern
+        // if have image, have speaker, 
+
+        if (dialogueLoader.dialogueDict[currentTextId].characterImage == "-1")
+        {
+            if (dialogueLoader.dialogueDict[currentTextId].characterName == "-1")
+            {
+                speakerNameTMPro.text = "";
+                speakerImage.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            if (dialogueLoader.dialogueDict[currentTextId].characterName == "-1")
+            {
+                speakerNameTMPro.text = "";
+                speakerImage.gameObject.SetActive(true);
+                ChangeSpeakerImage(dialogueLoader.dialogueDict[currentTextId].characterImage);
+                Darken(speakerImage);
+            }
+            else
+            {
+                speakerImage.gameObject.SetActive(true);
+                ChangeSpeakerImage(dialogueLoader.dialogueDict[currentTextId].characterImage);
+            }
+        }
+
         typewriterEffect.StartTypeWriter(dialogueLoader.dialogueDict[currentTextId].text);
+    }
+
+    public void ChangeSpeakerImage(string imageAddress)
+    {
+        Sprite newSprite = Resources.Load<Sprite>("Characters/" + imageAddress);
+        if (newSprite != null)
+        {
+            speakerImage.sprite = newSprite;
+        }
+        else
+        {
+            Debug.LogError("Rin: cannot find image");
+        }
+    }
+    
+    public void Darken(Image im)
+    {
+        Color c = im.color;
+
+        c.r *= 0.5f;
+        c.g *= 0.5f;
+        c.b *= 0.5f;
+        im.color = c;
+    }
+
+    public void UnDarken(Image im)
+    {
+            Color c = im.color;
+
+            c.r /= 0.5f;
+            c.g /= 0.5f;
+            c.b /= 0.5f;
+            im.color = c;
     }
 
 
@@ -102,7 +164,7 @@ public class DialogueManager : MonoBehaviour
     {
         textClickPad.interactable = false;
 
-        foreach(GameObject button in optionButtonList)
+        foreach (GameObject button in optionButtonList)
         {
             button.SetActive(false);
         }
@@ -220,7 +282,7 @@ public class DialogueManager : MonoBehaviour
 
             // Save in archive
             SubmitFile(dialogueLoader.dialogueDict[currentTextId].fileId);
-            Debug.Log(dialogueLoader.dialogueDict[currentTextId].fileId);
+
 
             currentTextId = dialogueLoader.dialogueDict[currentTextId].nextId;
             UpdateDialogue();
