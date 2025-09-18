@@ -2,5 +2,5 @@ textId,characterName,characterImage,text,nextId,specialActionId,fileId,documentS
 1,Sharon,Test/game,Do you want to make me happy?,,1,,,Ok,4,Nope,5,,,,,,
 2,Sharon,,Thanks!,4,,,,,,,,,,,,,
 3,Sharon,Test/game,You motherfucker!,4,,,,,,,,,,,,,
-4,,,Check her files,5,3,1,0,,,,,,,,,,
+4,,Test/game,Check her files,5,3,1,0,,,,,,,,,,
 5,Sharon,Test/game,Thanks!,,2,,,,,,,,,,,,
