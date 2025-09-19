@@ -94,6 +94,7 @@ public class DialogueManager : MonoBehaviour
     public void UpdateDialogue()
     {
         speakerNameTMPro.text = dialogueLoader.dialogueDict[currentTextId].characterName;
+        UnDarken(speakerImage);
 
         // if no image, no speaker, hide image
         // if have image, no speaker, darkern
@@ -115,6 +116,7 @@ public class DialogueManager : MonoBehaviour
                 speakerImage.gameObject.SetActive(true);
                 ChangeSpeakerImage(dialogueLoader.dialogueDict[currentTextId].characterImage);
                 Darken(speakerImage);
+                Debug.Log("dark");
             }
             else
             {
@@ -143,20 +145,20 @@ public class DialogueManager : MonoBehaviour
     {
         Color c = im.color;
 
-        c.r *= 0.5f;
-        c.g *= 0.5f;
-        c.b *= 0.5f;
+        c.r = 0.5f;
+        c.g = 0.5f;
+        c.b = 0.5f;
         im.color = c;
     }
 
     public void UnDarken(Image im)
     {
-            Color c = im.color;
+        Color c = im.color;
 
-            c.r /= 0.5f;
-            c.g /= 0.5f;
-            c.b /= 0.5f;
-            im.color = c;
+        c.r = 1f;
+        c.g = 1f;
+        c.b = 1f;
+        im.color = c;
     }
 
 
