@@ -62,19 +62,23 @@ public class GameManager : MonoBehaviour
         switch (process[currentProcess])
         {
             case SectionType.RandChat:
-                while (true)
-                {
-                    int ran = UnityEngine.Random.Range(0, ranChatList.Count - 1);
-                    if (ranChatList[ran].ifAppeared == false)
-                    {
-                        dialogueManager.dialogueLoader.LoadCSV(ranChatList[ran].chatText);
-                        ranChatList[ran].ifAppeared = true;
-                        storedCatChapter.Add(ranChatList[ran]);
+                var availableCats = ranChatList.FindAll(cat => !cat.ifAppeared);
 
-                        dialogueManager.StartDialogue();
-                        break;
-                    }
+                if (availableCats.Count == 0)
+                {
+                    Debug.LogWarning("No unappeared cats available in ranChatList!");
+                    return;
                 }
+
+                int ranIndex = UnityEngine.Random.Range(0, availableCats.Count);
+                var selectedCat = availableCats[ranIndex];
+
+                dialogueManager.dialogueLoader.LoadCSV(selectedCat.chatText);
+
+                selectedCat.ifAppeared = true;
+                storedCatChapter.Add(selectedCat);
+
+                dialogueManager.StartDialogue();
                 break;
 
             case SectionType.MainCatChat:

@@ -17,4 +17,4 @@ MonoBehaviour:
   chatText: {fileID: 4900000, guid: 81138cf074cb64cfb965a257be1771f3, type: 3}
   teaText: {fileID: 4900000, guid: 31af6ef487ba44382ad36187d0fd9b14, type: 3}
   heavenText: {fileID: 4900000, guid: b3ed75083cf3e4de39acc93ad39d3ce2, type: 3}
-  ifAppeared: 0
+  ifAppeared: 1
