@@ -519,10 +519,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3454422942170806968, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 4090129890453759985, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
+      propertyPath: ranChatList.Array.size
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4090129890453759985, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
+      propertyPath: 'ranChatList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b35a7b7226ef7491cb696bd3f75f6f7e, type: 2}
     - target: {fileID: 4398629002923916677, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -619,10 +623,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8163088665844967190, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
-      propertyPath: 'documentSets.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: eb34dc15c41d84b5e914f83a7a273b68, type: 2}
     - target: {fileID: 8212556277052773412, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0

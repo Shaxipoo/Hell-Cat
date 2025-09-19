@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d20afd5427342f4adcc9c26f2ee437, type: 3}
   m_Name: TestCat
   m_EditorClassIdentifier: Assembly-CSharp::CatChapter
-  Id: 100
+  Id: 2
   CatName: test
   chatText: {fileID: 4900000, guid: 81138cf074cb64cfb965a257be1771f3, type: 3}
   teaText: {fileID: 4900000, guid: 31af6ef487ba44382ad36187d0fd9b14, type: 3}

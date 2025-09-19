@@ -1,4 +1,4 @@
 textId,characterName,characterImage,text,nextId,specialActionId,fileId,documentSetId,option1,option1NextId,option2,option2NextId,option3,option3NextId,option4,option4NextId,option5,option5NextId,UnlockFileID,UnlockType,UnlockContent
 1,,,测试一下咯,2,,,,,,,,,,,,,,,,
-2,,,测测,3,3,100,1,,,,,,,,,,,,,
+2,,,测测,3,3,2,0,,,,,,,,,,,,,
 3,,,不错不错,,2,,,,,,,,,,,,,,,
