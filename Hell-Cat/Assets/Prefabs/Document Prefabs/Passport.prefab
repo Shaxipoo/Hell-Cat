@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemOnDoc
   infoType: 1
   infoText: 24
+  ButtonTextBox: {fileID: 7090044541146113827}
 --- !u!222 &7513571658880817749
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -185,8 +186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.27587, y: 313.7}
-  m_SizeDelta: {x: 356.8299, y: 30}
+  m_AnchoredPosition: {x: 35.505363, y: 313.7}
+  m_SizeDelta: {x: 352.3708, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &770872832719366793
 MonoBehaviour:
@@ -202,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemOnDoc
   infoType: 0
   infoText: Udon the Great
+  ButtonTextBox: {fileID: 265860292411510434}
 --- !u!222 &6564818234492591744
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -390,8 +392,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -471,8 +473,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.7924, y: 87.5}
-  m_SizeDelta: {x: 81.4942, y: 19.5819}
+  m_AnchoredPosition: {x: 112.32504, y: 89.92538}
+  m_SizeDelta: {x: 256.5592, y: 24.4327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5017865228517226597
 MonoBehaviour:
@@ -488,6 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemOnDoc
   infoType: 2
   infoText: Long Hair
+  ButtonTextBox: {fileID: 165052420427796512}
 --- !u!222 &287913506596780493
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -676,14 +679,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -812,14 +815,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -884,7 +887,7 @@ RectTransform:
   m_GameObject: {fileID: 8889379662638388945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 471048669507681794}
