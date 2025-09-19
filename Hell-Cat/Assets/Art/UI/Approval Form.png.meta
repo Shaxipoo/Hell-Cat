@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1285b08d54c7b0c42b2a2d74567c1a88
+guid: 41e9dda275fae0d4d980f972078b714e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Travel Document_0
+      name: Approval Form_0
       rect:
         serializedVersion: 2
-        x: 203
-        y: 123
-        width: 594
-        height: 754
+        x: 222
+        y: 96
+        width: 581
+        height: 856
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e8bbf43d466fe74d9625ee117266367
-      internalID: -1536754910
+      spriteID: 4887245b792412e4aa99f8812bdc5042
+      internalID: 511493435
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1c8638ee79529a8438bd62263c541012
+    spriteID: c2b68704fa77bf048af19b85739af916
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Travel Document_0: -1536754910
+      Approval Form_0: 511493435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
