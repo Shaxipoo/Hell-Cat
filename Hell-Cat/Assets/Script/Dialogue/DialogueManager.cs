@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private List<GameObject> optionButtonList;
 
     [Header("UI: Story Ending")]
-    [SerializeField] private GameObject endStoryScreen;
+    [SerializeField] private GameObject storyTransitionScreen;
 
     [Header("UI: Archive")]
     [SerializeField] private GameObject archiveScreen;
@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue()
     {
         optionPanel.SetActive(false);
-        endStoryScreen.SetActive(false);
+        storyTransitionScreen.SetActive(false);
         documentCheckScreen.SetActive(false);
         archiveScreen.SetActive(false);
         unlockTitle.SetActive(false);
@@ -286,7 +286,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndStory()
     {
-        endStoryScreen.SetActive(true);
+        storyTransitionScreen.SetActive(true);
     }
 
 
