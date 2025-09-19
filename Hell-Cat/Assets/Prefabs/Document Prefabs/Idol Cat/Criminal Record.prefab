@@ -328,7 +328,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FELONY
+  m_text: MISDEMEANOR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75b985c5546f1bb4080d65d63e8ae384, type: 2}
   m_sharedMaterial: {fileID: -7423829047615046905, guid: 75b985c5546f1bb4080d65d63e8ae384, type: 2}
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MURDER
+  m_text: Tax Evasion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75b985c5546f1bb4080d65d63e8ae384, type: 2}
   m_sharedMaterial: {fileID: -7423829047615046905, guid: 75b985c5546f1bb4080d65d63e8ae384, type: 2}
@@ -705,7 +705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2649372129969780310, guid: 0b79b994241ba0d42bc2db416034c175, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 366.4829
+      value: 346.7968
       objectReference: {fileID: 0}
     - target: {fileID: 2649372129969780310, guid: 0b79b994241ba0d42bc2db416034c175, type: 3}
       propertyPath: m_SizeDelta.y
@@ -753,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2649372129969780310, guid: 0b79b994241ba0d42bc2db416034c175, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60.43502
+      value: 52.068382
       objectReference: {fileID: 0}
     - target: {fileID: 2649372129969780310, guid: 0b79b994241ba0d42bc2db416034c175, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -772,6 +772,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4458732932655366130, guid: 0b79b994241ba0d42bc2db416034c175, type: 3}
+      propertyPath: m_text
+      value: GROUP LEWD CONDUCT
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458732932655366130, guid: 0b79b994241ba0d42bc2db416034c175, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 1
       objectReference: {fileID: 0}
@@ -781,7 +785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8793826246701438903, guid: 0b79b994241ba0d42bc2db416034c175, type: 3}
       propertyPath: infoText
-      value: PUBLIC EXPOSURE
+      value: GROUP LEWD CONDUCT
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -801,6 +805,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1786105008323181092}
     m_Modifications:
+    - target: {fileID: 446069152082378635, guid: 233e440370fa027429f460c85cd909ab, type: 3}
+      propertyPath: m_text
+      value: FELONY
+      objectReference: {fileID: 0}
     - target: {fileID: 446069152082378635, guid: 233e440370fa027429f460c85cd909ab, type: 3}
       propertyPath: m_fontSize
       value: 16
@@ -907,7 +915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4745010721514215374, guid: 233e440370fa027429f460c85cd909ab, type: 3}
       propertyPath: infoText
-      value: MISDEMEANOR
+      value: FELONY
       objectReference: {fileID: 0}
     - target: {fileID: 7110242407366068482, guid: 233e440370fa027429f460c85cd909ab, type: 3}
       propertyPath: m_Name
