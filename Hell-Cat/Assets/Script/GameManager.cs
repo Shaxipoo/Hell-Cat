@@ -83,13 +83,21 @@ public class GameManager : MonoBehaviour
             case SectionType.Tea:
                 TeaSelectionScreen.SetActive(true);
                 TMPTeaOption1.text = storedCatChapter[0].CatName;
-                TMPTeaOption2.text = storedCatChapter[1].CatName;
+                if (storedCatChapter[1])
+                {
+                    TMPTeaOption2.text = storedCatChapter[1].CatName;
+                }
+                
                 break;
 
             case SectionType.HeavenChoice:
                 HeavenSelectionScreen.SetActive(true);
                 TMPHeavenOption1.text = storedCatChapter[0].CatName;
-                TMPHeavenOption2.text = storedCatChapter[1].CatName;
+                if (storedCatChapter[1])
+                {
+                    TMPHeavenOption2.text = storedCatChapter[1].CatName;
+                }
+                
                 break;
         }
     }
@@ -99,12 +107,14 @@ public class GameManager : MonoBehaviour
     {
         TeaSelectionScreen.SetActive(false);
         dialogueManager.dialogueLoader.LoadCSV(storedCatChapter[index].teaText);
+        dialogueManager.StartDialogue();
     }
 
-        public void ChooseHeavenOption(int index)
+    public void ChooseHeavenOption(int index)
     {
         HeavenSelectionScreen.SetActive(false);
         dialogueManager.dialogueLoader.LoadCSV(storedCatChapter[index].heavenText);
+        dialogueManager.StartDialogue();
     }
 
 }

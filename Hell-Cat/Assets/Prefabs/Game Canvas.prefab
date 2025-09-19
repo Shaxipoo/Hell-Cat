@@ -7405,7 +7405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   ranChatList:
-  - {fileID: 11400000, guid: b35a7b7226ef7491cb696bd3f75f6f7e, type: 2}
+  - {fileID: 11400000, guid: 7d551425125b745da89fbe1c24f5561c, type: 2}
   mainCatChatList: []
   process: 000000000200000003000000
   dialogueManager: {fileID: 2737792849063092061}

@@ -135,6 +135,10 @@ public class DialogueManager : MonoBehaviour
 
             }
         }
+        else
+        {
+            unlockTitle.SetActive(false);
+        }
 
         speakerNameTMPro.text = dialogueLoader.dialogueDict[currentTextId].characterName;
         UnDarken(speakerImage);
