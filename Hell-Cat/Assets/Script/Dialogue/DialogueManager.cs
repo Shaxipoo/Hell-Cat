@@ -13,7 +13,8 @@ public class DialogueManager : MonoBehaviour
     private int currentTextId;
 
     [SerializeField] private InputSystem_Actions inputSystem_Actions;
-    [SerializeField] private DialogueLoader dialogueLoader;
+    public DialogueLoader dialogueLoader;
+    public GameManager gameManager;
 
     [Header("UI: Dialogue")]
     [SerializeField] private TextMeshProUGUI speakerNameTMPro;
@@ -38,16 +39,25 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private DocumentManager documentManager;
 
 
+    [Header("UI: Unlock")]
+    [SerializeField] private GameObject unlockTitle;
+
     public Dictionary<int, FileInfo> fileList = new Dictionary<int, FileInfo>();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+
+    }
+
+    public void StartDialogue()
+    {
         optionPanel.SetActive(false);
         endStoryScreen.SetActive(false);
         documentCheckScreen.SetActive(false);
         archiveScreen.SetActive(false);
+        unlockTitle.SetActive(false);
 
         currentTextId = startTextId;
         UpdateDialogue();
@@ -56,10 +66,10 @@ public class DialogueManager : MonoBehaviour
     public void OnClick()
     {
         // is all text
-        if(typewriterEffect.IsAllText())
+        if (typewriterEffect.IsAllText())
         {
 
-            switch(dialogueLoader.dialogueDict[currentTextId].specialActionId)
+            switch (dialogueLoader.dialogueDict[currentTextId].specialActionId)
             {
                 // Options
                 case 1:
@@ -88,11 +98,48 @@ public class DialogueManager : MonoBehaviour
             typewriterEffect.ShowAllText();
 
         }
-        
+
     }
 
     public void UpdateDialogue()
     {
+        // unlock file
+        if (dialogueLoader.dialogueDict[currentTextId].unlockFileId != -1)
+        {
+            unlockTitle.SetActive(true);
+            switch (dialogueLoader.dialogueDict[currentTextId].unlockType)
+            {
+                case 1:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Name = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 2:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Age = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 3:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Breed = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 4:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CauseOfDeath = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 5:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CriminalRecord = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 6:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CriminalDegree = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 7:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Contraband = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                default:
+                    break;
+
+            }
+        }
+        else
+        {
+            unlockTitle.SetActive(false);
+        }
+
         speakerNameTMPro.text = dialogueLoader.dialogueDict[currentTextId].characterName;
         UnDarken(speakerImage);
 
@@ -116,7 +163,6 @@ public class DialogueManager : MonoBehaviour
                 speakerImage.gameObject.SetActive(true);
                 ChangeSpeakerImage(dialogueLoader.dialogueDict[currentTextId].characterImage);
                 Darken(speakerImage);
-                Debug.Log("dark");
             }
             else
             {

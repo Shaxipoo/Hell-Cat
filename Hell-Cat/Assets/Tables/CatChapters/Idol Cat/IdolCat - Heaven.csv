@@ -1,0 +1,10 @@
+textId,characterName,characterImage,text,nextId,specialActionId,fileId,documentSetId,option1,option1NextId,option2,option2NextId,option3,option3NextId,option4,option4NextId,option5,option5NextId,UnlockFileID,UnlockType,UnlockContent
+1,,,安哥拉猫有些不安，她不断地拉平她衣服上的小皱褶。,2,,,,,,,,,,,,,,,,
+2,Player,IdolCat/Idol_Normal,你知道这些皱褶不会有什么影响。,3,,,,,,,,,,,,,,,,
+3,Idol Cat,IdolCat/Idol_Happy,我知道，但你能明白吗？这有点像是要上舞台结果衣服出问题......,4,,,,,,,,,,,,,,,,
+4,Idol Cat,IdolCat/Idol_Happy,不过，我也已经不需要去满足其他人的期待了。,5,,,,,,,,,,,,,,,,
+5,Player,IdolCat/Idol_Happy,就当是给自己放给长假。,6,,,,,,,,,,,,,,,,
+6,Idol Cat,IdolCat/Idol_Normal,这感觉很新奇。我没怎么放过假。,7,,,,,,,,,,,,,,,,
+7,Idol Cat,IdolCat/Idol_Happy,感觉应该会不错。,8,,,,,,,,,,,,,,,,
+8,Player,IdolCat/Idol_Normal,放假愉快！,9,,,,,,,,,,,,,,,,
+9,Idol Cat,IdolCat/Idol_Happy,谢谢！我出发了！,,2,,,,,,,,,,,,,,,
