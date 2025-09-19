@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -26,13 +27,11 @@ public class GameManager : MonoBehaviour
 
     private int currentProcess;
 
-
-
-
     [SerializeField] private DialogueManager dialogueManager;
 
     [SerializeField] private GameObject TeaSelectionScreen;
     [SerializeField] private GameObject HeavenSelectionScreen;
+    [SerializeField] private GameObject EndScreen;
     [SerializeField] private TextMeshProUGUI TMPTeaOption1;
     [SerializeField] private TextMeshProUGUI TMPTeaOption2;
     [SerializeField] private TextMeshProUGUI TMPHeavenOption1;
@@ -48,6 +47,7 @@ public class GameManager : MonoBehaviour
 
         TeaSelectionScreen.SetActive(false);
         HeavenSelectionScreen.SetActive(false);
+        EndScreen.SetActive(false);
         
     }
 
@@ -59,6 +59,11 @@ public class GameManager : MonoBehaviour
 
     public void RunProcess()
     {
+        if(currentProcess >= process.Count)
+        {
+            EndScreen.SetActive(true);
+            return;
+        }
         switch (process[currentProcess])
         {
             case SectionType.RandChat:
@@ -91,7 +96,7 @@ public class GameManager : MonoBehaviour
                 {
                     TMPTeaOption2.text = storedCatChapter[1].CatName;
                 }
-                
+
                 break;
 
             case SectionType.HeavenChoice:
@@ -101,7 +106,7 @@ public class GameManager : MonoBehaviour
                 {
                     TMPHeavenOption2.text = storedCatChapter[1].CatName;
                 }
-                
+
                 break;
         }
     }

@@ -14,4 +14,10 @@ public class CatChapter : ScriptableObject
     public TextAsset heavenText;
 
     public bool ifAppeared;
+
+
+    public void OnEnable()
+    {
+        ifAppeared = false;
+    }
 }

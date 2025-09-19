@@ -48,13 +48,13 @@ public class ArchiveManager : MonoBehaviour
 
     }
 
-        public void ShowPreviousFile()
+    public void ShowPreviousFile()
     {
         while(true)
         {
             if (currentFileId < 1)
             {
-                currentFileId = 1;
+                currentFileId = dialogueManager.fileList.Count - 1;
             }
             if (dialogueManager.fileList[currentFileId].FileId == currentFileId)
                 {

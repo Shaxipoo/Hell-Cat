@@ -23,7 +23,7 @@ public class ItemOnDoc : MonoBehaviour
     {
         GameObject.Find("Document Manager").GetComponent<DocumentManager>().InputInfo(infoType, infoText);
     }
-    public void Start()
+    void OnValidate()
     {
         ButtonTextBox.text = infoText;
     }
