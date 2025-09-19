@@ -39,19 +39,16 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private DocumentManager documentManager;
 
 
+    [Header("UI: Unlock")]
+    [SerializeField] private GameObject unlockTitle;
+
     public Dictionary<int, FileInfo> fileList = new Dictionary<int, FileInfo>();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        optionPanel.SetActive(false);
-        endStoryScreen.SetActive(false);
-        documentCheckScreen.SetActive(false);
-        archiveScreen.SetActive(false);
 
-        currentTextId = startTextId;
-        UpdateDialogue();
     }
 
     public void StartDialogue()
@@ -60,6 +57,7 @@ public class DialogueManager : MonoBehaviour
         endStoryScreen.SetActive(false);
         documentCheckScreen.SetActive(false);
         archiveScreen.SetActive(false);
+        unlockTitle.SetActive(false);
 
         currentTextId = startTextId;
         UpdateDialogue();
@@ -105,6 +103,39 @@ public class DialogueManager : MonoBehaviour
 
     public void UpdateDialogue()
     {
+        // unlock file
+        if (dialogueLoader.dialogueDict[currentTextId].unlockFileId != -1)
+        {
+            unlockTitle.SetActive(true);
+            switch (dialogueLoader.dialogueDict[currentTextId].unlockType)
+            {
+                case 1:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Name = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 2:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Age = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 3:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Breed = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 4:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CauseOfDeath = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 5:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CriminalRecord = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 6:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CriminalDegree = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                case 7:
+                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Contraband = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
         speakerNameTMPro.text = dialogueLoader.dialogueDict[currentTextId].characterName;
         UnDarken(speakerImage);
 

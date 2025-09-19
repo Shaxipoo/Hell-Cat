@@ -35,24 +35,20 @@ public class DialogueLine
 
     public string option5;
     public int option5NextId;
+
+    public int unlockFileId;
+    public int unlockType;
+    public string unlockContent;
+
 }
 
 public class DialogueLoader : MonoBehaviour
 {
     public Dictionary<int, DialogueLine> dialogueDict;
 
-    [SerializeField]
-    //public TextAsset csvFile;
-
-    private void Awake()
-    {
-        //LoadCSV(csvFile);
-    }
-
     public void LoadCSV(TextAsset ta)
     {
         dialogueDict = new Dictionary<int, DialogueLine>();
-        //TextAsset csvFile = Resources.Load<TextAsset>("Script/Dialog Table - Sheet1");
         string[] lines = ta.text.Split('\n');
 
         for(int i = 1; i < lines.Length; i++)
@@ -86,6 +82,9 @@ public class DialogueLoader : MonoBehaviour
             line.option5 = ParseStringOrDefault(values[16]);
             line.option5NextId = ParseIntOrDefault(values[17]);
 
+            line.unlockFileId = ParseIntOrDefault(values[18]);
+            line.unlockType = ParseIntOrDefault(values[19]);
+            line.unlockContent = ParseStringOrDefault(values[20]);
 
             dialogueDict.Add(line.textId, line);
         }

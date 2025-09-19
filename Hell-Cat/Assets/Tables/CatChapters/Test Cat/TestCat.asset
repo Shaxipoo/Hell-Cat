@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d20afd5427342f4adcc9c26f2ee437, type: 3}
+  m_Name: TestCat
+  m_EditorClassIdentifier: Assembly-CSharp::CatChapter
+  Id: 100
+  CatName: test
+  chatText: {fileID: 4900000, guid: 069ab9279365f49c4ba42e54899da4db, type: 3}
+  teaText: {fileID: 4900000, guid: 31af6ef487ba44382ad36187d0fd9b14, type: 3}
+  heavenText: {fileID: 4900000, guid: b3ed75083cf3e4de39acc93ad39d3ce2, type: 3}
+  ifAppeared: 0

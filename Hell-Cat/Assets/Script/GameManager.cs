@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using NUnit.Framework;
+using TMPro;
 using UnityEngine;
 
 
@@ -25,13 +27,28 @@ public class GameManager : MonoBehaviour
     private int currentProcess;
 
 
+
+
     [SerializeField] private DialogueManager dialogueManager;
 
+    [SerializeField] private GameObject TeaSelectionScreen;
+    [SerializeField] private GameObject HeavenSelectionScreen;
+    [SerializeField] private TextMeshProUGUI TMPTeaOption1;
+    [SerializeField] private TextMeshProUGUI TMPTeaOption2;
+    [SerializeField] private TextMeshProUGUI TMPHeavenOption1;
+    [SerializeField] private TextMeshProUGUI TMPHeavenOption2;
 
+    private List<CatChapter> storedCatChapter;
     public void Start()
     {
+        storedCatChapter = new List<CatChapter>();
+
         currentProcess = 0;
         RunProcess();
+
+        TeaSelectionScreen.SetActive(false);
+        HeavenSelectionScreen.SetActive(false);
+        
     }
 
     public void NextProcess()
@@ -45,13 +62,16 @@ public class GameManager : MonoBehaviour
         switch (process[currentProcess])
         {
             case SectionType.RandChat:
-
                 while (true)
                 {
                     int ran = UnityEngine.Random.Range(0, ranChatList.Count - 1);
                     if (ranChatList[ran].ifAppeared == false)
                     {
                         dialogueManager.dialogueLoader.LoadCSV(ranChatList[ran].chatText);
+                        ranChatList[ran].ifAppeared = true;
+                        storedCatChapter.Add(ranChatList[ran]);
+
+                        dialogueManager.StartDialogue();
                         break;
                     }
                 }
@@ -61,11 +81,30 @@ public class GameManager : MonoBehaviour
                 break;
 
             case SectionType.Tea:
+                TeaSelectionScreen.SetActive(true);
+                TMPTeaOption1.text = storedCatChapter[0].CatName;
+                TMPTeaOption2.text = storedCatChapter[1].CatName;
                 break;
 
             case SectionType.HeavenChoice:
+                HeavenSelectionScreen.SetActive(true);
+                TMPHeavenOption1.text = storedCatChapter[0].CatName;
+                TMPHeavenOption2.text = storedCatChapter[1].CatName;
                 break;
         }
+    }
+
+
+    public void ChooseTeaOption(int index)
+    {
+        TeaSelectionScreen.SetActive(false);
+        dialogueManager.dialogueLoader.LoadCSV(storedCatChapter[index].teaText);
+    }
+
+        public void ChooseHeavenOption(int index)
+    {
+        HeavenSelectionScreen.SetActive(false);
+        dialogueManager.dialogueLoader.LoadCSV(storedCatChapter[index].heavenText);
     }
 
 }

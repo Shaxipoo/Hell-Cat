@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d20afd5427342f4adcc9c26f2ee437, type: 3}
   m_Name: IdolCat
   m_EditorClassIdentifier: Assembly-CSharp::CatChapter
-  Id: 0
-  CatName: 0
-  chatText: {fileID: 0}
-  teaText: {fileID: 0}
-  heavenText: {fileID: 0}
+  Id: 1
+  CatName: IdolCat
+  chatText: {fileID: 4900000, guid: ba2eb8ef6b6a84c6b801e5d43a4371d0, type: 3}
+  teaText: {fileID: 4900000, guid: 89efacc7ae6374313bfb4b7f4443428a, type: 3}
+  heavenText: {fileID: 4900000, guid: c90e44ec452c14bf5ac8614e1a21f603, type: 3}
+  ifAppeared: 0
