@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,52 +22,48 @@ public class ArchiveManager : MonoBehaviour
 
     void OnEnable()
     {
-        currentFileId = 1;
-
-        UpdateFile();
+        if (dialogueManager != null && dialogueManager.fileList.Count > 0)
+        {
+            var keys = new List<int>(dialogueManager.fileList.Keys);
+            keys.Sort();
+            currentFileId = keys[0];
+            UpdateFile();
+        }
+        else
+        {
+            Debug.LogWarning("fileList is empty, cannot initialize currentFileId!");
+        }
     }
 
 
     public void ShowNextFile()
     {
-        while(true)
-        {
-            if (currentFileId > dialogueManager.fileList.Count)
-            {
-                currentFileId = 1;
-            }
-            if (dialogueManager.fileList[currentFileId].FileId == currentFileId)
-                {
-                    UpdateFile();
-                    return;
-                }
-                else
-                {
-                    currentFileId += 1;
-                }
-        }
+        var keys = new List<int>(dialogueManager.fileList.Keys);
+        keys.Sort();
 
+        int index = keys.IndexOf(currentFileId);
+        if (index == -1) index = 0;
+
+        index = (index + 1) % keys.Count;
+        currentFileId = keys[index];
+
+        UpdateFile();
+        Debug.Log("show next");
     }
 
     public void ShowPreviousFile()
     {
-        while(true)
-        {
-            if (currentFileId < 1)
-            {
-                currentFileId = dialogueManager.fileList.Count - 1;
-            }
-            if (dialogueManager.fileList[currentFileId].FileId == currentFileId)
-                {
-                    UpdateFile();
-                    return;
-                }
-                else
-                {
-                    currentFileId -= 1;
-                }
-        }
+        var keys = new List<int>(dialogueManager.fileList.Keys);
+        keys.Sort();
 
+        int index = keys.IndexOf(currentFileId);
+        if (index == -1) index = 0;
+
+        index = (index - 1 + keys.Count) % keys.Count;
+        currentFileId = keys[index];
+
+        UpdateFile();
+        Debug.Log("show previous");
     }
 
     private void UpdateFile()

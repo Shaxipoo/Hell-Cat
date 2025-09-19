@@ -28,6 +28,17 @@ public class DocumentManager : MonoBehaviour
     [SerializeField] private GameObject moreInfoTips;
 
 
+
+    public void OnEnable()
+    {
+        Name.text = "";
+        Age.text = "";
+        Breed.text = "";
+        CauseOfDeath.text = "";
+        CriminalRecord.text = "";
+        CriminalDegree.text = "";
+        Contraband.text = "";      
+    }
     //Load document data
     public void SetDocuments(int setId)
     {
