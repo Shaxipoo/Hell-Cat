@@ -13,7 +13,8 @@ public class DialogueManager : MonoBehaviour
     private int currentTextId;
 
     [SerializeField] private InputSystem_Actions inputSystem_Actions;
-    [SerializeField] private DialogueLoader dialogueLoader;
+    public DialogueLoader dialogueLoader;
+    public GameManager gameManager;
 
     [Header("UI: Dialogue")]
     [SerializeField] private TextMeshProUGUI speakerNameTMPro;
@@ -53,13 +54,24 @@ public class DialogueManager : MonoBehaviour
         UpdateDialogue();
     }
 
+    public void StartDialogue()
+    {
+        optionPanel.SetActive(false);
+        endStoryScreen.SetActive(false);
+        documentCheckScreen.SetActive(false);
+        archiveScreen.SetActive(false);
+
+        currentTextId = startTextId;
+        UpdateDialogue();
+    }
+
     public void OnClick()
     {
         // is all text
-        if(typewriterEffect.IsAllText())
+        if (typewriterEffect.IsAllText())
         {
 
-            switch(dialogueLoader.dialogueDict[currentTextId].specialActionId)
+            switch (dialogueLoader.dialogueDict[currentTextId].specialActionId)
             {
                 // Options
                 case 1:
@@ -88,7 +100,7 @@ public class DialogueManager : MonoBehaviour
             typewriterEffect.ShowAllText();
 
         }
-        
+
     }
 
     public void UpdateDialogue()
@@ -116,7 +128,6 @@ public class DialogueManager : MonoBehaviour
                 speakerImage.gameObject.SetActive(true);
                 ChangeSpeakerImage(dialogueLoader.dialogueDict[currentTextId].characterImage);
                 Darken(speakerImage);
-                Debug.Log("dark");
             }
             else
             {

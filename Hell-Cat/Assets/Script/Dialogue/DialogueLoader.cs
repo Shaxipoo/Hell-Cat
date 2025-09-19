@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
+
+
 public class DialogueLine
 {
     // All Ids
@@ -40,20 +42,18 @@ public class DialogueLoader : MonoBehaviour
     public Dictionary<int, DialogueLine> dialogueDict;
 
     [SerializeField]
-    private TextAsset csvFile;
+    //public TextAsset csvFile;
 
     private void Awake()
     {
-        LoadCSV();
-
-        //Debug.Log(dialogueDict[1].characterName + "��" + dialogueDict[1].text);
+        //LoadCSV(csvFile);
     }
 
-    private void LoadCSV()
+    public void LoadCSV(TextAsset ta)
     {
         dialogueDict = new Dictionary<int, DialogueLine>();
         //TextAsset csvFile = Resources.Load<TextAsset>("Script/Dialog Table - Sheet1");
-        string[] lines = csvFile.text.Split('\n');
+        string[] lines = ta.text.Split('\n');
 
         for(int i = 1; i < lines.Length; i++)
         {
