@@ -102,7 +102,7 @@ public class DocumentManager : MonoBehaviour
             {
                 if (tmp.gameObject.name == i.ToString())
                 {
-                    if (tmp.text == "")
+                    if (string.IsNullOrEmpty(tmp.text))
                     {
                         StartCoroutine(ShowMoreInfoTips(2f));
                         return false;
