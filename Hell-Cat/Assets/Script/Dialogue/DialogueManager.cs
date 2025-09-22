@@ -44,6 +44,8 @@ public class DialogueManager : MonoBehaviour
 
     public Dictionary<int, FileInfo> fileList = new Dictionary<int, FileInfo>();
 
+    private bool isFastSkip = true;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -69,21 +71,24 @@ public class DialogueManager : MonoBehaviour
             {
                 // Options
                 case 1:
+                    isFastSkip = false;
                     ShowOption();
                     break;
                 // End Story
                 case 2:
+                    isFastSkip = false;
                     EndStory();
-                    Debug.Log("End sTORY");
                     break;
                 // Show Document
                 case 3:
+                    isFastSkip = false;
                     documentCheckScreen.SetActive(true);
                     documentManager.SetDocuments(dialogueLoader.dialogueDict[currentTextId].documentSetId);
                     textClickPad.gameObject.SetActive(false);
                     break;
                 // No Events
                 default:
+                    isFastSkip = true;
                     currentTextId = dialogueLoader.dialogueDict[currentTextId].nextId;
                     UpdateDialogue();
                     break;
@@ -182,7 +187,7 @@ public class DialogueManager : MonoBehaviour
             Debug.LogError("Rin: cannot find image");
         }
     }
-    
+
     public void Darken(Image im)
     {
         Color c = im.color;
@@ -358,5 +363,15 @@ public class DialogueManager : MonoBehaviour
             fileList[fileId].CriminalDegree = documentManager.CriminalDegree.text;
             fileList[fileId].Contraband = documentManager.Contraband.text;
         }
+    }
+
+    public void FastSkip()
+    {
+        if (isFastSkip)
+        {
+            typewriterEffect.ShowAllText();
+            OnClick();
+        }
+
     }
 }
