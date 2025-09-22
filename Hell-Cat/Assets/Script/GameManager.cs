@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TMPHeavenOption1;
     [SerializeField] private TextMeshProUGUI TMPHeavenOption2;
 
+    [Header("audio")]
+    [SerializeField] private MusicManager musicManager;
+
     private List<CatChapter> storedCatChapter;
     public void Start()
     {
@@ -67,6 +70,7 @@ public class GameManager : MonoBehaviour
         switch (process[currentProcess])
         {
             case SectionType.RandChat:
+                musicManager.PlayNormalMusic();
                 var availableCats = ranChatList.FindAll(cat => !cat.ifAppeared);
 
                 if (availableCats.Count == 0)
@@ -122,6 +126,7 @@ public class GameManager : MonoBehaviour
     public void ChooseHeavenOption(int index)
     {
         HeavenSelectionScreen.SetActive(false);
+        musicManager.PlayMusic(storedCatChapter[index].heavenMusic);
         dialogueManager.dialogueLoader.LoadCSV(storedCatChapter[index].heavenText);
         dialogueManager.StartDialogue();
     }

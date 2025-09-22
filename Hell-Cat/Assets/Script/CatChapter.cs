@@ -15,7 +15,7 @@ public class CatChapter : ScriptableObject
 
     public bool ifAppeared;
 
-
+    public AudioClip heavenMusic;
     public void OnEnable()
     {
         ifAppeared = false;
