@@ -510,6 +510,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "NextDialogue",
+                    "type": "Button",
+                    "id": "c2ef3925-3eaa-484a-91f5-755a53b44774",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Submit",
                     "type": "Button",
                     "id": "7607c7b6-cd76-4816-beef-bd0341cfe950",
@@ -858,6 +867,39 @@
                 },
                 {
                     "name": "",
+                    "id": "500a23ba-8b9f-47ee-ba7f-858b7d09e580",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "352bd10c-0707-4ae3-888b-36ce492f097e",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aea8bb69-f458-410e-9a6e-9dd680438c79",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9e92bb26-7e3b-4ec4-b06b-3c8f8e498ddc",
                     "path": "*/{Submit}",
                     "interactions": "",
@@ -1027,17 +1069,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "54c7082c-45aa-408c-8c7f-10bc548724d6",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "c08f2df7-6546-41d8-93db-77307299288a",

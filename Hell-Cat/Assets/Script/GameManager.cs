@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     private int currentProcess;
 
-    [SerializeField] private DialogueManager dialogueManager;
+    [SerializeField] public DialogueManager dialogueManager;
 
     [SerializeField] private GameObject TeaSelectionScreen;
     [SerializeField] private GameObject HeavenSelectionScreen;
