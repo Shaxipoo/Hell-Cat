@@ -1,54 +1,75 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class DialogueClickInput : MonoBehaviour
 {
-    private GameManager gameManager;
+private GameManager gameManager;
     private InputSystem_Actions inputActions;
-private bool isHoldingSkip;   // 标记是否正在长按
+    private bool isHoldingSkip = false;
+    private float holdTime = 0f;
+    [SerializeField] private float holdThreshold = 0.3f; 
 
-    void Awake()
+    private float skipTimer = 0f;
+    [SerializeField] private float skipInterval = 0.1f;
+
+    private void Awake()
     {
         inputActions = new InputSystem_Actions();
         gameManager = GetComponent<GameManager>();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         inputActions.UI.Enable();
-        inputActions.UI.NextDialogue.performed += OnSubmit;
-        inputActions.UI.NextDialogue.canceled += OnRelease; // 松开时取消长按
+        inputActions.UI.NextDialogue.started += OnPressStart;
+        inputActions.UI.NextDialogue.canceled += OnPressEnd;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        inputActions.UI.NextDialogue.performed -= OnSubmit;
-        inputActions.UI.NextDialogue.canceled -= OnRelease;
+        inputActions.UI.NextDialogue.started -= OnPressStart;
+        inputActions.UI.NextDialogue.canceled -= OnPressEnd;
         inputActions.UI.Disable();
     }
 
-    private void OnSubmit(InputAction.CallbackContext context)
+    private void OnPressStart(InputAction.CallbackContext context)
     {
-        // 单次点击 → 正常对话点击
-        gameManager.dialogueManager.OnClick();
-        Debug.Log("click");
-
-        // 进入长按状态
-        isHoldingSkip = true;
-    }
-
-    private void OnRelease(InputAction.CallbackContext context)
-    {
-        // 松开键 → 停止长按
+        holdTime = 0f;
         isHoldingSkip = false;
     }
 
-    void Update()
+    private void OnPressEnd(InputAction.CallbackContext context)
     {
+        if (!isHoldingSkip)
+        {
+            gameManager.dialogueManager.OnClick();
+        }
+
+        isHoldingSkip = false;
+        skipTimer = 0f;
+    }
+
+    private void Update()
+    {
+        if (inputActions.UI.NextDialogue.ReadValue<float>() > 0)
+        {
+            holdTime += Time.deltaTime;
+
+            if (!isHoldingSkip && holdTime >= holdThreshold)
+            {
+                isHoldingSkip = true;
+            }
+        }
+
         if (isHoldingSkip)
         {
-            // 持续长按时 → 快速跳过
-            gameManager.dialogueManager.FastSkip();
+            skipTimer += Time.deltaTime;
+            if (skipTimer >= skipInterval)
+            {
+                gameManager.dialogueManager.FastSkip();
+                skipTimer = 0f;
+            }
         }
     }
 }

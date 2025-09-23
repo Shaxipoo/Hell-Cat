@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.AppUI.UI;
 using UnityEngine;
 
 public class DocumentManager : MonoBehaviour
@@ -28,6 +29,7 @@ public class DocumentManager : MonoBehaviour
     [SerializeField] private GameObject moreInfoTips;
 
 
+    public bool IfSkipDoc = false;
 
     public void OnEnable()
     {
@@ -37,7 +39,7 @@ public class DocumentManager : MonoBehaviour
         CauseOfDeath.text = "";
         CriminalRecord.text = "";
         CriminalDegree.text = "";
-        Contraband.text = "";      
+        Contraband.text = "";
     }
     //Load document data
     public void SetDocuments(int setId)
@@ -96,23 +98,25 @@ public class DocumentManager : MonoBehaviour
 
     public bool CheckAllItems(int documentSetId)
     {
-        foreach (InfoType i in documentSets[documentSetId].requiredInfo)
+        if (IfSkipDoc)
         {
-            foreach (TextMeshProUGUI tmp in requiredInfoList)
+            return true;
+        }
+        foreach (InfoType i in documentSets[documentSetId].requiredInfo)
             {
-                if (tmp.gameObject.name == i.ToString())
+                foreach (TextMeshProUGUI tmp in requiredInfoList)
                 {
-                    if (string.IsNullOrEmpty(tmp.text))
+                    if (tmp.gameObject.name == i.ToString())
                     {
-                        StartCoroutine(ShowMoreInfoTips(2f));
-                        return false;
+                        if (string.IsNullOrEmpty(tmp.text))
+                        {
+                            StartCoroutine(ShowMoreInfoTips(2f));
+                            return false;
+                        }
                     }
                 }
+
             }
-
-        }
-
-
 
         return true;
     }
