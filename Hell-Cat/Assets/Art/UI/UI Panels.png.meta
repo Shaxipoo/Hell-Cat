@@ -100,12 +100,12 @@ TextureImporter:
       name: UI Panels_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 976
-        width: 16
-        height: 16
+        x: 410
+        y: 559
+        width: 126
+        height: 124
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -122,10 +122,10 @@ TextureImporter:
       name: UI Panels_1
       rect:
         serializedVersion: 2
-        x: 315
-        y: 913
-        width: 82
-        height: 47
+        x: 311
+        y: 911
+        width: 92
+        height: 53
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +144,10 @@ TextureImporter:
       name: UI Panels_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 879
-        width: 283
-        height: 82
+        x: 14
+        y: 877
+        width: 289
+        height: 86
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       name: UI Panels_3
       rect:
         serializedVersion: 2
-        x: 506
-        y: 417
+        x: 604
+        y: 422
         width: 391
         height: 546
       alignment: 0
@@ -188,10 +188,10 @@ TextureImporter:
       name: UI Panels_4
       rect:
         serializedVersion: 2
-        x: 18
+        x: 9
         y: 692
-        width: 394
-        height: 172
+        width: 403
+        height: 176
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,12 +210,12 @@ TextureImporter:
       name: UI Panels_5
       rect:
         serializedVersion: 2
-        x: 264
-        y: 422
-        width: 217
-        height: 257
+        x: 411
+        y: 415
+        width: 126
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -232,10 +232,10 @@ TextureImporter:
       name: UI Panels_6
       rect:
         serializedVersion: 2
-        x: 20
-        y: 298
-        width: 241
-        height: 382
+        x: 10
+        y: 286
+        width: 248
+        height: 397
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,8 +254,8 @@ TextureImporter:
       name: UI Panels_7
       rect:
         serializedVersion: 2
-        x: 262
-        y: 286
+        x: 268
+        y: 415
         width: 126
         height: 127
       alignment: 0
@@ -276,10 +276,10 @@ TextureImporter:
       name: UI Panels_8
       rect:
         serializedVersion: 2
-        x: 397
-        y: 286
+        x: 266
+        y: 558
         width: 125
-        height: 128
+        height: 125
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,10 +298,10 @@ TextureImporter:
       name: UI Panels_9
       rect:
         serializedVersion: 2
-        x: 563
-        y: 354
+        x: 413
+        y: 783
         width: 171
-        height: 55
+        height: 67
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,10 +320,10 @@ TextureImporter:
       name: UI Panels_10
       rect:
         serializedVersion: 2
-        x: 563
-        y: 290
+        x: 413
+        y: 714
         width: 171
-        height: 56
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,6 +360,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI Panels_12
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 856
+        width: 92
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb56c7570fe30c14585ed8629f0c78a9
+      internalID: -1060497818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Panels_13
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 46
+        width: 653
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7747911bad2e4a1449bb0bf07c9b5215
+      internalID: -1765721038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Panels_14
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 855
+        width: 93
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28ea56e316cff534dbd4ea5535e94ce9
+      internalID: -725481271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Panels_15
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 266
+        width: 397
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e83b1edee8f80e44a07e563c431382e
+      internalID: 676915639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -380,6 +468,10 @@ TextureImporter:
       UI Panels_1: 1797690020
       UI Panels_10: 657824868
       UI Panels_11: 2062654577
+      UI Panels_12: -1060497818
+      UI Panels_13: -1765721038
+      UI Panels_14: -725481271
+      UI Panels_15: 676915639
       UI Panels_2: -1010535063
       UI Panels_3: 554907528
       UI Panels_4: -756881974
