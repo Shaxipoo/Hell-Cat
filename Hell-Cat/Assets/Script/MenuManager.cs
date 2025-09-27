@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI nameText;
+    [SerializeField] public TextMeshProUGUI inputText;
+
+    public void Start()
+    {
+        inputText.text = PlayerData.playername;
+    }
     public void LoadLevel(string levelname)
     {
         SceneManager.LoadScene(levelname);
@@ -18,7 +24,7 @@ public class MenuManager : MonoBehaviour
     public void SaveName()
     {
         PlayerData.playername = nameText.text;
-        
+
     }
 
 }

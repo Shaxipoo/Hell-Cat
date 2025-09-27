@@ -479,6 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
   nameText: {fileID: 733146543}
+  inputText: {fileID: 1089238931}
 --- !u!114 &647799990
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,9 +22,9 @@ public class ArchiveManager : MonoBehaviour
 
     void OnEnable()
     {
-        if (dialogueManager != null && dialogueManager.fileList.Count > 0)
+        if (dialogueManager != null && PlayerData.fileList.Count > 0)
         {
-            var keys = new List<int>(dialogueManager.fileList.Keys);
+            var keys = new List<int>(PlayerData.fileList.Keys);
             keys.Sort();
             currentFileId = keys[0];
             UpdateFile();
@@ -38,7 +38,7 @@ public class ArchiveManager : MonoBehaviour
 
     public void ShowNextFile()
     {
-        var keys = new List<int>(dialogueManager.fileList.Keys);
+        var keys = new List<int>(PlayerData.fileList.Keys);
         keys.Sort();
 
         int index = keys.IndexOf(currentFileId);
@@ -53,7 +53,7 @@ public class ArchiveManager : MonoBehaviour
 
     public void ShowPreviousFile()
     {
-        var keys = new List<int>(dialogueManager.fileList.Keys);
+        var keys = new List<int>(PlayerData.fileList.Keys);
         keys.Sort();
 
         int index = keys.IndexOf(currentFileId);
@@ -68,15 +68,15 @@ public class ArchiveManager : MonoBehaviour
 
     private void UpdateFile()
     {
-        if (dialogueManager.fileList.ContainsKey(currentFileId))
+        if (PlayerData.fileList.ContainsKey(currentFileId))
         {
-        TMPName.text = dialogueManager.fileList[currentFileId].Name;
-        TMPAge.text = dialogueManager.fileList[currentFileId].Age;
-        TMPBreed.text = dialogueManager.fileList[currentFileId].Breed;
-        TMPCauseOfDeath.text = dialogueManager.fileList[currentFileId].CauseOfDeath;
-        TMPCriminalRecord.text = dialogueManager.fileList[currentFileId].CriminalRecord;
-        TMPCriminalDegree.text = dialogueManager.fileList[currentFileId].CriminalDegree;
-        TMPContraband.text = dialogueManager.fileList[currentFileId].Contraband;
+        TMPName.text = PlayerData.fileList[currentFileId].Name;
+        TMPAge.text = PlayerData.fileList[currentFileId].Age;
+        TMPBreed.text = PlayerData.fileList[currentFileId].Breed;
+        TMPCauseOfDeath.text = PlayerData.fileList[currentFileId].CauseOfDeath;
+        TMPCriminalRecord.text = PlayerData.fileList[currentFileId].CriminalRecord;
+        TMPCriminalDegree.text = PlayerData.fileList[currentFileId].CriminalDegree;
+        TMPContraband.text = PlayerData.fileList[currentFileId].Contraband;
         }
         
     }

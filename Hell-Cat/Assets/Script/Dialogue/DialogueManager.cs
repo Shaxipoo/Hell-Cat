@@ -42,8 +42,6 @@ public class DialogueManager : MonoBehaviour
     [Header("UI: Unlock")]
     [SerializeField] private GameObject unlockTitle;
 
-    public Dictionary<int, FileInfo> fileList = new Dictionary<int, FileInfo>();
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -105,25 +103,25 @@ public class DialogueManager : MonoBehaviour
             switch (dialogueLoader.dialogueDict[currentTextId].unlockType)
             {
                 case 1:
-                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Name = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    PlayerData.fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Name = dialogueLoader.dialogueDict[currentTextId].unlockContent;
                     break;
                 case 2:
-                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Age = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    PlayerData.fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Age = dialogueLoader.dialogueDict[currentTextId].unlockContent;
                     break;
                 case 3:
-                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Breed = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    PlayerData.fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Breed = dialogueLoader.dialogueDict[currentTextId].unlockContent;
                     break;
                 case 4:
-                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CauseOfDeath = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    PlayerData.fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CauseOfDeath = dialogueLoader.dialogueDict[currentTextId].unlockContent;
                     break;
                 case 5:
-                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CriminalRecord = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    PlayerData.fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CriminalRecord = dialogueLoader.dialogueDict[currentTextId].unlockContent;
                     break;
                 case 6:
-                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CriminalDegree = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    PlayerData.fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].CriminalDegree = dialogueLoader.dialogueDict[currentTextId].unlockContent;
                     break;
                 case 7:
-                    fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Contraband = dialogueLoader.dialogueDict[currentTextId].unlockContent;
+                    PlayerData.fileList[dialogueLoader.dialogueDict[currentTextId].unlockFileId].Contraband = dialogueLoader.dialogueDict[currentTextId].unlockContent;
                     break;
                 default:
                     break;
@@ -303,13 +301,13 @@ public class DialogueManager : MonoBehaviour
     // Test
     private void PrintFileList()
     {
-        if (fileList == null || fileList.Count == 0)
+        if (PlayerData.fileList == null || PlayerData.fileList.Count == 0)
         {
             Debug.Log("fileList is null");
             return;
         }
 
-        foreach (var kvp in fileList)
+        foreach (var kvp in PlayerData.fileList)
         {
             int id = kvp.Key;
             FileInfo file = kvp.Value;
@@ -337,28 +335,28 @@ public class DialogueManager : MonoBehaviour
 
     private void SubmitFile(int fileId)
     {
-        if (fileList.ContainsKey(fileId))
+        if (PlayerData.fileList.ContainsKey(fileId))
         {
-            fileList[fileId].Name = documentManager.Name.text;
-            fileList[fileId].Age = documentManager.Age.text;
-            fileList[fileId].Breed = documentManager.Breed.text;
-            fileList[fileId].CauseOfDeath = documentManager.CauseOfDeath.text;
-            fileList[fileId].CriminalRecord = documentManager.CriminalRecord.text;
-            fileList[fileId].CriminalDegree = documentManager.CriminalDegree.text;
-            fileList[fileId].Contraband = documentManager.Contraband.text;
+            PlayerData.fileList[fileId].Name = documentManager.Name.text;
+            PlayerData.fileList[fileId].Age = documentManager.Age.text;
+            PlayerData.fileList[fileId].Breed = documentManager.Breed.text;
+            PlayerData.fileList[fileId].CauseOfDeath = documentManager.CauseOfDeath.text;
+            PlayerData.fileList[fileId].CriminalRecord = documentManager.CriminalRecord.text;
+            PlayerData.fileList[fileId].CriminalDegree = documentManager.CriminalDegree.text;
+            PlayerData.fileList[fileId].Contraband = documentManager.Contraband.text;
         }
         else
         {
             FileInfo fi = new FileInfo();
-            fileList.Add(fileId, fi);
-            fileList[fileId].FileId = fileId;
-            fileList[fileId].Name = documentManager.Name.text;
-            fileList[fileId].Age = documentManager.Age.text;
-            fileList[fileId].Breed = documentManager.Breed.text;
-            fileList[fileId].CauseOfDeath = documentManager.CauseOfDeath.text;
-            fileList[fileId].CriminalRecord = documentManager.CriminalRecord.text;
-            fileList[fileId].CriminalDegree = documentManager.CriminalDegree.text;
-            fileList[fileId].Contraband = documentManager.Contraband.text;
+            PlayerData.fileList.Add(fileId, fi);
+            PlayerData.fileList[fileId].FileId = fileId;
+            PlayerData.fileList[fileId].Name = documentManager.Name.text;
+            PlayerData.fileList[fileId].Age = documentManager.Age.text;
+            PlayerData.fileList[fileId].Breed = documentManager.Breed.text;
+            PlayerData.fileList[fileId].CauseOfDeath = documentManager.CauseOfDeath.text;
+            PlayerData.fileList[fileId].CriminalRecord = documentManager.CriminalRecord.text;
+            PlayerData.fileList[fileId].CriminalDegree = documentManager.CriminalDegree.text;
+            PlayerData.fileList[fileId].Contraband = documentManager.Contraband.text;
         }
     }
 
