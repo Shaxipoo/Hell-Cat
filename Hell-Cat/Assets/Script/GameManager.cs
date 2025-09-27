@@ -37,12 +37,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TMPHeavenOption1;
     [SerializeField] private TextMeshProUGUI TMPHeavenOption2;
 
+    [Header("Backgrounds")]
+    [SerializeField] private GameObject chatBackground;
+    [SerializeField] private GameObject teaBackground;
+    [SerializeField] private GameObject heavenBackground;
+
     [Header("audio")]
     [SerializeField] private MusicManager musicManager;
 
     private List<CatChapter> storedCatChapter;
-    public void Start()
+    public void OnEnable()
     {
+        Debug.Log("start game");
         storedCatChapter = new List<CatChapter>();
 
         currentProcess = 0;
@@ -51,7 +57,6 @@ public class GameManager : MonoBehaviour
         TeaSelectionScreen.SetActive(false);
         HeavenSelectionScreen.SetActive(false);
         EndScreen.SetActive(false);
-        
     }
 
     public void NextProcess()
@@ -62,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void RunProcess()
     {
-        if(currentProcess >= process.Count)
+        if (currentProcess >= process.Count)
         {
             EndScreen.SetActive(true);
             return;
@@ -70,6 +75,8 @@ public class GameManager : MonoBehaviour
         switch (process[currentProcess])
         {
             case SectionType.RandChat:
+
+                ShowChatBackground();
                 musicManager.PlayNormalMusic();
                 var availableCats = ranChatList.FindAll(cat => !cat.ifAppeared);
 
@@ -91,9 +98,11 @@ public class GameManager : MonoBehaviour
                 break;
 
             case SectionType.MainCatChat:
+                ShowChatBackground();
                 break;
 
             case SectionType.Tea:
+                ShowTeaBackground();    
                 TeaSelectionScreen.SetActive(true);
                 TMPTeaOption1.text = storedCatChapter[0].CatName;
                 if (storedCatChapter[1])
@@ -104,6 +113,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case SectionType.HeavenChoice:
+                ShowHeavenBackground();
                 HeavenSelectionScreen.SetActive(true);
                 TMPHeavenOption1.text = storedCatChapter[0].CatName;
                 if (storedCatChapter[1])
@@ -129,6 +139,26 @@ public class GameManager : MonoBehaviour
         musicManager.PlayMusic(storedCatChapter[index].heavenMusic);
         dialogueManager.dialogueLoader.LoadCSV(storedCatChapter[index].heavenText);
         dialogueManager.StartDialogue();
+    }
+
+    public void ShowChatBackground()
+    {
+        chatBackground.SetActive(true);
+        teaBackground.SetActive(false);
+        heavenBackground.SetActive(false);
+    }
+
+    public void ShowTeaBackground()
+    {
+        chatBackground.SetActive(false);
+        teaBackground.SetActive(true);
+        heavenBackground.SetActive(false);
+    }
+    public void ShowHeavenBackground()
+    {
+        chatBackground.SetActive(false);
+        teaBackground.SetActive(false);
+        heavenBackground.SetActive(true);
     }
 
 }

@@ -202,7 +202,6 @@ public class DialogueManager : MonoBehaviour
         im.color = c;
     }
 
-
     public void ShowOption()
     {
         textClickPad.interactable = false;
@@ -283,7 +282,6 @@ public class DialogueManager : MonoBehaviour
     {
         storyTransitionScreen.SetActive(true);
     }
-
 
     public void OnClickArhive()
     {
