@@ -165,6 +165,11 @@ public class DialogueManager : MonoBehaviour
                 ChangeSpeakerImage(dialogueLoader.dialogueDict[currentTextId].characterImage);
             }
         }
+        if (dialogueLoader.dialogueDict[currentTextId].characterName == "Player")
+        {
+            speakerNameTMPro.text = PlayerData.playername;
+            Debug.Log("playername == " + PlayerData.playername);
+        }
 
         typewriterEffect.StartTypeWriter(dialogueLoader.dialogueDict[currentTextId].text);
     }
