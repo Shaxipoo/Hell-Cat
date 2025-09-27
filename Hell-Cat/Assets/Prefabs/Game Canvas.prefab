@@ -1283,8 +1283,8 @@ RectTransform:
   m_Children:
   - {fileID: 843070297685235803}
   - {fileID: 4588590692542109052}
-  - {fileID: 8696010029116499245}
   - {fileID: 7489703715643947242}
+  - {fileID: 8696010029116499245}
   - {fileID: 918253501381194999}
   - {fileID: 1501156093410411290}
   - {fileID: 9083229412216665233}
@@ -2354,7 +2354,7 @@ GameObject:
   - component: {fileID: 4867813615941225459}
   - component: {fileID: 7611468952768913147}
   m_Layer: 5
-  m_Name: Background
+  m_Name: bg_table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2642,7 +2642,7 @@ GameObject:
   - component: {fileID: 8560362540162703521}
   - component: {fileID: 8223516301380349579}
   m_Layer: 5
-  m_Name: Mid-Ground (1)
+  m_Name: bg_environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7598,6 +7598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   ranChatList:
   - {fileID: 11400000, guid: 7e26971df2d3c49f3873eba7268e4944, type: 2}
+  - {fileID: 11400000, guid: b35a7b7226ef7491cb696bd3f75f6f7e, type: 2}
   mainCatChatList: []
   process: 00000000000000000200000003000000
   dialogueManager: {fileID: 2737792849063092061}
@@ -9142,7 +9143,7 @@ GameObject:
   - component: {fileID: 2090448779813486688}
   - component: {fileID: 923596368228862296}
   m_Layer: 5
-  m_Name: Mid-Ground
+  m_Name: bg_light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
