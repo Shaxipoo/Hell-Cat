@@ -78,7 +78,7 @@ textId,characterName,characterImage,text,nextId,specialActionId,fileId,documentS
 74,Cult Cat,CultCat/Cult_WithHood,哦！没有错！,75,,,,,,,,,,,,,,,,
 75,Cult Cat,CultCat/Cult_WithHood,正是如此！我想起来了，我在神父的指点下完成了仪式！,76,,,,,,,,,,,,,,,,
 76,Player,CultCat/Cult_WithHood,仪式？,77,,,,,,,,,,,,,,,,
-77,Player,CultCat/Cult_WithHood,（不会是献祭吧...?）,78,,,,,,,,,,,,,,,,
+77,Player,CultCat/Cult_WithHood,（不会是献祭吧...?）,78,,,,,,,,,,,,,,2,4,Sacrificed
 78,Cult Cat,CultCat/Cult_WithHood,此中涉及很多环节，我没办法和你解释清楚...,79,,,,,,,,,,,,,,,,
 79,Player,CultCat/Cult_WithHood,就像那些苦修士？ 节食素食、通宵冥想？,80,,,,,,,,,,,,,,,,
 80,,CultCat/Cult_WithHood,邪教猫沉默不语，不再多言。但你也有了自己的猜测，便不再继续追问。,81,,,,,,,,,,,,,,,,
