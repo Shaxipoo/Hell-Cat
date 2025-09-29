@@ -521,7 +521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4090129890453759985, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
       propertyPath: ranChatList.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4090129890453759985, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
       propertyPath: 'ranChatList.Array.data[1]'
