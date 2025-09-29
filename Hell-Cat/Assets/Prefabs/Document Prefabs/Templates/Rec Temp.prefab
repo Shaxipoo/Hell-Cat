@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3225416045022755644}
   - component: {fileID: 7703923326341393729}
   m_Layer: 5
-  m_Name: Idol_Recommend Letter
+  m_Name: Rec Temp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

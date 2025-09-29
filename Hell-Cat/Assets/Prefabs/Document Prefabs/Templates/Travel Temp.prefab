@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 5016904120568993827}
   - component: {fileID: 2970240684768418164}
   m_Layer: 5
-  m_Name: Travel Document
+  m_Name: Travel Temp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
