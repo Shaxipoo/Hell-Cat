@@ -519,6 +519,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4090129890453759985, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
+      propertyPath: ranChatList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090129890453759985, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
+      propertyPath: 'ranChatList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e26971df2d3c49f3873eba7268e4944, type: 2}
+    - target: {fileID: 4090129890453759985, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
+      propertyPath: 'ranChatList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bd1d196077ae4461941efdf543c43cb, type: 2}
     - target: {fileID: 4398629002923916677, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
