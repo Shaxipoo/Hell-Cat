@@ -9,7 +9,11 @@ public class MenuManager : MonoBehaviour
 
     public void Start()
     {
-        inputText.text = PlayerData.playername;
+        if(inputText != null)
+        {
+            inputText.text = PlayerData.playername;
+        }
+        
     }
     public void LoadLevel(string levelname)
     {

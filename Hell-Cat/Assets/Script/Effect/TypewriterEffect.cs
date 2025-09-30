@@ -25,6 +25,7 @@ public class TypewriterEffect : MonoBehaviour
             StopCoroutine(typingCoroutine);
         }
         typingCoroutine = StartCoroutine(RevealText());
+
     }
 
     IEnumerator RevealText()
