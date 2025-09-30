@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14d20afd5427342f4adcc9c26f2ee437, type: 3}
-  m_Name: CultCat
+  m_Name: IdolCat_EN
   m_EditorClassIdentifier: Assembly-CSharp::CatChapter
-  Id: 2
-  CatName: Joshua
-  chatText: {fileID: 4900000, guid: afe18707f80d2474e8c2e93f03ca405e, type: 3}
-  teaText: {fileID: 4900000, guid: 5f433ee2ef1884a0d80693b017ffd0fa, type: 3}
-  heavenText: {fileID: 4900000, guid: 04425adcdf56042d596a3fa52ecc4bd5, type: 3}
-  ifAppeared: 1
-  heavenMusic: {fileID: 8300000, guid: e27f1848eb79d426cae0610f9ea55e85, type: 3}
+  Id: 1
+  CatName: Felicia
+  chatText: {fileID: 4900000, guid: 2f168b553f9d4421b9d91f1445825cab, type: 3}
+  teaText: {fileID: 4900000, guid: 832980797eeca46b184b12f9f18e866e, type: 3}
+  heavenText: {fileID: 4900000, guid: cb4fa8a45a27d4210a10b012d4508327, type: 3}
+  ifAppeared: 0
+  heavenMusic: {fileID: 8300000, guid: 6b1061dd3cd584b7ab66a5c9d43ffc32, type: 3}

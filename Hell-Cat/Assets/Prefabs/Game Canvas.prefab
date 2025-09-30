@@ -4919,8 +4919,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
-  m_SizeDelta: {x: 1391.4841, y: 788.47}
+  m_AnchoredPosition: {x: 0, y: -139.24117}
+  m_SizeDelta: {x: 1391.4841, y: 1066.9523}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6000182847931505515
 GameObject:
@@ -6474,8 +6474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   ranChatList:
-  - {fileID: 11400000, guid: b35a7b7226ef7491cb696bd3f75f6f7e, type: 2}
-  - {fileID: 11400000, guid: 7e26971df2d3c49f3873eba7268e4944, type: 2}
+  - {fileID: 11400000, guid: fb53f153aa5314b2183e2c35f663c983, type: 2}
+  - {fileID: 11400000, guid: 5b5eb223237784c979d3e35830e2a7d9, type: 2}
   mainCatChatList: []
   process: 00000000000000000200000003000000
   dialogueManager: {fileID: 2737792849063092061}

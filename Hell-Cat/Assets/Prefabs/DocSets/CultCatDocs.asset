@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DocumentSet
   DocumentList:
   - {fileID: 4797469268964784847, guid: 1fcc1c6221aaf7a439c304d574f193e1, type: 3}
-  - {fileID: 4797469268964784847, guid: b465e20d76bd75b47a31b614580c6886, type: 3}
+  - {fileID: 4797469268964784847, guid: 81eb51d502a2df9468889515f2e35ae3, type: 3}
   - {fileID: 8889379662638388945, guid: efeafcef5d7acfd4aaeec141478293d1, type: 3}
-  requiredInfo: 000000000100000002000000040000000500000006000000
+  requiredInfo: 00000000010000000200000006000000
