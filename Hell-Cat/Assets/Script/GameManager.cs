@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
             case SectionType.MainCatChat:
                 currentSectionType = SectionType.MainCatChat;
 
-                musicManager.PlayNormalMusic();
+                
 
                 dialogueManager.dialogueLoader.LoadCSV(mainCatChatList[currentainCatChat]);
                 dialogueManager.StartDialogue();
