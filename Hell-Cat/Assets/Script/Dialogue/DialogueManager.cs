@@ -142,12 +142,13 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueLoader.dialogueDict[currentTextId].characterImage == "-1")
         {
+            speakerImage.gameObject.SetActive(false);
             if (dialogueLoader.dialogueDict[currentTextId].characterName == "-1")
             {
                 speakerNameTMPro.text = "";
-                speakerImage.gameObject.SetActive(false);
             }
         }
+        //have image
         else
         {
             if (dialogueLoader.dialogueDict[currentTextId].characterName == "-1")
@@ -157,16 +158,20 @@ public class DialogueManager : MonoBehaviour
                 ChangeSpeakerImage(dialogueLoader.dialogueDict[currentTextId].characterImage);
                 Darken(speakerImage);
             }
+            //有名字，有立绘
             else
             {
                 speakerImage.gameObject.SetActive(true);
                 ChangeSpeakerImage(dialogueLoader.dialogueDict[currentTextId].characterImage);
             }
         }
+
+
         if (dialogueLoader.dialogueDict[currentTextId].characterName == "Player")
         {
             speakerNameTMPro.text = PlayerData.playername;
-            Debug.Log("playername == " + PlayerData.playername);
+            Darken(speakerImage);
+            //Debug.Log("playername == " + PlayerData.playername);
         }
 
         typewriterEffect.StartTypeWriter(dialogueLoader.dialogueDict[currentTextId].text);
@@ -312,7 +317,7 @@ public class DialogueManager : MonoBehaviour
             int id = kvp.Key;
             FileInfo file = kvp.Value;
 
-            Debug.Log($"FileId: {id}, Name: {file.Name}, Age: {file.Age}, Breed: {file.Breed}, CauseOfDeath: {file.CauseOfDeath}, CriminalRecord: {file.CriminalRecord}, CriminalDegree: {file.CriminalDegree}, Contraband: {file.Contraband}");
+            //Debug.Log($"FileId: {id}, Name: {file.Name}, Age: {file.Age}, Breed: {file.Breed}, CauseOfDeath: {file.CauseOfDeath}, CriminalRecord: {file.CriminalRecord}, CriminalDegree: {file.CriminalDegree}, Contraband: {file.Contraband}");
         }
     }
 

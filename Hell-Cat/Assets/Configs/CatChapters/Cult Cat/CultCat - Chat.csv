@@ -26,7 +26,7 @@ textId,characterName,characterImage,text,nextId,specialActionId,fileId,documentS
 25,,CultCat/Cult_Hood,即使不见它的神情，你也可以从它周身的氛围感觉到对方的震惊。,26,,,,,,,,,,,,,,,,
 26,,CultCat/Cult_Bare,它最后似乎妥协了，伸手摘下了他的兜帽。他分明还是只小猫。,27,,,,,,,,,,,,,,,,
 27,Cult Cat,CultCat/Cult_Bare,请稍等一下。,28,,,,,,,,,,,,,,,,
-28,,CultCat/Cult_Bare,很快，他重新回到窗口前，递上了重新填写的文档。,29,3,1,1,,,,,,,,,,,,,
+28,,CultCat/Cult_Bare,很快，他重新回到窗口前，递上了重新填写的文档。,29,3,2,2,,,,,,,,,,,,,
 29,,CultCat/Cult_Bare,有什么想要问的？,,1,,,年龄,30,如何进入申请所,38,,,,,,,,,
 30,,CultCat/Cult_Bare,你的心情百感交集，对他的年龄始料未及。他两次上交的文件上都没有幼猫常出现的拼写错误，或者字迹模糊的问题。,31,,,,,,,,,,,,,,,,
 31,Player,CultCat/Cult_Bare,真是一手漂亮的字，小先生。,32,,,,,,,,,,,,,,,,

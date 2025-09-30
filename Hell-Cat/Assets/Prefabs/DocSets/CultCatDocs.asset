@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81827c937143c7342a91d5f668657a4f, type: 3}
+  m_Name: CultCatDocs
+  m_EditorClassIdentifier: Assembly-CSharp::DocumentSet
+  DocumentList:
+  - {fileID: 4797469268964784847, guid: 1fcc1c6221aaf7a439c304d574f193e1, type: 3}
+  - {fileID: 4797469268964784847, guid: b465e20d76bd75b47a31b614580c6886, type: 3}
+  - {fileID: 8889379662638388945, guid: efeafcef5d7acfd4aaeec141478293d1, type: 3}
+  requiredInfo: 000000000100000002000000040000000500000006000000
