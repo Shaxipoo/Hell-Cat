@@ -18,4 +18,4 @@ MonoBehaviour:
   teaText: {fileID: 4900000, guid: 8c51f4e28c78b4910a572e7dc5271c54, type: 3}
   heavenText: {fileID: 4900000, guid: d229e2a073fa04bab99f2457f09631b4, type: 3}
   ifAppeared: 0
-  heavenMusic: {fileID: 8300000, guid: e27f1848eb79d426cae0610f9ea55e85, type: 3}
+  heavenMusic: {fileID: 8300000, guid: 9dfdaa7a481174f0a90922f30b104d95, type: 3}
