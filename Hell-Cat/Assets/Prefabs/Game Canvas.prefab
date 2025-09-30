@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 6062481575934759614}
   - component: {fileID: 7380358330655709077}
   - component: {fileID: 4874734598623074146}
+  - component: {fileID: 4167978433309564892}
   - component: {fileID: 4057146341338307445}
   - component: {fileID: 4157444941192099385}
   m_Layer: 5
@@ -602,6 +603,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4167978433309564892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478179744693345288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
+  hoverScale: 1.1
+  lerpSpeed: 10
+  useUnscaledTime: 1
 --- !u!114 &4057146341338307445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -956,6 +972,7 @@ GameObject:
   - component: {fileID: 7681123144677026490}
   - component: {fileID: 736255045445130936}
   - component: {fileID: 3695796347825775451}
+  - component: {fileID: 4473141189125822418}
   - component: {fileID: 2146364598115112430}
   - component: {fileID: 5618186889226981737}
   m_Layer: 5
@@ -1023,6 +1040,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4473141189125822418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700354556509756843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
+  hoverScale: 1.1
+  lerpSpeed: 10
+  useUnscaledTime: 1
 --- !u!114 &2146364598115112430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,6 +1193,7 @@ GameObject:
   - component: {fileID: 4167383401442186770}
   - component: {fileID: 3300184986833950689}
   - component: {fileID: 4339221166272012730}
+  - component: {fileID: 5242278200140963604}
   - component: {fileID: 1078335924524974989}
   - component: {fileID: 5808593331040431798}
   m_Layer: 5
@@ -1228,6 +1261,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5242278200140963604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211779394036065820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
+  hoverScale: 1.1
+  lerpSpeed: 10
+  useUnscaledTime: 1
 --- !u!114 &1078335924524974989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1654,7 +1702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -68.349, y: 54.1}
+  m_AnchoredPosition: {x: -54.8, y: 49.2}
   m_SizeDelta: {x: 402.2, y: 50.3744}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9148652427029248333
@@ -1685,9 +1733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: testing 123
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
   m_sharedMaterial: {fileID: -5360559272455702386, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
@@ -1714,8 +1760,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1828,8 +1874,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3, y: 259.8}
-  m_SizeDelta: {x: 301.0992, y: 59.5933}
+  m_AnchoredPosition: {x: 66.1, y: 251.2}
+  m_SizeDelta: {x: 414.72, y: 59.5933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6817072369879391043
 CanvasRenderer:
@@ -1859,9 +1905,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: testing 123
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
   m_sharedMaterial: {fileID: -5360559272455702386, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
@@ -1888,8 +1932,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2293,7 +2337,7 @@ MonoBehaviour:
   - {fileID: 1101759700743995730}
   - {fileID: 8632464510466634655}
   moreInfoTips: {fileID: 8895248035858385641}
-  IfSkipDoc: 0
+  IfSkipDoc: 1
 --- !u!1 &3140299693458239762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,6 +2424,7 @@ GameObject:
   - component: {fileID: 4037720487045555668}
   - component: {fileID: 8661335662281524010}
   - component: {fileID: 6389377906079726558}
+  - component: {fileID: 1405684559195838157}
   - component: {fileID: 723671694545257560}
   - component: {fileID: 772829535115987440}
   m_Layer: 5
@@ -2446,6 +2491,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1405684559195838157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140964314024143264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
+  hoverScale: 1.1
+  lerpSpeed: 10
+  useUnscaledTime: 1
 --- !u!114 &723671694545257560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2684,6 +2744,7 @@ GameObject:
   - component: {fileID: 8988955031682091212}
   - component: {fileID: 5562617348132585350}
   - component: {fileID: 1518561358923128964}
+  - component: {fileID: 7197056294453003697}
   - component: {fileID: 4178042846033104236}
   - component: {fileID: 9100426749543974825}
   m_Layer: 5
@@ -2751,6 +2812,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7197056294453003697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3951582641636465877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
+  hoverScale: 1.1
+  lerpSpeed: 10
+  useUnscaledTime: 1
 --- !u!114 &4178042846033104236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2992,8 +3068,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.9, y: 184.8}
-  m_SizeDelta: {x: 296.42, y: 48.9546}
+  m_AnchoredPosition: {x: 49.1, y: 175.3}
+  m_SizeDelta: {x: 450.58, y: 48.9546}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7402574596742709258
 CanvasRenderer:
@@ -3023,9 +3099,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: testing 123
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
   m_sharedMaterial: {fileID: -5360559272455702386, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
@@ -3052,8 +3126,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3277,6 +3351,7 @@ GameObject:
   - component: {fileID: 8934778703965256271}
   - component: {fileID: 8881673875779065260}
   - component: {fileID: 3959322440171623131}
+  - component: {fileID: 2602959819216903581}
   - component: {fileID: 1727407359506417336}
   - component: {fileID: 5069413364356006154}
   m_Layer: 5
@@ -3344,6 +3419,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2602959819216903581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4492692265483193660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
+  hoverScale: 1.1
+  lerpSpeed: 10
+  useUnscaledTime: 1
 --- !u!114 &1727407359506417336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3770,7 +3860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63.825, y: -107.8}
+  m_AnchoredPosition: {x: -52.8, y: -117.1}
   m_SizeDelta: {x: 227.65, y: 31.1643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7705858242539828453
@@ -3801,9 +3891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: testing 123
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
   m_sharedMaterial: {fileID: -5360559272455702386, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
@@ -3830,8 +3918,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3885,6 +3973,7 @@ GameObject:
   - component: {fileID: 1533680326091399889}
   - component: {fileID: 5927494833771775912}
   - component: {fileID: 3938152574495220873}
+  - component: {fileID: 6941485439113220248}
   - component: {fileID: 3879407831313342362}
   - component: {fileID: 9052131312459721259}
   m_Layer: 5
@@ -3952,6 +4041,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6941485439113220248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831615938308549857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
+  hoverScale: 1.1
+  lerpSpeed: 10
+  useUnscaledTime: 1
 --- !u!114 &3879407831313342362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4109,6 +4213,7 @@ GameObject:
   - component: {fileID: 6174768581515011360}
   - component: {fileID: 1628629079077882986}
   - component: {fileID: 2150618747250943525}
+  - component: {fileID: 8782855006700736684}
   - component: {fileID: 7590295964026177353}
   - component: {fileID: 7746464221874193772}
   m_Layer: 5
@@ -4175,6 +4280,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8782855006700736684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5038848378139570604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
+  hoverScale: 1.1
+  lerpSpeed: 10
+  useUnscaledTime: 1
 --- !u!114 &7590295964026177353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4653,6 +4773,7 @@ GameObject:
   - component: {fileID: 4784727005856591317}
   - component: {fileID: 19109550786659761}
   - component: {fileID: 8536746818300999519}
+  - component: {fileID: 4019758769556273096}
   - component: {fileID: 8014706171898529130}
   - component: {fileID: 8483151888089825273}
   m_Layer: 5
@@ -4720,6 +4841,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4019758769556273096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5595381993942819892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
+  hoverScale: 1.1
+  lerpSpeed: 10
+  useUnscaledTime: 1
 --- !u!114 &8014706171898529130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4825,7 +4961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.0025, y: 75}
+  m_AnchoredPosition: {x: 7.0025, y: 57}
   m_SizeDelta: {x: 450.9383, y: 587.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7143765439231428990
@@ -4938,7 +5074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 55.9, y: 114.2}
+  m_AnchoredPosition: {x: 64.5, y: 104.8}
   m_SizeDelta: {x: 412.4, y: 47.1602}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5228324716180776174
@@ -4969,9 +5105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: testing 123
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
   m_sharedMaterial: {fileID: -5360559272455702386, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
@@ -4998,8 +5132,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5681,8 +5815,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9164319435597521719}
   - {fileID: 1926025345715990298}
+  - {fileID: 9164319435597521719}
   - {fileID: 8212556277052773412}
   - {fileID: 6474016085110983254}
   m_Father: {fileID: 4398629002923916677}
@@ -5796,8 +5930,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.493294, y: -230}
-  m_SizeDelta: {x: 553.9283, y: 53.3482}
+  m_AnchoredPosition: {x: -4.5, y: -239.2}
+  m_SizeDelta: {x: 551.56, y: 53.3482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5375001829253553686
 CanvasRenderer:
@@ -5827,9 +5961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: testing 123
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
   m_sharedMaterial: {fileID: -5360559272455702386, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
@@ -5856,8 +5988,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6502,7 +6634,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 701, y: 144}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 600, y: 896}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8008402431052321910
 CanvasRenderer:
@@ -6633,7 +6765,6 @@ MonoBehaviour:
   ranChatList:
   - {fileID: 11400000, guid: 94b728bc6f0e947f69e70d94ff3329f0, type: 2}
   - {fileID: 11400000, guid: 5b5eb223237784c979d3e35830e2a7d9, type: 2}
-  - {fileID: 11400000, guid: fb53f153aa5314b2183e2c35f663c983, type: 2}
   mainCatChatList:
   - {fileID: 4900000, guid: c4d7c55df57d3487dac7af0d41f9d1de, type: 3}
   process: 0100000000000000000000000200000003000000
@@ -6745,15 +6876,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: ARCHIVE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: de960a062384e4ec4a6c49153778370f, type: 2}
-  m_sharedMaterial: {fileID: -4041706809072437313, guid: de960a062384e4ec4a6c49153778370f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
+  m_sharedMaterial: {fileID: -5360559272455702386, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282662218
-  m_fontColor: {r: 0.2901961, g: 0.2392157, b: 0.26666668, a: 1}
+    rgba: 4282131759
+  m_fontColor: {r: 0.18431373, g: 0.14509805, b: 0.23529413, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6770,8 +6901,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.99
-  m_fontSizeBase: 30.99
+  m_fontSize: 46.63
+  m_fontSizeBase: 46.63
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7709,8 +7840,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.142982, y: -60}
-  m_SizeDelta: {x: 382.414, y: 53.332}
+  m_AnchoredPosition: {x: 75.7, y: -66.8}
+  m_SizeDelta: {x: 392.16, y: 53.332}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6730155737333084132
 CanvasRenderer:
@@ -7740,9 +7871,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: testing 123
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
   m_sharedMaterial: {fileID: -5360559272455702386, guid: 287fe16795dd039498e054b6b74042d1, type: 2}
@@ -7769,8 +7898,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8696,6 +8825,7 @@ GameObject:
   - component: {fileID: 6474016085110983254}
   - component: {fileID: 2475287206221288129}
   - component: {fileID: 7510364919693798513}
+  - component: {fileID: 510197203247549498}
   - component: {fileID: 4519344225081169709}
   m_Layer: 5
   m_Name: Archive Button
@@ -8762,6 +8892,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &510197203247549498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9185167359632413074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37bcbe24532c024e8094b2f6bdb32bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSlideOut
+  direction: 3
+  slideDistance: 20
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &4519344225081169709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8826,6 +8972,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8212556277052773412}
     m_Modifications:
+    - target: {fileID: 299140228310436463, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 299140228310436463, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 299140228310436463, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 299140228310436463, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 299140228310436463, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1010
+      objectReference: {fileID: 0}
+    - target: {fileID: 299140228310436463, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 84
+      objectReference: {fileID: 0}
     - target: {fileID: 2031397910683145588, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
