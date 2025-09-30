@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CultCat_EN
   m_EditorClassIdentifier: Assembly-CSharp::CatChapter
   Id: 2
-  CatName: Cult Cat
+  CatName: Joshua
   chatText: {fileID: 4900000, guid: b8b3c21c2c494406ebd03fbde4b0ec47, type: 3}
   teaText: {fileID: 4900000, guid: ff60d519439994eaf88f0f822bbe7cc9, type: 3}
   heavenText: {fileID: 4900000, guid: 82668da60a3cd421bbff1cf5229a63e4, type: 3}
-  ifAppeared: 0
+  ifAppeared: 1
   heavenMusic: {fileID: 8300000, guid: e27f1848eb79d426cae0610f9ea55e85, type: 3}
