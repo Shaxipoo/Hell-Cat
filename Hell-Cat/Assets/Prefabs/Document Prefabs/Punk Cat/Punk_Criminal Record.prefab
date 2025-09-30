@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2249231971091709440}
   - component: {fileID: 1978922419192481070}
   m_Layer: 5
-  m_Name: Punk_Criminal Record 1
+  m_Name: Punk_Criminal Record
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
