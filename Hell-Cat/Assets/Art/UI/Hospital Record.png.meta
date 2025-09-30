@@ -102,7 +102,7 @@ TextureImporter:
         serializedVersion: 2
         x: 210
         y: 77
-        width: 537
+        width: 536
         height: 846
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -114,28 +114,6 @@ TextureImporter:
       bones: []
       spriteID: 9e8bc505777887742a4b4514b09f5fe5
       internalID: -1065035213
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hospital Record_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 282bfb36452de0e4ab49a1aa791db3da
-      internalID: 845768139
       vertices: []
       indices: 
       edges: []
