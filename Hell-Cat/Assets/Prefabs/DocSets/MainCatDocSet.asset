@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81827c937143c7342a91d5f668657a4f, type: 3}
-  m_Name: Test DocSet
+  m_Name: MainCatDocSet
   m_EditorClassIdentifier: Assembly-CSharp::DocumentSet
   DocumentList:
-  - {fileID: 8889379662638388945, guid: efeafcef5d7acfd4aaeec141478293d1, type: 3}
-  requiredInfo: 0000000001000000
+  - {fileID: 8889379662638388945, guid: 2fbf8e409dddb4477b8f51edb185e5f3, type: 3}
+  requiredInfo: 02000000

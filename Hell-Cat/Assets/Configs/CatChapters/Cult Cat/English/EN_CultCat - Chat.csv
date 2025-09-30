@@ -44,7 +44,7 @@ textId,characterName,characterImage,text,nextId,specialActionId,fileId,documentS
 43,Joshua,CultCat/Cult_Bare,……,44,,,,,,,,,,,,,,,,
 44,Joshua,CultCat/Cult_Bare,I slipped in when someone opened the door ahead of me.,45,,,,,,,,,,,,,,,,
 45,Joshua,CultCat/Cult_Bare,"You don't have any security guards or thugs here. Just a door, not difficult at all.",46,,,,,,,,,,,,,,,,
-46,Player,CultCat/Cult_Bare,(I've heard there are new security devices like infrared rays and cameras in the world. I should give feedback to my superiors sometime.),,,,,,,,,,,,,,,,,
+46,Player,CultCat/Cult_Bare,(I've heard there are new security devices like infrared rays and cameras in the world. I should give feedback to my superiors sometime.),47,,,,,,,,,,,,,,,,
 47,,CultCat/Cult_Bare,You still want to...,,1,,,Inquire further,29,End interrogation,48,,,,,,,,,
 48,Player,CultCat/Cult_Bare,"After submitting the files, we will carry out the relevant review process.",49,,,,,,,,,,,,,,,,
 49,Player,CultCat/Cult_Bare,We might contact you again for further in-depth communication later.,50,,,,,,,,,,,,,,,,

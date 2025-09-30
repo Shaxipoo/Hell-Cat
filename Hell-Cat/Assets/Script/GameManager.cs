@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using NUnit.Framework;
 using TMPro;
 using Unity.VisualScripting;
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private int currentProcess;
 
+    public SectionType currentSectionType;
+
     [SerializeField] public DialogueManager dialogueManager;
 
     [SerializeField] private GameObject TeaSelectionScreen;
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MusicManager musicManager;
 
     private List<CatChapter> storedCatChapter;
+    private int currentainCatChat = 0;
     public void OnEnable()
     {
         Debug.Log("start game");
@@ -75,9 +79,9 @@ public class GameManager : MonoBehaviour
         switch (process[currentProcess])
         {
             case SectionType.RandChat:
-
+                currentSectionType = SectionType.RandChat;
                 ShowChatBackground();
-                musicManager.PlayNormalMusic();
+                //musicManager.PlayNormalMusic();
                 var availableCats = ranChatList.FindAll(cat => !cat.ifAppeared);
 
                 if (availableCats.Count == 0)
@@ -98,10 +102,20 @@ public class GameManager : MonoBehaviour
                 break;
 
             case SectionType.MainCatChat:
+                currentSectionType = SectionType.MainCatChat;
+
+                musicManager.PlayNormalMusic();
+
+                dialogueManager.dialogueLoader.LoadCSV(mainCatChatList[currentainCatChat]);
+                dialogueManager.StartDialogue();
+
+                currentainCatChat += 1;
+
                 ShowChatBackground();
                 break;
 
             case SectionType.Tea:
+                currentSectionType = SectionType.Tea;
                 ShowTeaBackground();    
                 TeaSelectionScreen.SetActive(true);
                 TMPTeaOption1.text = storedCatChapter[0].CatName;
@@ -113,6 +127,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case SectionType.HeavenChoice:
+                currentSectionType = SectionType.HeavenChoice;
                 ShowHeavenBackground();
                 HeavenSelectionScreen.SetActive(true);
                 TMPHeavenOption1.text = storedCatChapter[0].CatName;

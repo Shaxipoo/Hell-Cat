@@ -186,7 +186,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Rin: cannot find image");
+            //Debug.LogError("Rin: cannot find image");
         }
     }
 
@@ -323,6 +323,8 @@ public class DialogueManager : MonoBehaviour
 
     public void OnClickSubmitFile()
     {
+       
+
         if (documentManager.CheckAllItems(dialogueLoader.dialogueDict[currentTextId].documentSetId))
         {
             textClickPad.gameObject.SetActive(true);
@@ -340,29 +342,26 @@ public class DialogueManager : MonoBehaviour
 
     private void SubmitFile(int fileId)
     {
+        FileInfo fi;
+
         if (PlayerData.fileList.ContainsKey(fileId))
         {
-            PlayerData.fileList[fileId].Name = documentManager.Name.text;
-            PlayerData.fileList[fileId].Age = documentManager.Age.text;
-            PlayerData.fileList[fileId].Breed = documentManager.Breed.text;
-            PlayerData.fileList[fileId].CauseOfDeath = documentManager.CauseOfDeath.text;
-            PlayerData.fileList[fileId].CriminalRecord = documentManager.CriminalRecord.text;
-            PlayerData.fileList[fileId].CriminalDegree = documentManager.CriminalDegree.text;
-            PlayerData.fileList[fileId].Contraband = documentManager.Contraband.text;
+            fi = PlayerData.fileList[fileId];
         }
         else
         {
-            FileInfo fi = new FileInfo();
-            PlayerData.fileList.Add(fileId, fi);
-            PlayerData.fileList[fileId].FileId = fileId;
-            PlayerData.fileList[fileId].Name = documentManager.Name.text;
-            PlayerData.fileList[fileId].Age = documentManager.Age.text;
-            PlayerData.fileList[fileId].Breed = documentManager.Breed.text;
-            PlayerData.fileList[fileId].CauseOfDeath = documentManager.CauseOfDeath.text;
-            PlayerData.fileList[fileId].CriminalRecord = documentManager.CriminalRecord.text;
-            PlayerData.fileList[fileId].CriminalDegree = documentManager.CriminalDegree.text;
-            PlayerData.fileList[fileId].Contraband = documentManager.Contraband.text;
+            fi = new FileInfo();
+            fi.FileId = fileId;
+            PlayerData.fileList[fileId] = fi; 
         }
+
+        fi.Name = documentManager.Name.text;
+        fi.Age = documentManager.Age.text;
+        fi.Breed = documentManager.Breed.text;
+        fi.CauseOfDeath = documentManager.CauseOfDeath.text;
+        fi.CriminalRecord = documentManager.CriminalRecord.text;
+        fi.CriminalDegree = documentManager.CriminalDegree.text;
+        fi.Contraband = documentManager.Contraband.text;
     }
 
     public void FastSkip()
