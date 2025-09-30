@@ -614,8 +614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &4157444941192099385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,8 +1035,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &5618186889226981737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1238,8 +1240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &5808593331040431798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2455,8 +2458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &772829535115987440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2759,8 +2763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &9100426749543974825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3351,8 +3356,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &5069413364356006154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3958,8 +3964,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &9052131312459721259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4180,8 +4187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &7746464221874193772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4724,8 +4732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &8483151888089825273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8687,7 +8696,6 @@ GameObject:
   - component: {fileID: 6474016085110983254}
   - component: {fileID: 2475287206221288129}
   - component: {fileID: 7510364919693798513}
-  - component: {fileID: 9027378676793439377}
   - component: {fileID: 4519344225081169709}
   m_Layer: 5
   m_Name: Archive Button
@@ -8754,20 +8762,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9027378676793439377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9185167359632413074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
 --- !u!114 &4519344225081169709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8987,10 +8981,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7740014289134089987, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 1462398915703868089}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
 --- !u!224 &442492807933540947 stripped
 RectTransform:
@@ -9002,20 +8993,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7740014289134089987, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
   m_PrefabInstance: {fileID: 1879396867229773607}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1462398915703868089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8178247213055383588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
 --- !u!1001 &3542918122058147607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9179,10 +9156,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7740014289134089987, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 2516551119225316558}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
 --- !u!224 &3249911050860802659 stripped
 RectTransform:
@@ -9194,20 +9168,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7740014289134089987, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
   m_PrefabInstance: {fileID: 3542918122058147607}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2516551119225316558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6503466959103397908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
 --- !u!1001 &5479255122979178056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9374,14 +9334,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7740014289134089987, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
       insertIndex: 3
-      addedObject: {fileID: 2876811409095185307}
+      addedObject: {fileID: 7579150431877283572}
   m_SourcePrefab: {fileID: 100100000, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
 --- !u!1 &2837325480252748107 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7740014289134089987, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
   m_PrefabInstance: {fileID: 5479255122979178056}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2876811409095185307
+--- !u!114 &7579150431877283572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9392,9 +9352,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonPopOut
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!224 &5781144324101411644 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2031397910683145588, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
@@ -9563,30 +9524,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7740014289134089987, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 5383909491931211436}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
 --- !u!1 &1086963481368117880 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7740014289134089987, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
   m_PrefabInstance: {fileID: 7241689769465099643}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5383909491931211436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086963481368117880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
 --- !u!224 &8669253193948028943 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2031397910683145588, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
@@ -9755,30 +9699,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7740014289134089987, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 6313942663893143477}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
 --- !u!1 &59482710822925743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7740014289134089987, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}
   m_PrefabInstance: {fileID: 7762339650343551660}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6313942663893143477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59482710822925743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
 --- !u!224 &8613599836082870232 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2031397910683145588, guid: 05b846bf2f837be4e891ac5fcc301812, type: 3}

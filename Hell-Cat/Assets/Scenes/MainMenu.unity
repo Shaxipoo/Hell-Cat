@@ -1342,8 +1342,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  effect: 0
+  hoverScale: 1.1
+  moveDirection: 0
+  movePixels: 20
+  lerpSpeed: 10
+  ignoreTimeScale: 1
 --- !u!1 &1520837217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,8 +1630,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  effect: 0
+  hoverScale: 1.1
+  moveDirection: 3
+  movePixels: 20
+  lerpSpeed: 10
+  ignoreTimeScale: 1
 --- !u!1 &1560150995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,8 +1960,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonScaler
-  scaleUp: 1.1
-  speed: 10
+  effect: 0
+  hoverScale: 1.1
+  moveDirection: 0
+  movePixels: 20
+  lerpSpeed: 10
+  ignoreTimeScale: 1
 --- !u!1 &1825036626
 GameObject:
   m_ObjectHideFlags: 0

@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 2031397910683145588}
   - component: {fileID: 3748046650814281214}
   - component: {fileID: 4325335052754180433}
+  - component: {fileID: 8675665132306175222}
   - component: {fileID: 8123255479348891005}
   m_Layer: 5
   m_Name: OptionButton
@@ -213,6 +214,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8675665132306175222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740014289134089987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c85a3126a16ef74192347346c4efd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonPopOut
+  hoverScale: 1.1
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!114 &8123255479348891005
 MonoBehaviour:
   m_ObjectHideFlags: 0
