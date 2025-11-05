@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d20afd5427342f4adcc9c26f2ee437, type: 3}
+  m_Name: PunkCat
+  m_EditorClassIdentifier: Assembly-CSharp::CatChapter
+  Id: 3
+  CatName: Punk Cat
+  chatText: {fileID: 4900000, guid: b702c35b1414b1542972a5a2a3781b77, type: 3}
+  teaText: {fileID: 4900000, guid: 9e599742b2197437c908e9ada6d8a1ad, type: 3}
+  heavenText: {fileID: 4900000, guid: dfca50f79e7e34c71aaad3a324138271, type: 3}
+  heavenMusic: {fileID: 8300000, guid: e27f1848eb79d426cae0610f9ea55e85, type: 3}
+  currentChapter: 2
+  isHeaven: 0

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class DialogueLine
 {
+    public int chapterId;
     // All Ids
     public int textId;
 
@@ -59,32 +60,31 @@ public class DialogueLoader : MonoBehaviour
 
             DialogueLine line = new DialogueLine();
 
-            line.textId = ParseIntOrDefault(values[0]);
-            line.characterName = ParseStringOrDefault(values[1]);
-            line.characterImage = ParseStringOrDefault(values[2]);
-            line.text = ParseStringOrDefault(values[3]);
-            line.nextId = ParseIntOrDefault(values[4]);
-            line.specialActionId = ParseIntOrDefault(values[5]);
+            line.chapterId = ParseIntOrDefault(values[0]);
+            line.textId = ParseIntOrDefault(values[1]);
+            line.characterName = ParseStringOrDefault(values[2]);
+            line.characterImage = ParseStringOrDefault(values[3]);
+            line.text = ParseStringOrDefault(values[4]);
+            line.nextId = ParseIntOrDefault(values[5]);
+            line.specialActionId = ParseIntOrDefault(values[6]);
 
-            line.fileId = ParseIntOrDefault(values[6]);
-            line.documentSetId = ParseIntOrDefault(values[7]);
+            line.fileId = ParseIntOrDefault(values[7]);
+            line.documentSetId = ParseIntOrDefault(values[8]);
 
-            
+            line.option1 = ParseStringOrDefault(values[9]);
+            line.option1NextId = ParseIntOrDefault(values[10]);
+            line.option2 = ParseStringOrDefault(values[11]);
+            line.option2NextId = ParseIntOrDefault(values[12]);
+            line.option3 = ParseStringOrDefault(values[13]);
+            line.option3NextId = ParseIntOrDefault(values[14]);
+            line.option4 = ParseStringOrDefault(values[15]);
+            line.option4NextId = ParseIntOrDefault(values[16]);
+            line.option5 = ParseStringOrDefault(values[17]);
+            line.option5NextId = ParseIntOrDefault(values[18]);
 
-            line.option1 = ParseStringOrDefault(values[8]);
-            line.option1NextId = ParseIntOrDefault(values[9]);
-            line.option2 = ParseStringOrDefault(values[10]);
-            line.option2NextId = ParseIntOrDefault(values[11]);
-            line.option3 = ParseStringOrDefault(values[12]);
-            line.option3NextId = ParseIntOrDefault(values[13]);
-            line.option4 = ParseStringOrDefault(values[14]);
-            line.option4NextId = ParseIntOrDefault(values[15]);
-            line.option5 = ParseStringOrDefault(values[16]);
-            line.option5NextId = ParseIntOrDefault(values[17]);
-
-            line.unlockFileId = ParseIntOrDefault(values[18]);
-            line.unlockType = ParseIntOrDefault(values[19]);
-            line.unlockContent = ParseStringOrDefault(values[20]);
+            line.unlockFileId = ParseIntOrDefault(values[19]);
+            line.unlockType = ParseIntOrDefault(values[20]);
+            line.unlockContent = ParseStringOrDefault(values[21]);
 
             dialogueDict.Add(line.textId, line);
         }

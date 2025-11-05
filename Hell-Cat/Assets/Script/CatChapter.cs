@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data.Common;
 using UnityEngine;
 
@@ -13,11 +14,20 @@ public class CatChapter : ScriptableObject
 
     public TextAsset heavenText;
 
-    public bool ifAppeared;
-
     public AudioClip heavenMusic;
+
+    public int currentChapter = 1;
+
+    public bool isHeaven = false;
+
     public void OnEnable()
     {
-        ifAppeared = false;
+
+
+        currentChapter = 1;
+
+        isHeaven = false;
     }
+
+
 }
