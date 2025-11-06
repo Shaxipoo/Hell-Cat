@@ -6,29 +6,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-public enum SectionType
-{
-    RandChat,
-    MainCatChat,
-    Tea,
-    HeavenChoice
-}
-
 public class GameManager : MonoBehaviour
 {
     [Header("Chat Phase")]
-    [Tooltip("其他猫chapter")]
-    public List<CatChapter> ranChatList;
 
-    [Tooltip("主线猫")]
-    public List<TextAsset> mainCatChatList;
-
-    [Header("Process")]
-    public List<SectionType> process;
+    [Header("Story Process")]
+    public List<CatChapter> storyList;
 
     private int currentProcess;
-
-    public SectionType currentSectionType;
 
     [SerializeField] public DialogueManager dialogueManager;
 
@@ -48,16 +33,13 @@ public class GameManager : MonoBehaviour
     [Header("audio")]
     [SerializeField] private MusicManager musicManager;
 
-    private List<CatChapter> storedCatChapter;
     private int currentainCatChat = 0;
     public void OnEnable()
     {
-        Debug.Log("start game");
-        storedCatChapter = new List<CatChapter>();
-
         currentProcess = 0;
         RunProcess();
 
+        // Set Initial UI
         TeaSelectionScreen.SetActive(false);
         HeavenSelectionScreen.SetActive(false);
         EndScreen.SetActive(false);
@@ -71,90 +53,45 @@ public class GameManager : MonoBehaviour
 
     public void RunProcess()
     {
-        if (currentProcess >= process.Count)
+        // If run out of story, quit
+        if (currentProcess >= storyList.Count)
         {
             EndScreen.SetActive(true);
             return;
         }
-        switch (process[currentProcess])
+
+        ShowChatBackground();
+
+
+        if (!storyList[currentProcess].isHeaven)
         {
-            case SectionType.RandChat:
-                currentSectionType = SectionType.RandChat;
-                ShowChatBackground();
-                //musicManager.PlayNormalMusic();
-                var availableCats = ranChatList.FindAll(cat => !cat.ifAppeared);
+            // Load Story
+            dialogueManager.dialogueLoader.LoadCSV(storyList[currentProcess].chatText);
 
-                if (availableCats.Count == 0)
+            foreach (var v in dialogueManager.dialogueLoader.dialogueDict)
+            {
+                if (v.Value.chapterId == storyList[currentProcess].currentChapter)
                 {
-                    Debug.LogWarning("No unappeared cats available in ranChatList!");
-                    return;
+                    // Start Chapter
+                    dialogueManager.StartDialogue(storyList[currentProcess].currentChapter);
+
+                    storyList[currentProcess].currentChapter += 1;
+                    break;
                 }
-
-                int ranIndex = UnityEngine.Random.Range(0, availableCats.Count);
-                var selectedCat = availableCats[ranIndex];
-
-                dialogueManager.dialogueLoader.LoadCSV(selectedCat.chatText);
-
-                selectedCat.ifAppeared = true;
-                storedCatChapter.Add(selectedCat);
-
-                dialogueManager.StartDialogue();
-                break;
-
-            case SectionType.MainCatChat:
-                currentSectionType = SectionType.MainCatChat;
-
-                
-
-                dialogueManager.dialogueLoader.LoadCSV(mainCatChatList[currentainCatChat]);
-                dialogueManager.StartDialogue();
-
-                currentainCatChat += 1;
-
-                ShowChatBackground();
-                break;
-
-            case SectionType.Tea:
-                currentSectionType = SectionType.Tea;
-                ShowTeaBackground();    
-                TeaSelectionScreen.SetActive(true);
-                TMPTeaOption1.text = storedCatChapter[0].CatName;
-                if (storedCatChapter[1])
-                {
-                    TMPTeaOption2.text = storedCatChapter[1].CatName;
-                }
-
-                break;
-
-            case SectionType.HeavenChoice:
-                currentSectionType = SectionType.HeavenChoice;
-                ShowHeavenBackground();
-                HeavenSelectionScreen.SetActive(true);
-                TMPHeavenOption1.text = storedCatChapter[0].CatName;
-                if (storedCatChapter[1])
-                {
-                    TMPHeavenOption2.text = storedCatChapter[1].CatName;
-                }
-
-                break;
+                NextProcess();
+                return;
+            }
+      
         }
+        else
+        {
+            Debug.Log("Cat already in heaven");
+            NextProcess();
+            return;
+        }
+        
     }
 
-
-    public void ChooseTeaOption(int index)
-    {
-        TeaSelectionScreen.SetActive(false);
-        dialogueManager.dialogueLoader.LoadCSV(storedCatChapter[index].teaText);
-        dialogueManager.StartDialogue();
-    }
-
-    public void ChooseHeavenOption(int index)
-    {
-        HeavenSelectionScreen.SetActive(false);
-        musicManager.PlayMusic(storedCatChapter[index].heavenMusic);
-        dialogueManager.dialogueLoader.LoadCSV(storedCatChapter[index].heavenText);
-        dialogueManager.StartDialogue();
-    }
 
     public void ShowChatBackground()
     {

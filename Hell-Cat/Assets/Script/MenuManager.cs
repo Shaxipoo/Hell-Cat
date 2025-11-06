@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    // For player input
     [SerializeField] public TextMeshProUGUI nameText;
     [SerializeField] public TextMeshProUGUI inputText;
 
