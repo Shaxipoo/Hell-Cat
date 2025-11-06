@@ -14,8 +14,6 @@ public class TutorialFlipBook : MonoBehaviour
     [SerializeField] private TMP_Text LeftPageText;
     [SerializeField] private TMP_Text RightPageText;
 
-    [SerializeField] private Transform DragArea;
-
     private int currentLeftPage = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
