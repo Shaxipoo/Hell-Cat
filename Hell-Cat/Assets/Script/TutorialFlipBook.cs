@@ -14,7 +14,9 @@ public class TutorialFlipBook : MonoBehaviour
     [SerializeField] private TMP_Text LeftPageText;
     [SerializeField] private TMP_Text RightPageText;
 
-    private int currentPage = 0;
+    [SerializeField] private Transform DragArea;
+
+    private int currentLeftPage = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +29,16 @@ public class TutorialFlipBook : MonoBehaviour
     {
         TutorialButton.gameObject.SetActive(false); //Hide the button
         FlipBook.gameObject.SetActive(true);//Show Book
+
+    }
+
+    public void OnClickNextPageButton()
+    {
+
+    }
+
+    public void OnClickPrePageButton()
+    {
 
     }
 }
