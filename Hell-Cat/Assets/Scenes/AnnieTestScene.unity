@@ -171,12 +171,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TutorialFlipBook
   TutorialButton: {fileID: 451907590}
   FlipBook: {fileID: 1712093991}
+  nextPageButton: {fileID: 1651187830}
+  prevPageButton: {fileID: 2050583080}
   LeftPage: {fileID: 1301443458}
   RightPage: {fileID: 2093702759}
-  nextPageButton: {fileID: 1651187830}
-  prevPageButton: {fileID: 2050583081}
   LeftPageText: {fileID: 1851154713}
   RightPageText: {fileID: 265457969}
+  pages:
+  - {fileID: 11400000, guid: 2f68cf010be935241bda67988c3cfd0c, type: 2}
+  - {fileID: 11400000, guid: f07e49341db29194a97dd88dc0f66c31, type: 2}
+  - {fileID: 11400000, guid: b41e859699d5eb842814cd9c50f319d1, type: 2}
+  EmptyPageAsset: {fileID: 11400000, guid: b072b144c66f0f6469e5ea7f25087dae, type: 2}
 --- !u!1 &240430129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1555,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1651187831}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 65995789}
+        m_TargetAssemblyTypeName: TutorialFlipBook, Assembly-CSharp
+        m_MethodName: OnClickNextPageButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1651187831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1620,10 +1637,10 @@ RectTransform:
   m_Children:
   - {fileID: 1301443457}
   - {fileID: 2093702758}
-  - {fileID: 1651187829}
-  - {fileID: 2050583079}
   - {fileID: 1851154712}
   - {fileID: 265457968}
+  - {fileID: 1651187829}
+  - {fileID: 2050583079}
   m_Father: {fileID: 65995788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2150,7 +2167,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2050583081}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 65995789}
+        m_TargetAssemblyTypeName: TutorialFlipBook, Assembly-CSharp
+        m_MethodName: OnClickPrePageButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2050583081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2387,6 +2416,10 @@ PrefabInstance:
     - target: {fileID: 3426604052618744711, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
       propertyPath: m_text
       value: ........
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426604052618744711, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3454422942170806968, guid: c4a77fa7cbe3541f9a8c8f0065e37ca7, type: 3}
       propertyPath: m_IsActive
