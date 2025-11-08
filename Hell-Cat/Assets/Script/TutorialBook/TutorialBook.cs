@@ -6,38 +6,34 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class TutorialFlipBook : MonoBehaviour
+public class TutorialBook : MonoBehaviour
 {
     [Header("Tutorial Interaction")]
     [SerializeField] private Button TutorialButton;
     [SerializeField] private GameObject FlipBook;
-    [SerializeField] private Button nextPageButton;
-    [SerializeField] private Button prevPageButton;
 
-    [Header("Book Content")]
-    [SerializeField] private Image LeftPage;
-    [SerializeField] private Image RightPage;
-    [SerializeField] private TMP_Text LeftPageText;
-    [SerializeField] private TMP_Text RightPageText;
+    [Header("Page Containers")]
+    [SerializeField] private Transform LeftPageContainer;
+    [SerializeField] private Transform RightPageContainer;
 
     [Header("Page Content")]
     [SerializeField] private List<TutorialPageAsset> pages = new List<TutorialPageAsset>();
     [SerializeField] private TutorialPageAsset EmptyPageAsset;
+
     private int currentLeftPageIndex = 0;
-    private int MaxPageIndex = 0;
+
+    private GameObject LeftPageInstance;
+    private GameObject RightPageInstance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         FlipBook.SetActive(false);
 
-        MaxPageIndex = pages.Count-1;
 
-        if(MaxPageIndex % 2 == 0) // 当Index是偶数，总页数是奇数时，加empty page, 保障maxPageIndex应总为奇数
+        if(pages.Count % 2 != 0) // 当总页数是奇数时，加empty page
         {
-            //add empty pages at the end
             pages.Add(EmptyPageAsset);
-            MaxPageIndex = pages.Count;
         }
 
         ShowPage();
@@ -57,40 +53,44 @@ public class TutorialFlipBook : MonoBehaviour
         
         int currentRightPageIndex = currentLeftPageIndex+1;
 
-        LeftPage.sprite = pages[currentLeftPageIndex].image;
-        LeftPageText.text = pages[currentLeftPageIndex].text;
-        RightPage.sprite = pages[currentRightPageIndex].image;
-        RightPageText.text = pages[currentRightPageIndex].text;
+        // 清除旧的页面
+        if (LeftPageInstance) Destroy(LeftPageInstance);
+        if (RightPageInstance) Destroy(RightPageInstance);
+
+        // 实例化新的页面
+        LeftPageInstance = Instantiate(pages[currentLeftPageIndex].pagePrefab, LeftPageContainer);
+        RightPageInstance = Instantiate(pages[currentRightPageIndex].pagePrefab, RightPageContainer);
+
+        // 传递数据给页面组件（下一步实现）
+        LeftPageInstance.GetComponent<TutorialPageView>().SetContent(pages[currentLeftPageIndex]);
+        RightPageInstance.GetComponent<TutorialPageView>().SetContent(pages[currentRightPageIndex]);
+
 
     }
 
     public void OnClickNextPageButton()
     {
-        currentLeftPageIndex += 2;
 
-        if(currentLeftPageIndex<= MaxPageIndex-1)
+        if(currentLeftPageIndex + 2 < pages.Count)
         {
+            currentLeftPageIndex += 2;
             ShowPage();
-        }
-        else
-        {
-            Debug.Log("Page doesn't exist");
         }
         
     }
 
     public void OnClickPrePageButton()
     {
-        currentLeftPageIndex -= 2;
-
-        if (currentLeftPageIndex < 0)
+        if (currentLeftPageIndex - 2 >= 0)
         {
-            Debug.Log("Page doesn't exist");
-        }
-        else
-        {
+            currentLeftPageIndex -= 2;
             ShowPage();
         }
-        
+    }
+
+    public void OnCloseBookButton()
+    {
+        TutorialButton.gameObject.SetActive(true); 
+        FlipBook.gameObject.SetActive(false);
     }
 }
