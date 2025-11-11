@@ -1417,6 +1417,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7017005734230101389}
     m_Modifications:
+    - target: {fileID: 2694094067998773702, guid: 4ac0e43f64230b942ac233c74d1a6f8f, type: 3}
+      propertyPath: pages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694094067998773702, guid: 4ac0e43f64230b942ac233c74d1a6f8f, type: 3}
+      propertyPath: 'pages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 48c5e284215f32449912e9a23a5122e0, type: 2}
+    - target: {fileID: 2694094067998773702, guid: 4ac0e43f64230b942ac233c74d1a6f8f, type: 3}
+      propertyPath: 'pages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f2046051ce9b7e499016437c8f96273, type: 2}
+    - target: {fileID: 2694094067998773702, guid: 4ac0e43f64230b942ac233c74d1a6f8f, type: 3}
+      propertyPath: 'pages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f3222bfe8948c24493069fd1b27e9b5, type: 2}
+    - target: {fileID: 2694094067998773702, guid: 4ac0e43f64230b942ac233c74d1a6f8f, type: 3}
+      propertyPath: 'pages.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 48c5e284215f32449912e9a23a5122e0, type: 2}
+    - target: {fileID: 2694094067998773702, guid: 4ac0e43f64230b942ac233c74d1a6f8f, type: 3}
+      propertyPath: 'pages.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 48c5e284215f32449912e9a23a5122e0, type: 2}
     - target: {fileID: 8323318407944582161, guid: 4ac0e43f64230b942ac233c74d1a6f8f, type: 3}
       propertyPath: m_Name
       value: TutorialBook
