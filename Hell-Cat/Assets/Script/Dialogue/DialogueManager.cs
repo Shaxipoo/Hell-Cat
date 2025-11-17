@@ -63,9 +63,7 @@ public class DialogueManager : MonoBehaviour
                 UpdateDialogue();
                 break;
             }
-        }
-
-        
+        }    
     }
 
     public void OnClick()
@@ -264,79 +262,6 @@ public class DialogueManager : MonoBehaviour
     public void EndStory()
     {
         storyTransitionScreen.SetActive(true);
-    }
-
-    public void OnClickArhive()
-    {
-        archiveScreen.SetActive(true);
-
-        PrintFileList();
-    }
-
-    public void OnQuitArchive()
-    {
-        archiveScreen.SetActive(false);
-    }
-
-    // Test
-    private void PrintFileList()
-    {
-        if (PlayerData.fileList == null || PlayerData.fileList.Count == 0)
-        {
-            Debug.Log("fileList is null");
-            return;
-        }
-
-        foreach (var kvp in PlayerData.fileList)
-        {
-            int id = kvp.Key;
-            FileInfo file = kvp.Value;
-
-            //Debug.Log($"FileId: {id}, Name: {file.Name}, Age: {file.Age}, Breed: {file.Breed}, CauseOfDeath: {file.CauseOfDeath}, CriminalRecord: {file.CriminalRecord}, CriminalDegree: {file.CriminalDegree}, Contraband: {file.Contraband}");
-        }
-    }
-
-    public void OnClickSubmitFile()
-    {
-       
-
-        if (documentManager.CheckAllItems(dialogueLoader.dialogueDict[currentTextId].documentSetId))
-        {
-            textClickPad.gameObject.SetActive(true);
-            documentManager.ClearDocuments();
-            documentCheckScreen.SetActive(false);
-
-            // Save in archive
-            SubmitFile(dialogueLoader.dialogueDict[currentTextId].fileId);
-
-
-            currentTextId = dialogueLoader.dialogueDict[currentTextId].nextId;
-            UpdateDialogue();
-        }
-    }
-
-    private void SubmitFile(int fileId)
-    {
-        FileInfo fi;
-
-        if (PlayerData.fileList.ContainsKey(fileId))
-        {
-            fi = PlayerData.fileList[fileId];
-        }
-        else
-        {
-            fi = new FileInfo();
-            fi.FileId = fileId;
-            PlayerData.fileList[fileId] = fi; 
-        }
-
-        fi.Name = documentManager.Name.text;
-        fi.Age = documentManager.Age.text;
-        fi.Breed = documentManager.Breed.text;
-        fi.CauseOfDeath = documentManager.CauseOfDeath.text;
-        fi.CriminalRecord = documentManager.CriminalRecord.text;
-        fi.CriminalDegree = documentManager.CriminalDegree.text;
-        fi.Contraband = documentManager.Contraband.text;
     }
 
     public void FastSkip()

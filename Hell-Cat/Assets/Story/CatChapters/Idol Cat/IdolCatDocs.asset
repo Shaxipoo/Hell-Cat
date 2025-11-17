@@ -12,8 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81827c937143c7342a91d5f668657a4f, type: 3}
   m_Name: IdolCatDocs
   m_EditorClassIdentifier: Assembly-CSharp::DocumentSet
-  DocumentList:
-  - {fileID: 4797469268964784847, guid: 72c0a75b12b95e54992050ce7d5a21ca, type: 3}
-  - {fileID: 2101003455080489923, guid: 38ab1fe5c88d28542a580f518ecd1c7a, type: 3}
-  - {fileID: 1872680902707142588, guid: 1f654ff13d7e3a7458256543eee17028, type: 3}
-  requiredInfo: 0600000001000000020000000400000005000000
+  DocumentId: 
+  documentList: 
+  Name: 
+  Age: 0
+  Breed: 
+  ApplicationNo: 0
+  Gender: 
+  CauseOfDeath: 
+  Job: 
+  ApplicationReason: 
+  CardId: 
+  Weight: 0
+  GeneralAppearance: 
+  Imaging: 
+  MedicalHistory: 
+  CriminalItem1: 
+  CriminalItem1Extent: 
+  CriminalItem2: 
+  CriminalItem2Extent: 
+  OwnerName: 
+  OwnerJob: 
+  Background: 
+  ItemName: 
+  ItemReason: 
+  OtherItem: {fileID: 0}

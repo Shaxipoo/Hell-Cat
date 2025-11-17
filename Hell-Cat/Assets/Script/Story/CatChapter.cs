@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CatChapter", menuName = "Scriptable Objects/Cat")]
+[CreateAssetMenu(fileName = "CatChapter", menuName = "Scriptable Objects/CatChapter")]
 public class CatChapter : ScriptableObject
 {
     public int Id;
@@ -10,13 +10,13 @@ public class CatChapter : ScriptableObject
 
     public TextAsset chatText;
 
-    public TextAsset teaText;
-
     public TextAsset heavenText;
 
     public AudioClip heavenMusic;
 
     public int currentChapter = 1;
+
+    public List<DocumentSet> documentSetList;
 
     public bool isHeaven = false;
 
