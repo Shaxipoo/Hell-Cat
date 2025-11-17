@@ -85,7 +85,7 @@ public class DialogueManager : MonoBehaviour
                 // Show Document
                 case 3:
                     documentCheckScreen.SetActive(true);
-                    documentManager.SetDocuments(dialogueLoader.dialogueDict[currentTextId].documentSetId);
+                    //documentManager.SetDocuments(dialogueLoader.dialogueDict[currentTextId].documentSetId);
                     textClickPad.gameObject.SetActive(false);
                     break;
                 // No Events

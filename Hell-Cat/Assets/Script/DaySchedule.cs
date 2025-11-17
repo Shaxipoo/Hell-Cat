@@ -1,17 +1,17 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DaySchedule", menuName = "Scriptable Objects/DaySchedule")]
-public class DaySchedule : ScriptableObject
+[System.Serializable]
+public class DaySchedule
 {
     //Day ID
-
+    public int dayId;
     //Mails (Documents)
 
     //Case List
-
+    public List<CatChapter> chapterList;
+    
     //End Sentense
-
-
 
 
 }

@@ -11,37 +11,34 @@ public class GameManager : MonoBehaviour
     [Header("Chat Phase")]
 
     [Header("Story Process")]
-    public List<CatChapter> storyList;
+    public List<DaySchedule> dayList;
 
+    private int currentDay;
     private int currentProcess;
 
-    [SerializeField] public DialogueManager dialogueManager;
 
-    [SerializeField] private GameObject TeaSelectionScreen;
-    [SerializeField] private GameObject HeavenSelectionScreen;
-    [SerializeField] private GameObject EndScreen;
-    [SerializeField] private TextMeshProUGUI TMPTeaOption1;
-    [SerializeField] private TextMeshProUGUI TMPTeaOption2;
-    [SerializeField] private TextMeshProUGUI TMPHeavenOption1;
-    [SerializeField] private TextMeshProUGUI TMPHeavenOption2;
+    [Header("UI Gears")]
+    [SerializeField, HideInInspector] public DialogueManager dialogueManager;
+
+    [SerializeField, HideInInspector] private GameObject EndScreen;
 
     [Header("Backgrounds")]
-    [SerializeField] private GameObject chatBackground;
-    [SerializeField] private GameObject teaBackground;
-    [SerializeField] private GameObject heavenBackground;
+    [SerializeField, HideInInspector] private GameObject chatBackground;
+    [SerializeField, HideInInspector] private GameObject heavenBackground;
 
-    [Header("audio")]
-    [SerializeField] private MusicManager musicManager;
+    [Header("Audio")]
+    [SerializeField, HideInInspector] private MusicManager musicManager;
 
     private int currentainCatChat = 0;
     public void OnEnable()
     {
+        currentDay = 0;
         currentProcess = 0;
+
         RunProcess();
 
         // Set Initial UI
-        TeaSelectionScreen.SetActive(false);
-        HeavenSelectionScreen.SetActive(false);
+
         EndScreen.SetActive(false);
     }
 
@@ -51,31 +48,40 @@ public class GameManager : MonoBehaviour
         RunProcess();
     }
 
+    public void EndDay()
+    {
+        // Reset Everything
+        currentDay += 1;
+        currentProcess = 0;
+
+        EndScreen.SetActive(true);
+    }
+
     public void RunProcess()
     {
-        // If run out of story, quit
-        if (currentProcess >= storyList.Count)
+        // If run out of story, DAY ENDS
+        if (currentProcess >= dayList[currentDay].chapterList.Count)
         {
-            EndScreen.SetActive(true);
+            EndDay();
             return;
         }
 
         ShowChatBackground();
 
 
-        if (!storyList[currentProcess].isHeaven)
+        if (!dayList[currentDay].chapterList[currentProcess].isHeaven)
         {
             // Load Story
-            dialogueManager.dialogueLoader.LoadCSV(storyList[currentProcess].chatText);
+            dialogueManager.dialogueLoader.LoadCSV(dayList[currentDay].chapterList[currentProcess].chatText);
 
             foreach (var v in dialogueManager.dialogueLoader.dialogueDict)
             {
-                if (v.Value.chapterId == storyList[currentProcess].currentChapter)
+                if (v.Value.chapterId == dayList[currentDay].chapterList[currentProcess].currentChapter)
                 {
                     // Start Chapter
-                    dialogueManager.StartDialogue(storyList[currentProcess].currentChapter);
+                    dialogueManager.StartDialogue(dayList[currentDay].chapterList[currentProcess].currentChapter);
 
-                    storyList[currentProcess].currentChapter += 1;
+                    dayList[currentDay].chapterList[currentProcess].currentChapter += 1;
                     break;
                 }
                 NextProcess();
@@ -88,28 +94,19 @@ public class GameManager : MonoBehaviour
             Debug.Log("Cat already in heaven");
             NextProcess();
             return;
-        }
-        
+        }   
     }
 
 
     public void ShowChatBackground()
     {
         chatBackground.SetActive(true);
-        teaBackground.SetActive(false);
         heavenBackground.SetActive(false);
     }
 
-    public void ShowTeaBackground()
-    {
-        chatBackground.SetActive(false);
-        teaBackground.SetActive(true);
-        heavenBackground.SetActive(false);
-    }
     public void ShowHeavenBackground()
     {
         chatBackground.SetActive(false);
-        teaBackground.SetActive(false);
         heavenBackground.SetActive(true);
     }
 

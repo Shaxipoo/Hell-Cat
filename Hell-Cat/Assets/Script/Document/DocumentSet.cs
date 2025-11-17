@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public enum DocumentType
 {
     ApplicationForm,
@@ -10,8 +9,31 @@ public enum DocumentType
     CriminalRecord,
     OwnerCard,
     ItemApplicationForm,
+    Other,
 }
-
+public enum InteractionType
+{
+    NoCard,
+    AskBreed,
+    AskCOD,
+    AskJob,
+    AskApplicationReason,
+    AskGeneralAppearance,
+    AskImaging,
+    AskMedicalHistory,
+    AskCriminalItem1,
+    AskCriminalItem2,
+    AskItemReason,
+    AskOther,
+}
+[System.Serializable]
+public class DocumentInteraction
+{
+    public DocumentType docType;  
+    public InteractionType interactType;
+    public InteractionType bubbleText;
+    public List<string> answer;
+}
 
 [CreateAssetMenu(fileName = "Document", menuName = "Scriptable Objects/Document")]
 
@@ -21,6 +43,8 @@ public class DocumentSet : ScriptableObject
 
     [Header("Document List")]
     public List<DocumentType> documentList;
+
+    public List<DocumentInteraction> documentInteractions;
 
     [Header("Basic Info")]
     public string Name;
@@ -60,9 +84,6 @@ public class DocumentSet : ScriptableObject
     public string ItemReason;
 
     [Header("OtherItem")]
-    public GameObject OtherItem;
-
-
-    
+    public GameObject OtherItem; 
 
 }
