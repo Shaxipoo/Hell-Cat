@@ -46,6 +46,9 @@ public class DocumentSet : ScriptableObject
 
     public List<DocumentInteraction> documentInteractions;
 
+    [Header("What to keep after the cat left")]
+    public List<DocumentType> keepList;
+
     [Header("Basic Info")]
     public string Name;
     public int Age;

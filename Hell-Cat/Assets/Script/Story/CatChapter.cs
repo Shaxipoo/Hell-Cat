@@ -14,7 +14,7 @@ public class CatChapter : ScriptableObject
 
     public AudioClip heavenMusic;
 
-    public int currentChapter = 1;
+    public int currentChapter = 0;
 
     public List<DocumentSet> documentSetList;
 
@@ -23,11 +23,10 @@ public class CatChapter : ScriptableObject
     public void OnEnable()
     {
 
-
-        currentChapter = 1;
-
-        isHeaven = false;
+        currentChapter = 0;
     }
 
-
 }
+
+
+

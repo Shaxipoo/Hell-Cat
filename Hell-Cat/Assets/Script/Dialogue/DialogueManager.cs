@@ -38,9 +38,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject documentCheckScreen;
     [SerializeField] private DocumentManager documentManager;
 
+    private bool isFastSkipEnable = true;
 
-    [Header("UI: Unlock")]
-    [SerializeField] private GameObject unlockTitle;
+    private bool isInDoc = false;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,9 +52,6 @@ public class DialogueManager : MonoBehaviour
         storyTransitionScreen.SetActive(false);
         documentCheckScreen.SetActive(false);
         archiveScreen.SetActive(false);
-        unlockTitle.SetActive(false);
-
-        Debug.Log("Chapter: " + i);
         
         foreach(var v in dialogueLoader.dialogueDict)
         {
@@ -68,6 +66,10 @@ public class DialogueManager : MonoBehaviour
 
     public void OnClick()
     {
+        if(isInDoc)
+        {
+            return;
+        }
         // is all text
         if (typewriterEffect.IsAllText())
         {
@@ -85,8 +87,11 @@ public class DialogueManager : MonoBehaviour
                 // Show Document
                 case 3:
                     documentCheckScreen.SetActive(true);
-                    //documentManager.SetDocuments(dialogueLoader.dialogueDict[currentTextId].documentSetId);
+                    documentManager.AddDocumentSets(gameManager.GetCurrentDocumentSet());
+
                     textClickPad.gameObject.SetActive(false);
+                    isFastSkipEnable = false;
+                    isInDoc = true;
                     break;
                 // No Events
                 default:
@@ -266,7 +271,11 @@ public class DialogueManager : MonoBehaviour
 
     public void FastSkip()
     {
-        OnClick(); 
-        typewriterEffect.ShowAllText();
+        if(isFastSkipEnable)
+        {
+            OnClick();
+            typewriterEffect.ShowAllText();
+        }
+        
     }
 }

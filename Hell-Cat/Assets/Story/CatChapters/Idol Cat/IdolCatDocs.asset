@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81827c937143c7342a91d5f668657a4f, type: 3}
   m_Name: IdolCatDocs
   m_EditorClassIdentifier: Assembly-CSharp::DocumentSet
-  DocumentId: 
-  documentList: 
+  DocumentId: 1
+  documentList: 000000000100000002000000
   documentInteractions: []
+  keepList: 
   Name: 
   Age: 0
   Breed: 

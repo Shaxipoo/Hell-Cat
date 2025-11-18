@@ -76,12 +76,13 @@ public class GameManager : MonoBehaviour
 
             foreach (var v in dialogueManager.dialogueLoader.dialogueDict)
             {
+                dayList[currentDay].chapterList[currentProcess].currentChapter += 1;
                 if (v.Value.chapterId == dayList[currentDay].chapterList[currentProcess].currentChapter)
                 {
                     // Start Chapter
                     dialogueManager.StartDialogue(dayList[currentDay].chapterList[currentProcess].currentChapter);
 
-                    dayList[currentDay].chapterList[currentProcess].currentChapter += 1;
+                    
                     break;
                 }
                 NextProcess();
@@ -97,6 +98,13 @@ public class GameManager : MonoBehaviour
         }   
     }
 
+    public DocumentSet GetCurrentDocumentSet()
+    {
+        ShowDayProcess();
+        
+        
+        return dayList[currentDay].chapterList[currentProcess].documentSetList[dayList[currentDay].chapterList[currentProcess].currentChapter-1];
+    }
 
     public void ShowChatBackground()
     {
@@ -108,6 +116,17 @@ public class GameManager : MonoBehaviour
     {
         chatBackground.SetActive(false);
         heavenBackground.SetActive(true);
+    }
+
+
+
+
+    //Debug
+
+    private void ShowDayProcess()
+    {
+        Debug.Log("Day:" + currentDay + "   Process" + currentProcess);
+        Debug.Log("Current Chapter:" + dayList[currentDay].chapterList[currentProcess].currentChapter);
     }
 
 }
