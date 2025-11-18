@@ -1320,6 +1320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5812061418937523704}
   - component: {fileID: 8924769024449139420}
+  - component: {fileID: 3028227646242172580}
   m_Layer: 5
   m_Name: OwnerCard
   m_TagString: Untagged
@@ -1368,3 +1369,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DocumentUIHandler
   dragArea: {fileID: 0}
+--- !u!114 &3028227646242172580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953393248751953926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8773bb066583442bb62cab652516c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Document
+  documentType: 4
+  Name: {fileID: 7365699151284632621}
+  Age: {fileID: 0}
+  Breed: {fileID: 0}
+  ApplicationNo: {fileID: 0}
+  Gender: {fileID: 0}
+  CauseOfDeath: {fileID: 0}
+  Job: {fileID: 0}
+  ApplicationReason: {fileID: 0}
+  CardId: {fileID: 0}
+  Weight: {fileID: 0}
+  GeneralAppearance: {fileID: 0}
+  Imaging: {fileID: 0}
+  MedicalHistory: {fileID: 0}
+  CriminalItem1: {fileID: 0}
+  CriminalItem1Extent: {fileID: 0}
+  CriminalItem2: {fileID: 0}
+  CriminalItem2Extent: {fileID: 0}
+  OwnerName: {fileID: 301511950973101526}
+  OwnerJob: {fileID: 5815016907366520537}
+  Background: {fileID: 7344375374585970361}
+  ItemName: {fileID: 0}
+  ItemReason: {fileID: 0}
+  otherItemImage: {fileID: 0}

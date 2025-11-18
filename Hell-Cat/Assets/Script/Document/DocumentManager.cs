@@ -24,25 +24,6 @@ public class DocumentManager : MonoBehaviour
 
     public bool IfSkipDoc = false;
 
-    public void OnEnable()
-    {
-    }
-    //Load document data
-    public void SetDocuments()
-    {
-/*        ClearDocuments();
-        // Show new Doc
-        for (int i = 0; i < documentSets[setId].DocumentList.Count; i++)
-        {
-            int offsetX = 0 + i * offsetValue;
-            int offsetY = 0 + i * offsetValue;
-            Vector3 offset = new Vector3(offsetX, offsetY, 0);
-            Vector3 newPos = documentTrans.position + offset;
-
-            GameObject ng = Instantiate(documentSets[setId].DocumentList[i], documentParent);
-            ng.transform.position = newPos;
-        }*/
-    }
 
     public void AddDocumentSets(DocumentSet docSets)
     {
@@ -53,14 +34,12 @@ public class DocumentManager : MonoBehaviour
             Vector3 offset = new Vector3(offsetX, offsetY, 0);
             Vector3 newPos = documentTrans.position + offset;
 
-            AddDocument(docSets.documentList[i],newPos);
-
+            AddDocument(docSets.documentList[i],newPos,docSets);
         }
-        Debug.Log("add doc");
 
     }
 
-    public void AddDocument(DocumentType dt, Vector3 pos)
+    public void AddDocument(DocumentType dt, Vector3 pos, DocumentSet ds = null)
     {
         GameObject ng = null;
 
@@ -96,18 +75,12 @@ public class DocumentManager : MonoBehaviour
         }
         ng.transform.position = pos;
 
-/*        //Set Position
-        float randomRange = 50f;
+        FillDocumentInfo(ng,ds);
+    }
 
-        float offsetX = Random.Range(-randomRange, randomRange);
-        float offsetY = Random.Range(-randomRange, randomRange);
-
-        Vector3 offset = new Vector3(offsetX, offsetY, 0);
-        Vector3 newPos = documentTrans.position + offset;
-
-        ng.transform.position = newPos;*/
-
-
+    public void FillDocumentInfo(GameObject go,DocumentSet ds)
+    {
+        go.GetComponent<Document>().Fill(ds);
     }
 
     public void ClearDocument()
@@ -121,7 +94,5 @@ public class DocumentManager : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
     }
-
-
 
 }

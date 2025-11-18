@@ -16,19 +16,19 @@ MonoBehaviour:
   documentList: 000000000100000002000000
   documentInteractions: []
   keepList: 
-  Name: 
-  Age: 0
-  Breed: 
-  ApplicationNo: 0
-  Gender: 
-  CauseOfDeath: 
-  Job: 
-  ApplicationReason: 
-  CardId: 
-  Weight: 0
-  GeneralAppearance: 
-  Imaging: 
-  MedicalHistory: 
+  Name: Idole
+  Age: 2
+  Breed: Angola
+  ApplicationNo: 231241234
+  Gender: F
+  CauseOfDeath: Happy
+  Job: Singer
+  ApplicationReason: I wanna go to heaven
+  CardId: 4123412
+  Weight: 32
+  GeneralAppearance: beautiful
+  Imaging: good
+  MedicalHistory: have super beautiful eyes, I love this cat. Hahahahahhahahahhahahahha
   CriminalItem1: 
   CriminalItem1Extent: 
   CriminalItem2: 

@@ -1184,6 +1184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636434595085196532}
   - component: {fileID: 1820554280428179383}
+  - component: {fileID: 4634312270331537204}
   m_Layer: 5
   m_Name: BodyCheck
   m_TagString: Untagged
@@ -1234,6 +1235,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DocumentUIHandler
   dragArea: {fileID: 0}
+--- !u!114 &4634312270331537204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3979857202726981495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8773bb066583442bb62cab652516c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Document
+  documentType: 2
+  Name: {fileID: 3785643309540628907}
+  Age: {fileID: 0}
+  Breed: {fileID: 0}
+  ApplicationNo: {fileID: 0}
+  Gender: {fileID: 2608899328590638395}
+  CauseOfDeath: {fileID: 0}
+  Job: {fileID: 0}
+  ApplicationReason: {fileID: 0}
+  CardId: {fileID: 0}
+  Weight: {fileID: 0}
+  GeneralAppearance: {fileID: 818233837596730494}
+  Imaging: {fileID: 7072719297038174393}
+  MedicalHistory: {fileID: 6858519959182666636}
+  CriminalItem1: {fileID: 0}
+  CriminalItem1Extent: {fileID: 0}
+  CriminalItem2: {fileID: 0}
+  CriminalItem2Extent: {fileID: 0}
+  OwnerName: {fileID: 0}
+  OwnerJob: {fileID: 0}
+  Background: {fileID: 0}
+  ItemName: {fileID: 0}
+  ItemReason: {fileID: 0}
 --- !u!1 &4423404528428682296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1418,7 @@ GameObject:
   - component: {fileID: 6117655655034793816}
   - component: {fileID: 6858519959182666636}
   m_Layer: 5
-  m_Name: a_COD
+  m_Name: a_MedicalHistory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

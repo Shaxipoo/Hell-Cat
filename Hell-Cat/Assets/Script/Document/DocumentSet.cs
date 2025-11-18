@@ -87,6 +87,6 @@ public class DocumentSet : ScriptableObject
     public string ItemReason;
 
     [Header("OtherItem")]
-    public GameObject OtherItem; 
+    public Sprite OtherItem; 
 
 }
