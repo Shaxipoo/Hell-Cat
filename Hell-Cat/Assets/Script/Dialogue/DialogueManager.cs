@@ -12,7 +12,6 @@ public class DialogueManager : MonoBehaviour
 
     private int currentTextId;
 
-    [SerializeField] private InputSystem_Actions inputSystem_Actions;
     public DialogueLoader dialogueLoader;
     public GameManager gameManager;
 
