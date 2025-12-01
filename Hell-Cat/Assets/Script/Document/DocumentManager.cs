@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class DocumentManager : MonoBehaviour
 {
+    public static DocumentManager instance;
 
     [Header("Document Set Generate")]
     [SerializeField] private Transform documentTrans;
     [SerializeField] private Transform documentParent;
     [SerializeField] private int offsetValue = 20;
-
 
     [Header("All Document Prefabs")]
     [SerializeField] private GameObject Prefab_ApplicationForm;
@@ -22,11 +22,34 @@ public class DocumentManager : MonoBehaviour
     [SerializeField] private GameObject Prefab_ItemApplication;
     [SerializeField] private GameObject Prefab_OtherDocument;
 
+
+    [HideInInspector]
+    public List<GameObject> docsOnTable;
+    [HideInInspector]
+    public DocumentSet currentDocumentSet;
+
+
+    [Header("Interrogates")]
+    // Interrogate Items in store
+    [HideInInspector] public List<DocumentInteraction> storedInterrogateList;
+    [SerializeField] private List<GameObject> interrogateBubbles;
+
     public bool IfSkipDoc = false;
 
+    // Cursors
+    public Texture2D cursorNormal;
+    public Texture2D cursorPen;
+
+    private void Awake()
+    {
+        instance = this;
+        HideInterrogateBubbles();
+    }
 
     public void AddDocumentSets(DocumentSet docSets)
     {
+        currentDocumentSet = docSets;
+
         for (int i = 0; i < docSets.documentList.Count; i++)
         {
             int offsetX = 0 + i * offsetValue;
@@ -36,13 +59,11 @@ public class DocumentManager : MonoBehaviour
 
             AddDocument(docSets.documentList[i],newPos,docSets);
         }
-
     }
 
     public void AddDocument(DocumentType dt, Vector3 pos, DocumentSet ds = null)
     {
         GameObject ng = null;
-
         switch (dt)
         {
             case DocumentType.ApplicationForm:
@@ -76,6 +97,8 @@ public class DocumentManager : MonoBehaviour
         ng.transform.position = pos;
 
         FillDocumentInfo(ng,ds);
+
+        docsOnTable.Add(ng);
     }
 
     public void FillDocumentInfo(GameObject go,DocumentSet ds)
@@ -93,6 +116,81 @@ public class DocumentManager : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
+        docsOnTable.Clear();
+        storedInterrogateList.Clear();
     }
+
+
+    public bool isPen;
+
+
+    public void OnClickPencilCase()
+    {
+        if(isPen){DropPen();}
+        else{PickupPen();}
+    }
+
+    public void PickupPen()
+    {
+        Debug.Log("Picked up pen");
+        isPen = true;
+        DisableDocDrag();
+    }
+
+    public void DropPen()
+    {
+        Debug.Log("Dropped pen");
+        isPen = false;
+        EnableDocDrag();
+    }
+
+    public void EnableDocDrag()
+    {
+        foreach(GameObject g in docsOnTable)
+        {
+            g.GetComponent<DocumentUIHandler>().enabled = true;
+        }
+    }
+
+    public void DisableDocDrag()
+    {
+        foreach (GameObject g in docsOnTable)
+        {
+            g.GetComponent<DocumentUIHandler>().enabled = false;
+        }
+    }
+
+    public void AddInterrogateItem(DocumentInteraction di)
+    {
+        storedInterrogateList.Add(di);
+    }
+
+
+    private bool isInterrogating = false;
+    public void OnClickInterrogate()
+    {
+        if (isInterrogating) HideInterrogateBubbles();
+        else ShowInterrogateBubbles();
+    }
+
+    public void ShowInterrogateBubbles()
+    {
+        for(int i = 0;i < storedInterrogateList.Count; i++)
+        {
+            interrogateBubbles[i].SetActive(true);
+            interrogateBubbles[i].GetComponentInChildren<TextMeshProUGUI>().text = storedInterrogateList[i].bubbleText;
+        }
+
+    }
+
+    public void HideInterrogateBubbles()
+    {
+        foreach(GameObject g in interrogateBubbles)
+        {
+            g.SetActive(false);
+        }
+        
+    }
+
 
 }

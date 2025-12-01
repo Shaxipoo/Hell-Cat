@@ -23,7 +23,7 @@ public enum InteractionType
     AskMedicalHistory,
     AskCriminalItem1,
     AskCriminalItem2,
-    AskItemReason,
+    AskItem,
     AskOther,
 }
 [System.Serializable]
@@ -31,7 +31,7 @@ public class DocumentInteraction
 {
     public DocumentType docType;  
     public InteractionType interactType;
-    public InteractionType bubbleText;
+    public string bubbleText;
     public List<string> answer;
 }
 
@@ -43,7 +43,7 @@ public class DocumentSet : ScriptableObject
 
     [Header("Document List")]
     public List<DocumentType> documentList;
-
+    [Header("Interactions: !Maximum = 4!")]
     public List<DocumentInteraction> documentInteractions;
 
     [Header("What to keep after the cat left")]

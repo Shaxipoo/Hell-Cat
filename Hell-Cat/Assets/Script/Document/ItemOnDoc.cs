@@ -1,19 +1,50 @@
 using UnityEngine;
 using TMPro;
-
-
+using UnityEngine.UI;
 
 public class ItemOnDoc : MonoBehaviour
 {
-    public string infoText;
-    public TMPro.TextMeshProUGUI ButtonTextBox;
+    public InteractionType interactionType;
 
-    public void OnClickInfo()
+    private Color origColor;
+    private Image image;
+
+    private void OnEnable()
     {
+        image = GetComponent<Image>();
+        origColor = image.color;
         
+        HideHighlight();
+
     }
-    void OnValidate()
+
+    public void OnClickItem()
     {
-        ButtonTextBox.text = infoText;
+        Debug.Log("On click");
+        if (DocumentManager.instance.isPen)
+        {
+            foreach (DocumentInteraction di in DocumentManager.instance.currentDocumentSet.documentInteractions)
+            {
+                if (di.interactType == interactionType)
+                {
+                    ShowHightlight();
+
+                    DocumentManager.instance.AddInterrogateItem(di);
+                    Debug.Log("New Interrogate:" + di.bubbleText);
+                }
+            }
+        }
+
+    }
+    public void HideHighlight()
+    {
+        Color c = image.color;
+        c.a = 0f;
+        image.color = c;
+    }
+    public void ShowHightlight()
+    {
+        Color c = origColor;
+        image.color = c;
     }
 }

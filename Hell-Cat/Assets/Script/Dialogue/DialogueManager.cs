@@ -72,7 +72,6 @@ public class DialogueManager : MonoBehaviour
         // is all text
         if (typewriterEffect.IsAllText())
         {
-
             switch (dialogueLoader.dialogueDict[currentTextId].specialActionId)
             {
                 // Options

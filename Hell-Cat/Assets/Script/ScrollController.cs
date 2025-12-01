@@ -6,10 +6,10 @@ public class ScrollController : MonoBehaviour
 {
     public InputActionAsset inputActions;
 
-    public float UpY = 0f;      // 摄像机最上方位置
-    public float DownY = -30f;  // 摄像机最下方位置
-    public float scrollStep = 5f; // 每次滚轮移动的单位
-    public float duration = 0.3f; // 平滑时间
+    public float UpY = 0f; 
+    public float DownY = -30f;  
+    public float scrollStep = 5f; 
+    public float duration = 0.3f; 
 
     private float targetY;
     private Vector3 startPos;
@@ -20,7 +20,6 @@ public class ScrollController : MonoBehaviour
 
     private void Awake()
     {
-        // 获取 Dialogue ActionMap 下的 ScrollWheel Action
         scrollAction = inputActions.FindActionMap("Dialogue").FindAction("Scroll");
         scrollAction.performed += ctx => OnScroll(ctx);
     }
@@ -39,12 +38,10 @@ public class ScrollController : MonoBehaviour
     {
         float scrollValue = context.ReadValue<float>();
 
-        // 向上滚轮
         if (scrollValue > 0f)
         {
             StartMove(Mathf.Clamp(targetY + scrollStep, DownY, UpY));
         }
-        // 向下滚轮
         else if (scrollValue < 0f)
         {
             StartMove(Mathf.Clamp(targetY - scrollStep, DownY, UpY));

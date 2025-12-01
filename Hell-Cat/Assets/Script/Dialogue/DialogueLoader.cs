@@ -34,6 +34,9 @@ public class DialogueLine
     public string option5;
     public int option5NextId;
 
+    public int heavenID;
+    public int notApproveId;
+
 
 }
 
@@ -72,6 +75,9 @@ public class DialogueLoader : MonoBehaviour
             line.option4NextId = ParseIntOrDefault(values[14]);
             line.option5 = ParseStringOrDefault(values[15]);
             line.option5NextId = ParseIntOrDefault(values[16]);
+
+            line.heavenID = ParseIntOrDefault(values[17]);
+            line.notApproveId = ParseIntOrDefault(values[18]);
 
             dialogueDict.Add(line.textId, line);
         }

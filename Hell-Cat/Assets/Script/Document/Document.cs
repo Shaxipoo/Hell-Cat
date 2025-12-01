@@ -77,8 +77,8 @@ public class Document : MonoBehaviour
         SetText(ItemReason, ds.ItemReason);
 
         SetImage(otherItemImage, ds.OtherItem);
-
     }
+
     private void SetText(TextMeshProUGUI tmp, string value)
     {
         if (tmp != null) tmp.text = value;
