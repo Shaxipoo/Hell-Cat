@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d20afd5427342f4adcc9c26f2ee437, type: 3}
+  m_Name: Cpt_Idol
+  m_EditorClassIdentifier: Assembly-CSharp::CatChapter
+  Id: 1
+  CatName: Idol Cat
+  chatText: {fileID: 4900000, guid: 5df2bf7698920c54c8132d91776bd306, type: 3}
+  heavenText: {fileID: 4900000, guid: c90e44ec452c14bf5ac8614e1a21f603, type: 3}
+  heavenMusic: {fileID: 8300000, guid: 6b1061dd3cd584b7ab66a5c9d43ffc32, type: 3}
+  currentChapter: 0
+  documentSetList:
+  - {fileID: 11400000, guid: eb34dc15c41d84b5e914f83a7a273b68, type: 2}
+  isHeaven: 0

@@ -1,0 +1,15 @@
+ChapterId,textId,characterName,characterImage,text,nextId,specialActionId,option1,option1NextId,option2,option2NextId,option3,option3NextId,option4,option4NextId,option5,option5NextId,HeavenId,NotApprovedId
+1,1,,,在申请所的门外，出现了一个打扮花哨华丽的人物。她透过玻璃望向里面，又几次抬头，似乎在确认门口的标识。,2,,,,,,,,,,,,,
+1,2,,,你的目光不由得被那个踌躇不决的身影吸引住，在思考要不要干脆出门迎上去时，门铃终于被按响了。,3,,,,,,,,,,,,,
+1,3,,,随着你按下开门的开关，从门口传来了轻快的声音。,4,,,,,,,,,,,,,
+1,4,???,IdolCat/Idol_Happy,你好！这里就是，申请所喵？,5,,,,,,,,,,,,,
+1,5,Player,IdolCat/Idol_Happy,是的，这里就是。,6,,,,,,,,,,,,,
+1,6,,IdolCat/Idol_Normal,随着她走到窗口前，先是一阵馥郁的花香飘了过来，你耸了耸鼻头。这香水味对于猫来说实在是过量了。,7,,,,,,,,,,,,,
+1,7,,IdolCat/Idol_Normal,这是我的档案,8,3,,,,,,,,,,,8,10
+1,8,cat,IdolCat/Idol_Happy,谢谢你啦哈哈哈！,9,,,,,,,,,,,,,
+1,9,cat,IdolCat/Idol_Happy,再见！,10,2,,,,,,,,,,,,
+1,10,cat,IdolCat/Idol_Normal,你很像我的朋友。,11,,,,,,,,,,,,,
+1,11,cat,IdolCat/Idol_Normal,你的名字叫查理吗？,12,1,对，我就是查理。,12,那是谁？,13,,,,,,,,
+1,12,cat,IdolCat/Idol_Normal,哈哈！拿命来！,14,,,,,,,,,,,,,
+1,13,cat,IdolCat/Idol_Normal,你的答案救了你一命！,14,,,,,,,,,,,,,
+1,14,cat,IdolCat/Idol_Normal,再见！,15,2,,,,,,,,,,,,

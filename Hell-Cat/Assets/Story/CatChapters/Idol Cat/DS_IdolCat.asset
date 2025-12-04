@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81827c937143c7342a91d5f668657a4f, type: 3}
+  m_Name: DS_IdolCat
+  m_EditorClassIdentifier: Assembly-CSharp::DocumentSet
+  DocumentId: 1
+  documentList: 000000000100000002000000
+  documentInteractions:
+  - docType: 0
+    interactType: 5
+    bubbleText: name?
+    answer: []
+  keepList: 
+  Name: Idole
+  Age: 2
+  Breed: Angola
+  ApplicationNo: 231241234
+  Gender: F
+  CauseOfDeath: Happy
+  Job: Singer
+  ApplicationReason: I wanna go to heaven
+  CardId: 4123412
+  Weight: 32
+  GeneralAppearance: beautiful
+  Imaging: good
+  MedicalHistory: have super beautiful eyes, I love this cat. Hahahahahhahahahhahahahha
+  CriminalItem1: 
+  CriminalItem1Extent: 
+  CriminalItem2: 
+  CriminalItem2Extent: 
+  OwnerName: 
+  OwnerJob: 
+  Background: 
+  ItemName: 
+  ItemReason: 
+  OtherItem: {fileID: 0}

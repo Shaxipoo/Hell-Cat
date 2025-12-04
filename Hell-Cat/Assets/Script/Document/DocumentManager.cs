@@ -6,127 +6,191 @@ using UnityEngine;
 
 public class DocumentManager : MonoBehaviour
 {
-    [Header("Require Info Text")]
-    [SerializeField] public TextMeshProUGUI Name;
-    [SerializeField] public TextMeshProUGUI Age;
-    [SerializeField] public TextMeshProUGUI Breed;
-    [SerializeField] public TextMeshProUGUI CauseOfDeath;
-    [SerializeField] public TextMeshProUGUI CriminalRecord;
-    [SerializeField] public TextMeshProUGUI CriminalDegree;
-    [SerializeField] public TextMeshProUGUI Contraband;
-
-
-    [Header("Document Set List")]
-    [SerializeField] private List<DocumentSet> documentSets;
+    public static DocumentManager instance;
 
     [Header("Document Set Generate")]
     [SerializeField] private Transform documentTrans;
     [SerializeField] private Transform documentParent;
     [SerializeField] private int offsetValue = 20;
 
-    [Header("Submit Check List")]
-    [SerializeField] private List<TextMeshProUGUI> requiredInfoList;
-    [SerializeField] private GameObject moreInfoTips;
+    [Header("All Document Prefabs")]
+    [SerializeField] private GameObject Prefab_ApplicationForm;
+    [SerializeField] private GameObject Prefab_CatID;
+    [SerializeField] private GameObject Prefab_BodyCheck;
+    [SerializeField] private GameObject Prefab_CriminalRecord;
+    [SerializeField] private GameObject Prefab_OwnerCard;
+    [SerializeField] private GameObject Prefab_ItemApplication;
+    [SerializeField] private GameObject Prefab_OtherDocument;
 
+
+    [HideInInspector]
+    public List<GameObject> docsOnTable;
+    [HideInInspector]
+    public DocumentSet currentDocumentSet;
+
+
+    [Header("Interrogates")]
+    // Interrogate Items in store
+    [HideInInspector] public List<DocumentInteraction> storedInterrogateList;
+    [SerializeField] private List<GameObject> interrogateBubbles;
 
     public bool IfSkipDoc = false;
 
-    public void OnEnable()
+    // Cursors
+    public Texture2D cursorNormal;
+    public Texture2D cursorPen;
+
+    private void Awake()
     {
-        Name.text = "";
-        Age.text = "";
-        Breed.text = "";
-        CauseOfDeath.text = "";
-        CriminalRecord.text = "";
-        CriminalDegree.text = "";
-        Contraband.text = "";
+        instance = this;
+        HideInterrogateBubbles();
     }
-    //Load document data
-    public void SetDocuments(int setId)
+
+    public void AddDocumentSets(DocumentSet docSets)
     {
-        moreInfoTips.SetActive(false);
-        ClearDocuments();
-        // Show new Doc
-        for (int i = 0; i < documentSets[setId].DocumentList.Count; i++)
+        currentDocumentSet = docSets;
+
+        for (int i = 0; i < docSets.documentList.Count; i++)
         {
             int offsetX = 0 + i * offsetValue;
             int offsetY = 0 + i * offsetValue;
             Vector3 offset = new Vector3(offsetX, offsetY, 0);
             Vector3 newPos = documentTrans.position + offset;
 
-            GameObject ng = Instantiate(documentSets[setId].DocumentList[i], documentParent);
-            ng.transform.position = newPos;
+            AddDocument(docSets.documentList[i],newPos,docSets);
         }
     }
 
-    public void ClearDocuments()
+    public void AddDocument(DocumentType dt, Vector3 pos, DocumentSet ds = null)
+    {
+        GameObject ng = null;
+        switch (dt)
+        {
+            case DocumentType.ApplicationForm:
+                ng = Instantiate(Prefab_ApplicationForm, documentParent);
+                break;
+
+            case DocumentType.CatIdCard:
+                ng = Instantiate(Prefab_CatID, documentParent);
+                break;
+
+            case DocumentType.BodyCheck:
+                ng = Instantiate(Prefab_BodyCheck, documentParent);
+                break;
+
+            case DocumentType.CriminalRecord:
+                ng = Instantiate(Prefab_CriminalRecord, documentParent);
+                break;
+
+            case DocumentType.OwnerCard:
+                ng = Instantiate(Prefab_OwnerCard, documentParent);
+                break;
+
+            case DocumentType.ItemApplicationForm:
+                ng = Instantiate(Prefab_ItemApplication, documentParent);
+                break;
+
+            case DocumentType.Other:
+                ng = Instantiate(Prefab_OtherDocument, documentParent);
+                break;
+        }
+        ng.transform.position = pos;
+
+        FillDocumentInfo(ng,ds);
+
+        docsOnTable.Add(ng);
+    }
+
+    public void FillDocumentInfo(GameObject go,DocumentSet ds)
+    {
+        go.GetComponent<Document>().Fill(ds);
+    }
+
+    public void ClearDocument()
+    {
+
+    }
+    public void ClearAllDocuments()
     {
         foreach (Transform child in documentParent)
         {
             GameObject.Destroy(child.gameObject);
         }
+        docsOnTable.Clear();
+        storedInterrogateList.Clear();
     }
-    public void InputInfo(InfoType it, string s)
-    {
-        switch (it)
-        {
-            case InfoType.Name:
-                Name.text = s;
-                break;
-            case InfoType.Age:
-                Age.text = s;
-                break;
-            case InfoType.Breed:
-                Breed.text = s;
-                break;
-            case InfoType.CauseOfDeath:
-                CauseOfDeath.text = s;
-                break;
-            case InfoType.CriminalRecord:
-                CriminalRecord.text = s;
-                break;
-            case InfoType.CriminalDegree:
-                CriminalDegree.text = s;
-                break;
-            case InfoType.Contraband:
-                Contraband.text = s;
-                break;
 
+
+    public bool isPen;
+
+
+    public void OnClickPencilCase()
+    {
+        if(isPen){DropPen();}
+        else{PickupPen();}
+    }
+
+    public void PickupPen()
+    {
+        Debug.Log("Picked up pen");
+        isPen = true;
+        DisableDocDrag();
+    }
+
+    public void DropPen()
+    {
+        Debug.Log("Dropped pen");
+        isPen = false;
+        EnableDocDrag();
+    }
+
+    public void EnableDocDrag()
+    {
+        foreach(GameObject g in docsOnTable)
+        {
+            g.GetComponent<DocumentUIHandler>().enabled = true;
         }
     }
 
-
-    public bool CheckAllItems(int documentSetId)
+    public void DisableDocDrag()
     {
-        if (IfSkipDoc)
+        foreach (GameObject g in docsOnTable)
         {
-            return true;
+            g.GetComponent<DocumentUIHandler>().enabled = false;
         }
-        foreach (InfoType i in documentSets[documentSetId].requiredInfo)
-            {
-                foreach (TextMeshProUGUI tmp in requiredInfoList)
-                {
-                    if (tmp.gameObject.name == i.ToString())
-                    {
-                        if (string.IsNullOrEmpty(tmp.text))
-                        {    
-                            StartCoroutine(ShowMoreInfoTips(2f));
-                            return false;
-                        }
-                    }
-                }
-
-            }
-
-        return true;
     }
 
-    IEnumerator ShowMoreInfoTips(float t)
+    public void AddInterrogateItem(DocumentInteraction di)
     {
-        moreInfoTips.SetActive(true);
-        yield return new WaitForSeconds(t);
-        moreInfoTips.SetActive(false);
+        storedInterrogateList.Add(di);
+    }
+
+
+    private bool isInterrogating = false;
+    public void OnClickInterrogate()
+    {
+        if (isInterrogating) HideInterrogateBubbles();
+        else ShowInterrogateBubbles();
+    }
+
+    public void ShowInterrogateBubbles()
+    {
+        for(int i = 0;i < storedInterrogateList.Count; i++)
+        {
+            interrogateBubbles[i].SetActive(true);
+            interrogateBubbles[i].GetComponentInChildren<TextMeshProUGUI>().text = storedInterrogateList[i].bubbleText;
+        }
 
     }
+
+    public void HideInterrogateBubbles()
+    {
+        foreach(GameObject g in interrogateBubbles)
+        {
+            g.SetActive(false);
+        }
+        
+    }
+
 
 }

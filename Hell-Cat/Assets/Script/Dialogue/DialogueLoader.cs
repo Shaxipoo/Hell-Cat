@@ -18,9 +18,6 @@ public class DialogueLine
     public int nextId;
 
     public int specialActionId; //1=Option 2=End Story 3=Show Doc
-    public int documentSetId;
-
-    public int fileId;
 
     public string option1;
     public int option1NextId;
@@ -37,9 +34,9 @@ public class DialogueLine
     public string option5;
     public int option5NextId;
 
-    public int unlockFileId;
-    public int unlockType;
-    public string unlockContent;
+    public int heavenID;
+    public int notApproveId;
+
 
 }
 
@@ -68,23 +65,19 @@ public class DialogueLoader : MonoBehaviour
             line.nextId = ParseIntOrDefault(values[5]);
             line.specialActionId = ParseIntOrDefault(values[6]);
 
-            line.fileId = ParseIntOrDefault(values[7]);
-            line.documentSetId = ParseIntOrDefault(values[8]);
+            line.option1 = ParseStringOrDefault(values[7]);
+            line.option1NextId = ParseIntOrDefault(values[8]);
+            line.option2 = ParseStringOrDefault(values[9]);
+            line.option2NextId = ParseIntOrDefault(values[10]);
+            line.option3 = ParseStringOrDefault(values[11]);
+            line.option3NextId = ParseIntOrDefault(values[12]);
+            line.option4 = ParseStringOrDefault(values[13]);
+            line.option4NextId = ParseIntOrDefault(values[14]);
+            line.option5 = ParseStringOrDefault(values[15]);
+            line.option5NextId = ParseIntOrDefault(values[16]);
 
-            line.option1 = ParseStringOrDefault(values[9]);
-            line.option1NextId = ParseIntOrDefault(values[10]);
-            line.option2 = ParseStringOrDefault(values[11]);
-            line.option2NextId = ParseIntOrDefault(values[12]);
-            line.option3 = ParseStringOrDefault(values[13]);
-            line.option3NextId = ParseIntOrDefault(values[14]);
-            line.option4 = ParseStringOrDefault(values[15]);
-            line.option4NextId = ParseIntOrDefault(values[16]);
-            line.option5 = ParseStringOrDefault(values[17]);
-            line.option5NextId = ParseIntOrDefault(values[18]);
-
-            line.unlockFileId = ParseIntOrDefault(values[19]);
-            line.unlockType = ParseIntOrDefault(values[20]);
-            line.unlockContent = ParseStringOrDefault(values[21]);
+            line.heavenID = ParseIntOrDefault(values[17]);
+            line.notApproveId = ParseIntOrDefault(values[18]);
 
             dialogueDict.Add(line.textId, line);
         }

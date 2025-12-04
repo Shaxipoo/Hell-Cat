@@ -12,7 +12,6 @@ public class DialogueManager : MonoBehaviour
 
     private int currentTextId;
 
-    [SerializeField] private InputSystem_Actions inputSystem_Actions;
     public DialogueLoader dialogueLoader;
     public GameManager gameManager;
 
@@ -38,9 +37,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject documentCheckScreen;
     [SerializeField] private DocumentManager documentManager;
 
+    private bool isFastSkipEnable = true;
 
-    [Header("UI: Unlock")]
-    [SerializeField] private GameObject unlockTitle;
+    private bool isInDoc = false;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,9 +51,6 @@ public class DialogueManager : MonoBehaviour
         storyTransitionScreen.SetActive(false);
         documentCheckScreen.SetActive(false);
         archiveScreen.SetActive(false);
-        unlockTitle.SetActive(false);
-
-        Debug.Log("Chapter: " + i);
         
         foreach(var v in dialogueLoader.dialogueDict)
         {
@@ -63,17 +60,18 @@ public class DialogueManager : MonoBehaviour
                 UpdateDialogue();
                 break;
             }
-        }
-
-        
+        }    
     }
 
     public void OnClick()
     {
+        if(isInDoc)
+        {
+            return;
+        }
         // is all text
         if (typewriterEffect.IsAllText())
         {
-
             switch (dialogueLoader.dialogueDict[currentTextId].specialActionId)
             {
                 // Options
@@ -87,8 +85,11 @@ public class DialogueManager : MonoBehaviour
                 // Show Document
                 case 3:
                     documentCheckScreen.SetActive(true);
-                    documentManager.SetDocuments(dialogueLoader.dialogueDict[currentTextId].documentSetId);
+                    documentManager.AddDocumentSets(gameManager.GetCurrentDocumentSet());
+
                     textClickPad.gameObject.SetActive(false);
+                    isFastSkipEnable = false;
+                    isInDoc = true;
                     break;
                 // No Events
                 default:
@@ -266,82 +267,13 @@ public class DialogueManager : MonoBehaviour
         storyTransitionScreen.SetActive(true);
     }
 
-    public void OnClickArhive()
-    {
-        archiveScreen.SetActive(true);
-
-        PrintFileList();
-    }
-
-    public void OnQuitArchive()
-    {
-        archiveScreen.SetActive(false);
-    }
-
-    // Test
-    private void PrintFileList()
-    {
-        if (PlayerData.fileList == null || PlayerData.fileList.Count == 0)
-        {
-            Debug.Log("fileList is null");
-            return;
-        }
-
-        foreach (var kvp in PlayerData.fileList)
-        {
-            int id = kvp.Key;
-            FileInfo file = kvp.Value;
-
-            //Debug.Log($"FileId: {id}, Name: {file.Name}, Age: {file.Age}, Breed: {file.Breed}, CauseOfDeath: {file.CauseOfDeath}, CriminalRecord: {file.CriminalRecord}, CriminalDegree: {file.CriminalDegree}, Contraband: {file.Contraband}");
-        }
-    }
-
-    public void OnClickSubmitFile()
-    {
-       
-
-        if (documentManager.CheckAllItems(dialogueLoader.dialogueDict[currentTextId].documentSetId))
-        {
-            textClickPad.gameObject.SetActive(true);
-            documentManager.ClearDocuments();
-            documentCheckScreen.SetActive(false);
-
-            // Save in archive
-            SubmitFile(dialogueLoader.dialogueDict[currentTextId].fileId);
-
-
-            currentTextId = dialogueLoader.dialogueDict[currentTextId].nextId;
-            UpdateDialogue();
-        }
-    }
-
-    private void SubmitFile(int fileId)
-    {
-        FileInfo fi;
-
-        if (PlayerData.fileList.ContainsKey(fileId))
-        {
-            fi = PlayerData.fileList[fileId];
-        }
-        else
-        {
-            fi = new FileInfo();
-            fi.FileId = fileId;
-            PlayerData.fileList[fileId] = fi; 
-        }
-
-        fi.Name = documentManager.Name.text;
-        fi.Age = documentManager.Age.text;
-        fi.Breed = documentManager.Breed.text;
-        fi.CauseOfDeath = documentManager.CauseOfDeath.text;
-        fi.CriminalRecord = documentManager.CriminalRecord.text;
-        fi.CriminalDegree = documentManager.CriminalDegree.text;
-        fi.Contraband = documentManager.Contraband.text;
-    }
-
     public void FastSkip()
     {
-        OnClick(); 
-        typewriterEffect.ShowAllText();
+        if(isFastSkipEnable)
+        {
+            OnClick();
+            typewriterEffect.ShowAllText();
+        }
+        
     }
 }

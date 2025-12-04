@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14d20afd5427342f4adcc9c26f2ee437, type: 3}
+  m_Script: {fileID: 11500000, guid: 81827c937143c7342a91d5f668657a4f, type: 3}
   m_Name: PunkCat
-  m_EditorClassIdentifier: Assembly-CSharp::CatChapter
-  Id: 3
-  CatName: Punk Cat
-  chatText: {fileID: 4900000, guid: b702c35b1414b1542972a5a2a3781b77, type: 3}
-  teaText: {fileID: 4900000, guid: 9e599742b2197437c908e9ada6d8a1ad, type: 3}
-  heavenText: {fileID: 4900000, guid: dfca50f79e7e34c71aaad3a324138271, type: 3}
-  heavenMusic: {fileID: 8300000, guid: e27f1848eb79d426cae0610f9ea55e85, type: 3}
-  currentChapter: 2
-  isHeaven: 0
+  m_EditorClassIdentifier: Assembly-CSharp::DocumentSet
+  DocumentList:
+  - {fileID: 4797469268964784847, guid: 623afe6e407885342b6ab266afb45224, type: 3}
+  - {fileID: 2101003455080489923, guid: f0e740a219a1f4c179cfb0840ba8be68, type: 3}
+  - {fileID: 4797469268964784847, guid: e715879d8c03b47e3aecf91f8c38c304, type: 3}
+  requiredInfo: 000000000100000002000000040000000500000006000000
