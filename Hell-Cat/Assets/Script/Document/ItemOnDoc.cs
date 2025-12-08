@@ -30,7 +30,8 @@ public class ItemOnDoc : MonoBehaviour
                     ShowHightlight();
 
                     DocumentManager.instance.AddInterrogateItem(di);
-                    Debug.Log("New Interrogate:" + di.bubbleText);
+                    GetComponent<Button>().enabled = false;
+
                 }
             }
         }

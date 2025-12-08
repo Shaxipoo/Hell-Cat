@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -33,6 +34,7 @@ public class DocumentManager : MonoBehaviour
     // Interrogate Items in store
     [HideInInspector] public List<DocumentInteraction> storedInterrogateList;
     [SerializeField] private List<GameObject> interrogateBubbles;
+    [SerializeField] private GameObject chatBubble;
 
     public bool IfSkipDoc = false;
 
@@ -44,6 +46,7 @@ public class DocumentManager : MonoBehaviour
     {
         instance = this;
         HideInterrogateBubbles();
+        HideChatBubble();
     }
 
     public void AddDocumentSets(DocumentSet docSets)
@@ -173,9 +176,11 @@ public class DocumentManager : MonoBehaviour
         else ShowInterrogateBubbles();
     }
 
+
     public void ShowInterrogateBubbles()
     {
-        for(int i = 0;i < storedInterrogateList.Count; i++)
+        isInterrogating = true;
+        for (int i = 0;i < storedInterrogateList.Count; i++)
         {
             interrogateBubbles[i].SetActive(true);
             interrogateBubbles[i].GetComponentInChildren<TextMeshProUGUI>().text = storedInterrogateList[i].bubbleText;
@@ -185,12 +190,57 @@ public class DocumentManager : MonoBehaviour
 
     public void HideInterrogateBubbles()
     {
-        foreach(GameObject g in interrogateBubbles)
+        isInterrogating = false;
+        foreach (GameObject g in interrogateBubbles)
         {
             g.SetActive(false);
         }
         
     }
+
+    private int currentChatAnswerIndex = 0;
+
+    private int currentChatBubbleIndex = 0;
+
+
+    public void LoadNextChat()
+    {     
+        // If reach the end
+        if(currentChatAnswerIndex >= currentDocumentSet.documentInteractions[currentChatBubbleIndex].answer.Count)
+        {
+            Debug.Log("Bug haha");
+            HideChatBubble();
+            return;
+        }
+        // Set to next chat
+        chatBubble.GetComponentInChildren<TextMeshProUGUI>().text = currentDocumentSet.documentInteractions[currentChatBubbleIndex].answer[currentChatAnswerIndex];
+
+        currentChatAnswerIndex++;
+    }
+
+    public void ShowChatBubble()
+    {
+        Debug.Log("ShowChatBubble");
+        chatBubble.SetActive(true);
+        HideInterrogateBubbles();
+    }
+
+    public void HideChatBubble()
+    {
+        chatBubble.SetActive(false);
+        ShowInterrogateBubbles();
+        currentChatAnswerIndex = 0;
+    }
+
+    public void SetChatBubble(int bubbleIndex)
+    {
+        Debug.Log("Clicked bubble");
+        ShowChatBubble();
+        currentChatBubbleIndex = bubbleIndex;
+        LoadNextChat();
+    }
+
+
 
 
 }

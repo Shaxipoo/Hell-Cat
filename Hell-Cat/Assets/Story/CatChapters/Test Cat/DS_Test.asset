@@ -18,19 +18,30 @@ MonoBehaviour:
   - docType: 0
     interactType: 0
     bubbleText: Whats ur af
-    answer: []
+    answer:
+    - what is card?
+    - I dont know, sorry
   - docType: 0
     interactType: 4
     bubbleText: reason?
-    answer: []
+    answer:
+    - It's a personal reason
+    - Dont ask
+    - Thank you
   - docType: 2
     interactType: 5
     bubbleText: apperaance?
-    answer: []
+    answer:
+    - I think I look ok
   - docType: 3
     interactType: 8
     bubbleText: catnip?
-    answer: []
+    answer:
+    - I cannot like catnip?
+    - I cannot like catnip?
+    - I cannot like catnip?
+    - I cannot like catnip?
+    - Looser
   keepList: 
   Name: JOJO
   Age: 12
