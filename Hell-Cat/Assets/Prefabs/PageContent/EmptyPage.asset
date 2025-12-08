@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa40846a8a052024698ff8cc73ca7508, type: 3}
+  m_Name: EmptyPage
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialPageAsset
+  pagePrefab: {fileID: 9161451510446228272, guid: 1ecd1e58194350f4a85cf0ace8e6d139, type: 3}
+  images: []
+  texts: []
