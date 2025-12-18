@@ -36,11 +36,7 @@ public class DocumentManager : MonoBehaviour
     [SerializeField] private List<GameObject> interrogateBubbles;
     [SerializeField] private GameObject chatBubble;
 
-    public bool IfSkipDoc = false;
 
-    // Cursors
-    public Texture2D cursorNormal;
-    public Texture2D cursorPen;
 
     private void Awake()
     {
@@ -123,6 +119,11 @@ public class DocumentManager : MonoBehaviour
         storedInterrogateList.Clear();
     }
 
+
+    /*
+     * Highlight Items on Doc Related
+     */
+
     public bool isPen;
     public void OnClickPencilCase()
     {
@@ -160,6 +161,9 @@ public class DocumentManager : MonoBehaviour
         }
     }
 
+    /*
+     * Interrogate Related
+     */
     public void AddInterrogateItem(DocumentInteraction di)
     {
         storedInterrogateList.Add(di);
@@ -171,7 +175,6 @@ public class DocumentManager : MonoBehaviour
         if (isInterrogating) HideInterrogateBubbles();
         else ShowInterrogateBubbles();
     }
-
     public void ShowInterrogateBubbles()
     {
         isInterrogating = true;
@@ -182,7 +185,6 @@ public class DocumentManager : MonoBehaviour
         }
 
     }
-
     public void HideInterrogateBubbles()
     {
         isInterrogating = false;
@@ -194,9 +196,7 @@ public class DocumentManager : MonoBehaviour
     }
 
     private int currentChatAnswerIndex = 0;
-
     private int currentChatBubbleIndex = 0;
-
     public void LoadNextChat()
     {     
         // If reach the end
@@ -211,21 +211,18 @@ public class DocumentManager : MonoBehaviour
 
         currentChatAnswerIndex++;
     }
-
     public void ShowChatBubble()
     {
         Debug.Log("ShowChatBubble");
         chatBubble.SetActive(true);
         HideInterrogateBubbles();
     }
-
     public void HideChatBubble()
     {
         chatBubble.SetActive(false);
         ShowInterrogateBubbles();
         currentChatAnswerIndex = 0;
     }
-
     public void SetChatBubble(int bubbleIndex)
     {
         Debug.Log("Clicked bubble");
@@ -274,7 +271,18 @@ public class DocumentManager : MonoBehaviour
     {
         if(isHoldPaper)
         {
-            
+            // if send the cat to heaven
+            if(isGreenPaper)
+            {
+                ClearAllDocuments();
+                GameManager.Instance.GetCurrentCatChapter().isHeaven = true;
+            }
+
+            // if send the cat to heaven
+            else
+            {
+
+            }
         }
     }
 

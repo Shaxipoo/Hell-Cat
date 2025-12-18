@@ -4,11 +4,11 @@ using NUnit.Framework;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Chat Phase")]
+    public static GameManager Instance { get; private set; }
 
     [Header("Story Process")]
     public List<DaySchedule> dayList;
@@ -16,11 +16,20 @@ public class GameManager : MonoBehaviour
     private int currentDay;
     private int currentProcess;
 
-
     [Header("UI Gears")]
     [SerializeField, HideInInspector] public DialogueManager dialogueManager;
 
     [SerializeField, HideInInspector] private GameObject EndScreen;
+
+    [Header("UI: Story Ending")]
+    [SerializeField, HideInInspector] public GameObject storyTransitionScreen;
+
+    [Header("UI: Document Check")]
+    [SerializeField, HideInInspector] private GameObject documentCheckScreen;
+
+    [Header("UI: Dialogue")]
+    [SerializeField, HideInInspector] private GameObject dialogueScreen;
+
 
     [Header("Backgrounds")]
     [SerializeField, HideInInspector] private GameObject chatBackground;
@@ -30,6 +39,21 @@ public class GameManager : MonoBehaviour
     [SerializeField, HideInInspector] private MusicManager musicManager;
 
     private int currentainCatChat = 0;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
     public void OnEnable()
     {
         currentDay = 0;
@@ -66,20 +90,18 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        ShowChatBackground();
-
-        if (!dayList[currentDay].chapterList[currentProcess].isHeaven)
+        if (!GetCurrentCatChapter().isHeaven)
         {
             // Load Story
-            dialogueManager.dialogueLoader.LoadCSV(dayList[currentDay].chapterList[currentProcess].chatText);
+            dialogueManager.dialogueLoader.LoadCSV(GetCurrentCatChapter().chatText);
 
             foreach (var v in dialogueManager.dialogueLoader.dialogueDict)
             {
-                dayList[currentDay].chapterList[currentProcess].currentChapter += 1;
-                if (v.Value.chapterId == dayList[currentDay].chapterList[currentProcess].currentChapter)
+                GetCurrentCatChapter().currentChapter += 1;
+                if (v.Value.chapterId == GetCurrentCatChapter().currentChapter)
                 {
                     // Start Chapter
-                    dialogueManager.StartDialogue(dayList[currentDay].chapterList[currentProcess].currentChapter);                 
+                    dialogueManager.StartDialogue(GetCurrentCatChapter().currentChapter);                 
                     break;
                 }
                 NextProcess();
@@ -98,24 +120,44 @@ public class GameManager : MonoBehaviour
         ShowDayProcess();
         
         
-        return dayList[currentDay].chapterList[currentProcess].documentSetList[dayList[currentDay].chapterList[currentProcess].currentChapter-1];
+        return GetCurrentCatChapter().documentSetList[dayList[currentDay].chapterList[currentProcess].currentChapter-1];
     }
 
-    public void ShowChatBackground()
+    public CatChapter GetCurrentCatChapter()
     {
-        chatBackground.SetActive(true);
-        heavenBackground.SetActive(false);
+        return dayList[currentDay].chapterList[currentProcess];
     }
 
-    public void ShowHeavenBackground()
+    public void ShowDocumentScreen()
     {
-        chatBackground.SetActive(false);
-        heavenBackground.SetActive(true);
+        documentCheckScreen.SetActive(true);
     }
 
+    public void HideDocumentScreen()
+    {
+        documentCheckScreen.SetActive(false);
+    }
+
+
+    public void ShowDialogueScreen()
+    {
+        dialogueScreen.SetActive(true);
+    }
+    public void HideDialogueScreen()
+    {
+        dialogueScreen.SetActive(false);
+    }
+
+    public void EnableDialogueClick()
+    {
+        dialogueScreen.GetComponent<Button>().interactable = true;
+    }
+    public void DisableDialogueClick()
+    {
+        dialogueScreen.GetComponent<Button>().interactable = false;
+    }
 
     //Debug
-
     private void ShowDayProcess()
     {
         Debug.Log("Day:" + currentDay + "   Process" + currentProcess);

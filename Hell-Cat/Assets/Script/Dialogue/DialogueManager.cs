@@ -13,7 +13,6 @@ public class DialogueManager : MonoBehaviour
     private int currentTextId;
 
     public DialogueLoader dialogueLoader;
-    public GameManager gameManager;
 
     [Header("UI: Dialogue")]
     [SerializeField] private TextMeshProUGUI speakerNameTMPro;
@@ -21,18 +20,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image speakerImage;
     [SerializeField] private TypewriterEffect typewriterEffect;
 
-    [SerializeField] private Button textClickPad;
+    //[SerializeField] private Button textClickPad;
 
     [Header("UI: Options")]
     [SerializeField] private GameObject optionPanel;
     [SerializeField] private List<GameObject> optionButtonList;
 
-    [Header("UI: Story Ending")]
-    [SerializeField] private GameObject storyTransitionScreen;
-
-    [Header("UI: Document Check")]
-    [SerializeField] private GameObject documentCheckScreen;
-    [SerializeField] private DocumentManager documentManager;
 
     private bool isFastSkipEnable = true;
 
@@ -45,8 +38,8 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(int i)
     {
         optionPanel.SetActive(false);
-        storyTransitionScreen.SetActive(false);
-        documentCheckScreen.SetActive(false);
+        GameManager.Instance.storyTransitionScreen.SetActive(false);
+        GameManager.Instance.HideDocumentScreen();
         
         foreach(var v in dialogueLoader.dialogueDict)
         {
@@ -80,12 +73,7 @@ public class DialogueManager : MonoBehaviour
                     break;
                 // Show Document
                 case 3:
-                    documentCheckScreen.SetActive(true);
-                    documentManager.AddDocumentSets(gameManager.GetCurrentDocumentSet());
-
-                    textClickPad.gameObject.SetActive(false);
-                    isFastSkipEnable = false;
-                    isInDoc = true;
+                    SwitchToDocumentCheck();
                     break;
                 // No Events
                 default:
@@ -98,7 +86,16 @@ public class DialogueManager : MonoBehaviour
         {
             typewriterEffect.ShowAllText();
         }
+    }
 
+    private void SwitchToDocumentCheck()
+    {
+        GameManager.Instance.ShowDocumentScreen();
+        DocumentManager.instance.AddDocumentSets(GameManager.Instance.GetCurrentDocumentSet());
+
+        GameManager.Instance.HideDialogueScreen();
+        isFastSkipEnable = false;
+        isInDoc = true;
     }
 
     public void UpdateDialogue()
@@ -148,6 +145,15 @@ public class DialogueManager : MonoBehaviour
         typewriterEffect.StartTypeWriter(dialogueLoader.dialogueDict[currentTextId].text);
     }
 
+    public void EndStory()
+    {
+        GameManager.Instance.storyTransitionScreen.SetActive(true);
+    }
+
+
+    /* 
+     * Independent Performance
+     */
     public void ChangeSpeakerImage(string imageAddress)
     {
         Sprite newSprite = Resources.Load<Sprite>("Characters/" + imageAddress);
@@ -183,7 +189,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowOption()
     {
-        textClickPad.interactable = false;
+        GameManager.Instance.DisableDialogueClick();
 
         foreach (GameObject button in optionButtonList)
         {
@@ -237,7 +243,8 @@ public class DialogueManager : MonoBehaviour
 
     public void ClickOption(int no)
     {
-        textClickPad.interactable = true;
+        GameManager.Instance.EnableDialogueClick();
+
         optionPanel.SetActive(false);
 
         switch (no)
@@ -255,11 +262,6 @@ public class DialogueManager : MonoBehaviour
                 UpdateDialogue();
                 break;
         }
-    }
-
-    public void EndStory()
-    {
-        storyTransitionScreen.SetActive(true);
     }
 
     public void FastSkip()
