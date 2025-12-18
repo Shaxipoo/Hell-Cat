@@ -123,10 +123,7 @@ public class DocumentManager : MonoBehaviour
         storedInterrogateList.Clear();
     }
 
-
     public bool isPen;
-
-
     public void OnClickPencilCase()
     {
         if(isPen){DropPen();}
@@ -135,14 +132,14 @@ public class DocumentManager : MonoBehaviour
 
     public void PickupPen()
     {
-        Debug.Log("Picked up pen");
+        CursorManager.Instance.ChangeCursorToHighlight();
         isPen = true;
-        DisableDocDrag();
+        DisableDocDrag();  
     }
 
     public void DropPen()
     {
-        Debug.Log("Dropped pen");
+        CursorManager.Instance.ChangeCursorToNormal();
         isPen = false;
         EnableDocDrag();
     }
@@ -168,14 +165,12 @@ public class DocumentManager : MonoBehaviour
         storedInterrogateList.Add(di);
     }
 
-
     private bool isInterrogating = false;
     public void OnClickInterrogate()
     {
         if (isInterrogating) HideInterrogateBubbles();
         else ShowInterrogateBubbles();
     }
-
 
     public void ShowInterrogateBubbles()
     {
@@ -201,7 +196,6 @@ public class DocumentManager : MonoBehaviour
     private int currentChatAnswerIndex = 0;
 
     private int currentChatBubbleIndex = 0;
-
 
     public void LoadNextChat()
     {     
@@ -238,6 +232,50 @@ public class DocumentManager : MonoBehaviour
         ShowChatBubble();
         currentChatBubbleIndex = bubbleIndex;
         LoadNextChat();
+    }
+
+
+    /*
+     * Application Result Paper
+     */
+    private bool isHoldPaper;
+    private bool isGreenPaper;
+    public void ClickOnWhitePaper()
+    {
+        if(isHoldPaper)
+        {
+            isHoldPaper = false;
+            CursorManager.Instance.ChangeCursorToNormal();
+        }
+        else
+        {
+            isHoldPaper = true;
+            isGreenPaper = false;
+            CursorManager.Instance.ChangeCursorToWhite();
+        }          
+    }
+
+    public void ClickOnGreenPaper()
+    {
+        if (isHoldPaper)
+        {
+            isHoldPaper = false;
+            CursorManager.Instance.ChangeCursorToNormal();
+        }
+        else
+        {
+            isHoldPaper = true;
+            isGreenPaper = true;
+            CursorManager.Instance.ChangeCursorToGreen();
+        }
+    }
+
+    public void GiveResultToCharacter()
+    {
+        if(isHoldPaper)
+        {
+            
+        }
     }
 
 

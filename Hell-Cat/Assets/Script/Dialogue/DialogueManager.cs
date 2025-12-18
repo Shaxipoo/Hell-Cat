@@ -30,9 +30,6 @@ public class DialogueManager : MonoBehaviour
     [Header("UI: Story Ending")]
     [SerializeField] private GameObject storyTransitionScreen;
 
-    [Header("UI: Archive")]
-    [SerializeField] private GameObject archiveScreen;
-
     [Header("UI: Document Check")]
     [SerializeField] private GameObject documentCheckScreen;
     [SerializeField] private DocumentManager documentManager;
@@ -50,7 +47,6 @@ public class DialogueManager : MonoBehaviour
         optionPanel.SetActive(false);
         storyTransitionScreen.SetActive(false);
         documentCheckScreen.SetActive(false);
-        archiveScreen.SetActive(false);
         
         foreach(var v in dialogueLoader.dialogueDict)
         {
@@ -101,7 +97,6 @@ public class DialogueManager : MonoBehaviour
         else
         {
             typewriterEffect.ShowAllText();
-
         }
 
     }

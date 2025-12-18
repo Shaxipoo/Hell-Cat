@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour
 
         ShowChatBackground();
 
-
         if (!dayList[currentDay].chapterList[currentProcess].isHeaven)
         {
             // Load Story
@@ -80,19 +79,15 @@ public class GameManager : MonoBehaviour
                 if (v.Value.chapterId == dayList[currentDay].chapterList[currentProcess].currentChapter)
                 {
                     // Start Chapter
-                    dialogueManager.StartDialogue(dayList[currentDay].chapterList[currentProcess].currentChapter);
-
-                    
+                    dialogueManager.StartDialogue(dayList[currentDay].chapterList[currentProcess].currentChapter);                 
                     break;
                 }
                 NextProcess();
                 return;
-            }
-      
+            }   
         }
         else
         {
-            Debug.Log("Cat already in heaven");
             NextProcess();
             return;
         }   
@@ -117,8 +112,6 @@ public class GameManager : MonoBehaviour
         chatBackground.SetActive(false);
         heavenBackground.SetActive(true);
     }
-
-
 
 
     //Debug
