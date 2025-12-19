@@ -731,7 +731,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3153112600867426499}
         m_TargetAssemblyTypeName: DocumentManager, Assembly-CSharp
-        m_MethodName: ClickOnWhitePaper
+        m_MethodName: ClickOnGreenPaper
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -36,11 +36,13 @@ public class DocumentManager : MonoBehaviour
     [SerializeField] private List<GameObject> interrogateBubbles;
     [SerializeField] private GameObject chatBubble;
 
-
-
     private void Awake()
     {
         instance = this;
+
+        docsOnTable = new List<GameObject>();
+        storedInterrogateList = new List<DocumentInteraction>();
+
         HideInterrogateBubbles();
         HideChatBubble();
     }
@@ -119,11 +121,10 @@ public class DocumentManager : MonoBehaviour
         storedInterrogateList.Clear();
     }
 
-
     /*
      * Highlight Items on Doc Related
      */
-
+    [HideInInspector]
     public bool isPen;
     public void OnClickPencilCase()
     {
@@ -271,18 +272,20 @@ public class DocumentManager : MonoBehaviour
     {
         if(isHoldPaper)
         {
+            CursorManager.Instance.ChangeCursorToNormal();
+            ClearAllDocuments();
             // if send the cat to heaven
-            if(isGreenPaper)
-            {
-                ClearAllDocuments();
+            if (isGreenPaper)
+            {    
                 GameManager.Instance.GetCurrentCatChapter().isHeaven = true;
+                GameManager.Instance.SwitchBackToDialogueWithAnswer(true);
             }
 
             // if send the cat to heaven
             else
             {
-
-            }
+                GameManager.Instance.SwitchBackToDialogueWithAnswer(false);
+            }           
         }
     }
 

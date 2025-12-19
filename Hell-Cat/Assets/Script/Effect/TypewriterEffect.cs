@@ -11,7 +11,7 @@ public class TypewriterEffect : MonoBehaviour
     private Coroutine typingCoroutine;
     private bool isTyping = false;
 
-    private void Awake()
+    private void Start()
     {
         textComponent = GetComponent<TextMeshProUGUI>();
     }

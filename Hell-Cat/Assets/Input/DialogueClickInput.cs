@@ -4,7 +4,6 @@ using UnityEngine.InputSystem.Interactions;
 
 public class DialogueClickInput : MonoBehaviour
 {
-private GameManager gameManager;
     private InputSystem_Actions inputActions;
     private bool isHoldingSkip = false;
     private float holdTime = 0f;
@@ -16,7 +15,6 @@ private GameManager gameManager;
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
-        gameManager = GetComponent<GameManager>();
     }
 
     private void OnEnable()
@@ -43,7 +41,7 @@ private GameManager gameManager;
     {
         if (!isHoldingSkip)
         {
-            gameManager.dialogueManager.OnClick();
+            GameManager.Instance.dialogueManager.OnClick();
         }
 
         isHoldingSkip = false;
@@ -67,7 +65,7 @@ private GameManager gameManager;
             skipTimer += Time.deltaTime;
             if (skipTimer >= skipInterval)
             {
-                gameManager.dialogueManager.FastSkip();
+                GameManager.Instance.dialogueManager.FastSkip();
                 skipTimer = 0f;
             }
         }

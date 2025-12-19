@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
 
     private int currentainCatChat = 0;
 
+    [HideInInspector]
+    public bool isFastSkipEnable = true;
+    [HideInInspector]
+    public bool isInDoc = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -54,15 +59,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnEnable()
+    void Start()
     {
         currentDay = 0;
         currentProcess = 0;
-
         RunProcess();
-
-        // Set Initial UI
-
         EndScreen.SetActive(false);
     }
 
@@ -113,6 +114,28 @@ public class GameManager : MonoBehaviour
             NextProcess();
             return;
         }   
+    }
+
+
+    public void SwitchBackToDialogueWithAnswer(bool isHeaven)
+    {
+        HideDocumentScreen();
+
+        ShowDialogueScreen();
+        isFastSkipEnable = true;
+        isInDoc = false;
+
+        dialogueManager.SwitchToHeavenOrNot(isHeaven);
+    }
+
+    public void SwitchToDocumentCheck()
+    {
+        ShowDocumentScreen();
+        DocumentManager.instance.AddDocumentSets(GetCurrentDocumentSet());
+
+        HideDialogueScreen();
+        isFastSkipEnable = false;
+        isInDoc = true;
     }
 
     public DocumentSet GetCurrentDocumentSet()

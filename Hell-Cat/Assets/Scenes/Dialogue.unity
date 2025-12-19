@@ -5131,6 +5131,8 @@ MonoBehaviour:
   chatBackground: {fileID: 973958047701459231}
   heavenBackground: {fileID: 2086009566438649922}
   musicManager: {fileID: 7689681601291175672}
+  isFastSkipEnable: 1
+  isInDoc: 0
 --- !u!222 &6490869740716581321
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -12,25 +12,20 @@ public class DialogueManager : MonoBehaviour
 
     private int currentTextId;
 
+    [HideInInspector]
     public DialogueLoader dialogueLoader;
 
     [Header("UI: Dialogue")]
-    [SerializeField] private TextMeshProUGUI speakerNameTMPro;
-    [SerializeField] private TextMeshProUGUI speakerTextTMPro;
-    [SerializeField] private Image speakerImage;
-    [SerializeField] private TypewriterEffect typewriterEffect;
+    [HideInInspector, SerializeField] private TextMeshProUGUI speakerNameTMPro;
+    [HideInInspector, SerializeField] private TextMeshProUGUI speakerTextTMPro;
+    [HideInInspector, SerializeField] private Image speakerImage;
+    [HideInInspector, SerializeField] private TypewriterEffect typewriterEffect;
 
     //[SerializeField] private Button textClickPad;
 
     [Header("UI: Options")]
-    [SerializeField] private GameObject optionPanel;
-    [SerializeField] private List<GameObject> optionButtonList;
-
-
-    private bool isFastSkipEnable = true;
-
-    private bool isInDoc = false;
-
+    [HideInInspector, SerializeField] private GameObject optionPanel;
+    [HideInInspector, SerializeField] private List<GameObject> optionButtonList;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,7 +49,7 @@ public class DialogueManager : MonoBehaviour
 
     public void OnClick()
     {
-        if(isInDoc)
+        if(GameManager.Instance.isInDoc)
         {
             return;
         }
@@ -73,7 +68,7 @@ public class DialogueManager : MonoBehaviour
                     break;
                 // Show Document
                 case 3:
-                    SwitchToDocumentCheck();
+                    GameManager.Instance.SwitchToDocumentCheck();
                     break;
                 // No Events
                 default:
@@ -88,14 +83,20 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void SwitchToDocumentCheck()
-    {
-        GameManager.Instance.ShowDocumentScreen();
-        DocumentManager.instance.AddDocumentSets(GameManager.Instance.GetCurrentDocumentSet());
 
-        GameManager.Instance.HideDialogueScreen();
-        isFastSkipEnable = false;
-        isInDoc = true;
+    public void SwitchToHeavenOrNot(bool isHeaven)
+    {
+        if (isHeaven)
+        {
+            currentTextId = dialogueLoader.dialogueDict[currentTextId].heavenID;
+            Debug.Log("Switch to heaven text");
+        }
+        else
+        {
+            currentTextId = dialogueLoader.dialogueDict[currentTextId].notApproveId;
+            Debug.Log("Switch to not approved text");
+        }
+        OnClick();
     }
 
     public void UpdateDialogue()
@@ -266,7 +267,7 @@ public class DialogueManager : MonoBehaviour
 
     public void FastSkip()
     {
-        if(isFastSkipEnable)
+        if(GameManager.Instance.isFastSkipEnable)
         {
             OnClick();
             typewriterEffect.ShowAllText();

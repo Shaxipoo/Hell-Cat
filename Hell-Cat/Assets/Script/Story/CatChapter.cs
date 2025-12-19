@@ -10,7 +10,6 @@ public class CatChapter : ScriptableObject
 
     public TextAsset chatText;
 
-    public TextAsset heavenText;
 
     public AudioClip heavenMusic;
 
