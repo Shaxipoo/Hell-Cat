@@ -35,6 +35,7 @@ public class DocumentManager : MonoBehaviour
     [HideInInspector] public List<DocumentInteraction> storedInterrogateList;
     [SerializeField] private List<GameObject> interrogateBubbles;
     [SerializeField] private GameObject chatBubble;
+    [SerializeField] private TypewriterEffect typewriterEffect;
 
     private void Awake()
     {
@@ -200,21 +201,26 @@ public class DocumentManager : MonoBehaviour
     private int currentChatBubbleIndex = 0;
     public void LoadNextChat()
     {     
-        // If reach the end
-        if(currentChatAnswerIndex >= currentDocumentSet.documentInteractions[currentChatBubbleIndex].answer.Count)
+        if(typewriterEffect.IsAllText())
         {
-            Debug.Log("Bug haha");
-            HideChatBubble();
-            return;
-        }
-        // Set to next chat
-        chatBubble.GetComponentInChildren<TextMeshProUGUI>().text = currentDocumentSet.documentInteractions[currentChatBubbleIndex].answer[currentChatAnswerIndex];
+            // If reach the end
+            if (currentChatAnswerIndex >= currentDocumentSet.documentInteractions[currentChatBubbleIndex].answer.Count)
+            {
+                HideChatBubble();
+                return;
+            }
+            // Set to next chat
+            typewriterEffect.StartTypeWriter(currentDocumentSet.documentInteractions[currentChatBubbleIndex].answer[currentChatAnswerIndex]);
 
-        currentChatAnswerIndex++;
+            currentChatAnswerIndex++;
+        }
+        else
+        {
+            typewriterEffect.ShowAllText();
+        }
     }
     public void ShowChatBubble()
     {
-        Debug.Log("ShowChatBubble");
         chatBubble.SetActive(true);
         HideInterrogateBubbles();
     }
@@ -226,12 +232,16 @@ public class DocumentManager : MonoBehaviour
     }
     public void SetChatBubble(int bubbleIndex)
     {
-        Debug.Log("Clicked bubble");
         ShowChatBubble();
         currentChatBubbleIndex = bubbleIndex;
         LoadNextChat();
     }
 
+    public void FastSkip()
+    {
+        
+        LoadNextChat();
+    }
 
     /*
      * Application Result Paper

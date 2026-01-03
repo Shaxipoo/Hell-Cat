@@ -17,26 +17,26 @@ public class GameManager : MonoBehaviour
     private int currentProcess;
 
     [Header("UI Gears")]
-    [SerializeField, HideInInspector] public DialogueManager dialogueManager;
+    [SerializeField] public DialogueManager dialogueManager;
 
-    [SerializeField, HideInInspector] private GameObject EndScreen;
+    [SerializeField] private GameObject EndScreen;
 
     [Header("UI: Story Ending")]
-    [SerializeField, HideInInspector] public GameObject storyTransitionScreen;
+    [SerializeField] public GameObject storyTransitionScreen;
 
     [Header("UI: Document Check")]
-    [SerializeField, HideInInspector] private GameObject documentCheckScreen;
+    [SerializeField] private GameObject documentCheckScreen;
 
     [Header("UI: Dialogue")]
-    [SerializeField, HideInInspector] private GameObject dialogueScreen;
+    [SerializeField] private GameObject dialogueScreen;
 
 
     [Header("Backgrounds")]
-    [SerializeField, HideInInspector] private GameObject chatBackground;
-    [SerializeField, HideInInspector] private GameObject heavenBackground;
+    [SerializeField] private GameObject chatBackground;
+    [SerializeField] private GameObject heavenBackground;
 
     [Header("Audio")]
-    [SerializeField, HideInInspector] private MusicManager musicManager;
+    [SerializeField] private MusicManager musicManager;
 
     private int currentainCatChat = 0;
 
@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
         currentProcess += 1;
         RunProcess();
     }
-
     public void EndDay()
     {
         // Reset Everything
@@ -81,7 +80,6 @@ public class GameManager : MonoBehaviour
 
         EndScreen.SetActive(true);
     }
-
     public void RunProcess()
     {
         // If run out of story, DAY ENDS
@@ -115,8 +113,6 @@ public class GameManager : MonoBehaviour
             return;
         }   
     }
-
-
     public void SwitchBackToDialogueWithAnswer(bool isHeaven)
     {
         HideDocumentScreen();
@@ -127,7 +123,6 @@ public class GameManager : MonoBehaviour
 
         dialogueManager.SwitchToHeavenOrNot(isHeaven);
     }
-
     public void SwitchToDocumentCheck()
     {
         ShowDocumentScreen();
@@ -145,23 +140,18 @@ public class GameManager : MonoBehaviour
         
         return GetCurrentCatChapter().documentSetList[dayList[currentDay].chapterList[currentProcess].currentChapter-1];
     }
-
     public CatChapter GetCurrentCatChapter()
     {
         return dayList[currentDay].chapterList[currentProcess];
     }
-
     public void ShowDocumentScreen()
     {
         documentCheckScreen.SetActive(true);
     }
-
     public void HideDocumentScreen()
     {
         documentCheckScreen.SetActive(false);
     }
-
-
     public void ShowDialogueScreen()
     {
         dialogueScreen.SetActive(true);
@@ -170,7 +160,6 @@ public class GameManager : MonoBehaviour
     {
         dialogueScreen.SetActive(false);
     }
-
     public void EnableDialogueClick()
     {
         dialogueScreen.GetComponent<Button>().interactable = true;
@@ -179,7 +168,6 @@ public class GameManager : MonoBehaviour
     {
         dialogueScreen.GetComponent<Button>().interactable = false;
     }
-
     //Debug
     private void ShowDayProcess()
     {

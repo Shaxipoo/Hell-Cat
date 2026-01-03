@@ -5,13 +5,13 @@ using UnityEngine;
 public class TypewriterEffect : MonoBehaviour
 {
     private TextMeshProUGUI textComponent;
-    private string fullText;
+    private string fullText = "";
     public float delay = 0.05f;
 
     private Coroutine typingCoroutine;
     private bool isTyping = false;
 
-    private void Start()
+    private void Awake()
     {
         textComponent = GetComponent<TextMeshProUGUI>();
     }

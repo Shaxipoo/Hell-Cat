@@ -16,16 +16,16 @@ public class DialogueManager : MonoBehaviour
     public DialogueLoader dialogueLoader;
 
     [Header("UI: Dialogue")]
-    [HideInInspector, SerializeField] private TextMeshProUGUI speakerNameTMPro;
-    [HideInInspector, SerializeField] private TextMeshProUGUI speakerTextTMPro;
-    [HideInInspector, SerializeField] private Image speakerImage;
-    [HideInInspector, SerializeField] private TypewriterEffect typewriterEffect;
+    [SerializeField] private TextMeshProUGUI speakerNameTMPro;
+    [SerializeField] private TextMeshProUGUI speakerTextTMPro;
+    [SerializeField] private Image speakerImage;
+    [SerializeField] private TypewriterEffect typewriterEffect;
 
     //[SerializeField] private Button textClickPad;
 
     [Header("UI: Options")]
-    [HideInInspector, SerializeField] private GameObject optionPanel;
-    [HideInInspector, SerializeField] private List<GameObject> optionButtonList;
+    [SerializeField] private GameObject optionPanel;
+    [SerializeField] private List<GameObject> optionButtonList;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

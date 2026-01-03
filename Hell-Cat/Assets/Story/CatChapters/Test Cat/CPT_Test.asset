@@ -16,7 +16,7 @@ MonoBehaviour:
   CatName: TestCat
   chatText: {fileID: 4900000, guid: 5599ae201951a0f41a08f1a00bb34af6, type: 3}
   heavenMusic: {fileID: 8300000, guid: 6b1061dd3cd584b7ab66a5c9d43ffc32, type: 3}
-  currentChapter: 1
+  currentChapter: 0
   documentSetList:
   - {fileID: 11400000, guid: dc33d826685404c479faf340d22b144e, type: 2}
   isHeaven: 0
