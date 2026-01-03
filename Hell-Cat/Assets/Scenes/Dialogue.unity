@@ -192,6 +192,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e7e66c16f13b6419dbb35e921ffa0b, type: 3}
+--- !u!114 &583146947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 666007753946511980, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
+  m_PrefabInstance: {fileID: 6419396457341511472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 654e82a1f09dab942bd50a3e58c194d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TypewriterEffect
 --- !u!1 &629207870
 GameObject:
   m_ObjectHideFlags: 0
@@ -5001,6 +5012,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6659267268673318921}
     m_Modifications:
+    - target: {fileID: 132736918448691413, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FastSkip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153112600867426499, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
+      propertyPath: typewriterEffect
+      value: 
+      objectReference: {fileID: 583146947}
     - target: {fileID: 6120524742086820122, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
