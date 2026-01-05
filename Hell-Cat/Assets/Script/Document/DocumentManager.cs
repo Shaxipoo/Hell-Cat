@@ -39,7 +39,15 @@ public class DocumentManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         docsOnTable = new List<GameObject>();
         storedInterrogateList = new List<DocumentInteraction>();
@@ -54,53 +62,43 @@ public class DocumentManager : MonoBehaviour
 
         for (int i = 0; i < docSets.documentList.Count; i++)
         {
-            int offsetX = 0 + i * offsetValue;
-            int offsetY = 0 + i * offsetValue;
-            Vector3 offset = new Vector3(offsetX, offsetY, 0);
+            Vector3 offset = new Vector3(i * offsetValue, i * offsetValue, 0);
             Vector3 newPos = documentTrans.position + offset;
-
-            AddDocument(docSets.documentList[i],newPos,docSets);
+            AddDocument(docSets.documentList[i], newPos, docSets);
         }
     }
 
     public void AddDocument(DocumentType dt, Vector3 pos, DocumentSet ds = null)
     {
-        GameObject ng = null;
+        GameObject prefab = GetPrefabForType(dt);
+        if (prefab == null)
+        {
+            Debug.LogWarning($"DocumentManager: No prefab for DocumentType {dt}");
+            return;
+        }
+
+        GameObject ng = Instantiate(prefab, documentParent);
+        if (ng != null)
+        {
+            ng.transform.position = pos;
+            FillDocumentInfo(ng, ds);
+            docsOnTable.Add(ng);
+        }
+    }
+
+    private GameObject GetPrefabForType(DocumentType dt)
+    {
         switch (dt)
         {
-            case DocumentType.ApplicationForm:
-                ng = Instantiate(Prefab_ApplicationForm, documentParent);
-                break;
-
-            case DocumentType.CatIdCard:
-                ng = Instantiate(Prefab_CatID, documentParent);
-                break;
-
-            case DocumentType.BodyCheck:
-                ng = Instantiate(Prefab_BodyCheck, documentParent);
-                break;
-
-            case DocumentType.CriminalRecord:
-                ng = Instantiate(Prefab_CriminalRecord, documentParent);
-                break;
-
-            case DocumentType.OwnerCard:
-                ng = Instantiate(Prefab_OwnerCard, documentParent);
-                break;
-
-            case DocumentType.ItemApplicationForm:
-                ng = Instantiate(Prefab_ItemApplication, documentParent);
-                break;
-
-            case DocumentType.Other:
-                ng = Instantiate(Prefab_OtherDocument, documentParent);
-                break;
+            case DocumentType.ApplicationForm: return Prefab_ApplicationForm;
+            case DocumentType.CatIdCard: return Prefab_CatID;
+            case DocumentType.BodyCheck: return Prefab_BodyCheck;
+            case DocumentType.CriminalRecord: return Prefab_CriminalRecord;
+            case DocumentType.OwnerCard: return Prefab_OwnerCard;
+            case DocumentType.ItemApplicationForm: return Prefab_ItemApplication;
+            case DocumentType.Other: return Prefab_OtherDocument;
+            default: return null;
         }
-        ng.transform.position = pos;
-
-        FillDocumentInfo(ng,ds);
-
-        docsOnTable.Add(ng);
     }
 
     public void FillDocumentInfo(GameObject go,DocumentSet ds)
@@ -108,9 +106,57 @@ public class DocumentManager : MonoBehaviour
         go.GetComponent<Document>().Fill(ds);
     }
 
-    public void ClearDocument()
+    public void ClearDocuments()
     {
+        // Destroy all documents except those whose DocumentType is listed in currentDocumentSet.keepList
+        var keepList = currentDocumentSet != null ? currentDocumentSet.keepList : null;
+        HashSet<DocumentType> keepSet = null;
+        if (keepList != null) keepSet = new HashSet<DocumentType>(keepList);
 
+        List<GameObject> toDestroy = new List<GameObject>();
+
+        foreach (Transform child in documentParent)
+        {
+            var go = child.gameObject;
+
+            // Try to infer DocumentType by comparing with known prefabs' names
+            bool matched = false;
+            DocumentType matchedType = default;
+
+            if (Prefab_ApplicationForm != null && go.name.StartsWith(Prefab_ApplicationForm.name)) { matched = true; matchedType = DocumentType.ApplicationForm; }
+            else if (Prefab_CatID != null && go.name.StartsWith(Prefab_CatID.name)) { matched = true; matchedType = DocumentType.CatIdCard; }
+            else if (Prefab_BodyCheck != null && go.name.StartsWith(Prefab_BodyCheck.name)) { matched = true; matchedType = DocumentType.BodyCheck; }
+            else if (Prefab_CriminalRecord != null && go.name.StartsWith(Prefab_CriminalRecord.name)) { matched = true; matchedType = DocumentType.CriminalRecord; }
+            else if (Prefab_OwnerCard != null && go.name.StartsWith(Prefab_OwnerCard.name)) { matched = true; matchedType = DocumentType.OwnerCard; }
+            else if (Prefab_ItemApplication != null && go.name.StartsWith(Prefab_ItemApplication.name)) { matched = true; matchedType = DocumentType.ItemApplicationForm; }
+            else if (Prefab_OtherDocument != null && go.name.StartsWith(Prefab_OtherDocument.name)) { matched = true; matchedType = DocumentType.Other; }
+
+            // If we couldn't match a type, assume it should be destroyed (not preserved)
+            bool keep = false;
+            if (keepSet != null && matched)
+            {
+                keep = keepSet.Contains(matchedType);
+            }
+
+            if (!keep)
+            {
+                toDestroy.Add(go);
+            }
+        }
+
+        foreach (var go in toDestroy)
+        {
+            GameObject.Destroy(go);
+        }
+
+        // Rebuild docsOnTable from remaining children
+        docsOnTable.Clear();
+        foreach (Transform child in documentParent)
+        {
+            docsOnTable.Add(child.gameObject);
+        }
+
+        storedInterrogateList.Clear();
     }
     public void ClearAllDocuments()
     {
@@ -149,9 +195,10 @@ public class DocumentManager : MonoBehaviour
 
     public void EnableDocDrag()
     {
-        foreach(GameObject g in docsOnTable)
+        foreach (GameObject g in docsOnTable)
         {
-            g.GetComponent<DocumentUIHandler>().enabled = true;
+            var handler = g.GetComponent<DocumentUIHandler>();
+            if (handler != null) handler.enabled = true;
         }
     }
 
@@ -159,7 +206,8 @@ public class DocumentManager : MonoBehaviour
     {
         foreach (GameObject g in docsOnTable)
         {
-            g.GetComponent<DocumentUIHandler>().enabled = false;
+            var handler = g.GetComponent<DocumentUIHandler>();
+            if (handler != null) handler.enabled = false;
         }
     }
 
@@ -180,10 +228,12 @@ public class DocumentManager : MonoBehaviour
     public void ShowInterrogateBubbles()
     {
         isInterrogating = true;
-        for (int i = 0;i < storedInterrogateList.Count; i++)
+        int count = Math.Min(storedInterrogateList.Count, interrogateBubbles.Count);
+        for (int i = 0; i < count; i++)
         {
             interrogateBubbles[i].SetActive(true);
-            interrogateBubbles[i].GetComponentInChildren<TextMeshProUGUI>().text = storedInterrogateList[i].bubbleText;
+            var text = interrogateBubbles[i].GetComponentInChildren<TextMeshProUGUI>();
+            if (text != null) text.text = storedInterrogateList[i].bubbleText;
         }
 
     }
@@ -201,23 +251,30 @@ public class DocumentManager : MonoBehaviour
     private int currentChatBubbleIndex = 0;
     public void LoadNextChat()
     {     
-        if(typewriterEffect.IsAllText())
-        {
-            // If reach the end
-            if (currentChatAnswerIndex >= currentDocumentSet.documentInteractions[currentChatBubbleIndex].answer.Count)
-            {
-                HideChatBubble();
-                return;
-            }
-            // Set to next chat
-            typewriterEffect.StartTypeWriter(currentDocumentSet.documentInteractions[currentChatBubbleIndex].answer[currentChatAnswerIndex]);
+        if (typewriterEffect == null) return;
 
-            currentChatAnswerIndex++;
-        }
-        else
+        if (!typewriterEffect.IsAllText())
         {
             typewriterEffect.ShowAllText();
+            return;
         }
+
+        if (currentDocumentSet == null || currentDocumentSet.documentInteractions == null) return;
+        if (currentChatBubbleIndex < 0 || currentChatBubbleIndex >= currentDocumentSet.documentInteractions.Count) return;
+
+        var interaction = currentDocumentSet.documentInteractions[currentChatBubbleIndex];
+        if (interaction == null || interaction.answer == null) { HideChatBubble(); return; }
+
+        // If reach the end
+        if (currentChatAnswerIndex >= interaction.answer.Count)
+        {
+            HideChatBubble();
+            return;
+        }
+
+        // Set to next chat
+        typewriterEffect.StartTypeWriter(interaction.answer[currentChatAnswerIndex]);
+        currentChatAnswerIndex++;
     }
     public void ShowChatBubble()
     {
@@ -283,7 +340,7 @@ public class DocumentManager : MonoBehaviour
         if(isHoldPaper)
         {
             CursorManager.Instance.ChangeCursorToNormal();
-            ClearAllDocuments();
+            ClearDocuments();
             // if send the cat to heaven
             if (isGreenPaper)
             {    

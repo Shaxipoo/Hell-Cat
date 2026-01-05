@@ -1,9 +1,5 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using NUnit.Framework;
 using System.Collections;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -124,8 +120,6 @@ public class GameManager : MonoBehaviour
 
         dialogueManager.SwitchToHeavenOrNot(isHeaven);
 
-        // Prevent the click that closed the document from being received
-        // by the dialogue click handler in the same frame.
         StartCoroutine(EnableDialogueClickNextFrame());
     }
 

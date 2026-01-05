@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    private const string NO_VALUE = "-1";
+
     [Header("Set Up")]
     [SerializeField] private int startTextId = 1;
 
@@ -103,48 +105,46 @@ public class DialogueManager : MonoBehaviour
     public void UpdateDialogue()
     {
 
-        speakerNameTMPro.text = dialogueLoader.dialogueDict[currentTextId].characterName;
-        UnDarken(speakerImage);
-
-        // if no image, no speaker, hide image
-        // if have image, no speaker, darkern
-        // if have image, have speaker, 
-
-        if (dialogueLoader.dialogueDict[currentTextId].characterImage == "-1")
-        {
-            speakerImage.gameObject.SetActive(false);
-            if (dialogueLoader.dialogueDict[currentTextId].characterName == "-1")
-            {
-                speakerNameTMPro.text = "";
-            }
-        }
-        //have image
-        else
-        {
-            if (dialogueLoader.dialogueDict[currentTextId].characterName == "-1")
-            {
-                speakerNameTMPro.text = "";
-                speakerImage.gameObject.SetActive(true);
-                ChangeSpeakerImage(dialogueLoader.dialogueDict[currentTextId].characterImage);
-                Darken(speakerImage);
-            }
-            //有名字，有立绘
-            else
-            {
-                speakerImage.gameObject.SetActive(true);
-                ChangeSpeakerImage(dialogueLoader.dialogueDict[currentTextId].characterImage);
-            }
-        }
-
+        ApplySpeakerVisuals();
 
         if (dialogueLoader.dialogueDict[currentTextId].characterName == "Player")
         {
             speakerNameTMPro.text = PlayerData.playername;
             Darken(speakerImage);
-            //Debug.Log("playername == " + PlayerData.playername);
         }
 
         typewriterEffect.StartTypeWriter(dialogueLoader.dialogueDict[currentTextId].text);
+    }
+
+    private bool HasValue(string s)
+    {
+        return !string.IsNullOrEmpty(s) && s != NO_VALUE;
+    }
+
+    private void ApplySpeakerVisuals()
+    {
+        var line = dialogueLoader.dialogueDict[currentTextId];
+
+        // default: reset name then image state
+        speakerNameTMPro.text = line.characterName == NO_VALUE ? "" : line.characterName;
+        UnDarken(speakerImage);
+
+        if (!HasValue(line.characterImage))
+        {
+            speakerImage.gameObject.SetActive(false);
+            if (!HasValue(line.characterName)) speakerNameTMPro.text = "";
+            return;
+        }
+
+        // have image
+        speakerImage.gameObject.SetActive(true);
+        ChangeSpeakerImage(line.characterImage);
+
+        if (!HasValue(line.characterName))
+        {
+            speakerNameTMPro.text = "";
+            Darken(speakerImage);
+        }
     }
 
     public void EndStory()
@@ -193,53 +193,22 @@ public class DialogueManager : MonoBehaviour
     {
         GameManager.Instance.DisableDialogueClick();
 
-        foreach (GameObject button in optionButtonList)
-        {
-            button.SetActive(false);
-        }
+        foreach (GameObject button in optionButtonList) button.SetActive(false);
 
-        List<string> optionStringList = new List<string>();
-        optionStringList.Add(dialogueLoader.dialogueDict[currentTextId].option1);
-        optionStringList.Add(dialogueLoader.dialogueDict[currentTextId].option2);
-        optionStringList.Add(dialogueLoader.dialogueDict[currentTextId].option3);
+        var line = dialogueLoader.dialogueDict[currentTextId];
+        List<string> options = new List<string>();
+        if (HasValue(line.option1)) options.Add(line.option1);
+        if (HasValue(line.option2)) options.Add(line.option2);
+        if (HasValue(line.option3)) options.Add(line.option3);
+        if (HasValue(line.option4)) options.Add(line.option4);
+        if (HasValue(line.option5)) options.Add(line.option5);
 
         optionPanel.SetActive(true);
-        if (dialogueLoader.dialogueDict[currentTextId].option5 != "-1")
+        int showCount = Mathf.Min(options.Count, optionButtonList.Count);
+        for (int i = 0; i < showCount; i++)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                optionButtonList[i].SetActive(true);
-                optionButtonList[i].GetComponentInChildren<TextMeshProUGUI>().text = optionStringList[i];
-            }
-        }
-        else if (dialogueLoader.dialogueDict[currentTextId].option4 != "-1")
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                optionButtonList[i].SetActive(true);
-                optionButtonList[i].GetComponentInChildren<TextMeshProUGUI>().text = optionStringList[i];
-            }
-        }
-        else if (dialogueLoader.dialogueDict[currentTextId].option3 != "-1")
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                optionButtonList[i].SetActive(true);
-                optionButtonList[i].GetComponentInChildren<TextMeshProUGUI>().text = optionStringList[i];
-            }
-        }
-        else if (dialogueLoader.dialogueDict[currentTextId].option2 != "-1")
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                optionButtonList[i].SetActive(true);
-                optionButtonList[i].GetComponentInChildren<TextMeshProUGUI>().text = optionStringList[i];
-            }
-        }
-        else
-        {
-            optionButtonList[0].SetActive(true);
-            optionButtonList[0].GetComponentInChildren<TextMeshProUGUI>().text = optionStringList[0];
+            optionButtonList[i].SetActive(true);
+            optionButtonList[i].GetComponentInChildren<TextMeshProUGUI>().text = options[i];
         }
     }
 
