@@ -10,21 +10,9 @@ public class CatChapter : ScriptableObject
 
     public TextAsset chatText;
 
-
     public AudioClip heavenMusic;
 
-    public int currentChapter = 0;
-
     public List<DocumentSet> documentSetList;
-
-    public bool isHeaven = false;
-
-    public void OnEnable()
-    {
-
-        currentChapter = 0;
-    }
-
 }
 
 

@@ -86,29 +86,41 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if (!GetCurrentCatChapter().isHeaven)
+        var currentCat = GetCurrentCatChapter();
+        int catId = currentCat.Id;
+
+        if (!PlayerData.GetIsHeaven(catId))
         {
             // Load Story
-            dialogueManager.dialogueLoader.LoadCSV(GetCurrentCatChapter().chatText);
+            dialogueManager.dialogueLoader.LoadCSV(currentCat.chatText);
 
-            foreach (var v in dialogueManager.dialogueLoader.dialogueDict)
+            int newChapter = PlayerData.GetCurrentChapter(catId) + 1;
+            PlayerData.SetCurrentChapter(catId, newChapter);
+
+            bool found = false;
+            foreach (var kv in dialogueManager.dialogueLoader.dialogueDict)
             {
-                GetCurrentCatChapter().currentChapter += 1;
-                if (v.Value.chapterId == GetCurrentCatChapter().currentChapter)
+                if (kv.Value.chapterId == newChapter)
                 {
                     // Start Chapter
-                    dialogueManager.StartDialogue(GetCurrentCatChapter().currentChapter);                 
+                    dialogueManager.StartDialogue(newChapter);
+                    found = true;
                     break;
                 }
+            }
+
+            if (!found)
+            {
+                // No dialogue for this chapter in current cat, advance process
                 NextProcess();
                 return;
-            }   
+            }
         }
         else
         {
             NextProcess();
             return;
-        }   
+        }
     }
     public void SwitchBackToDialogueWithAnswer(bool isHeaven)
     {
@@ -142,9 +154,12 @@ public class GameManager : MonoBehaviour
     public DocumentSet GetCurrentDocumentSet()
     {
         ShowDayProcess();
-        
-        
-        return GetCurrentCatChapter().documentSetList[dayList[currentDay].chapterList[currentProcess].currentChapter-1];
+        var currentCat = GetCurrentCatChapter();
+        int catId = currentCat.Id;
+        int curChapter = PlayerData.GetCurrentChapter(catId);
+
+        int idx = Mathf.Clamp(curChapter - 1, 0, currentCat.documentSetList.Count - 1);
+        return currentCat.documentSetList[idx];
     }
     public CatChapter GetCurrentCatChapter()
     {
@@ -178,7 +193,8 @@ public class GameManager : MonoBehaviour
     private void ShowDayProcess()
     {
         Debug.Log("Day:" + currentDay + "   Process" + currentProcess);
-        Debug.Log("Current Chapter:" + dayList[currentDay].chapterList[currentProcess].currentChapter);
+        var currentCat = GetCurrentCatChapter();
+        Debug.Log("Current Chapter:" + PlayerData.GetCurrentChapter(currentCat.Id));
     }
 
 }

@@ -305,6 +305,8 @@ public class DocumentManager : MonoBehaviour
      */
     private bool isHoldPaper;
     private bool isGreenPaper;
+
+    // Decline
     public void ClickOnWhitePaper()
     {
         if(isHoldPaper)
@@ -320,6 +322,7 @@ public class DocumentManager : MonoBehaviour
         }          
     }
 
+    // Accept
     public void ClickOnGreenPaper()
     {
         if (isHoldPaper)
@@ -344,7 +347,11 @@ public class DocumentManager : MonoBehaviour
             // if send the cat to heaven
             if (isGreenPaper)
             {    
-                GameManager.Instance.GetCurrentCatChapter().isHeaven = true;
+                var currentCat = GameManager.Instance.GetCurrentCatChapter();
+                if (currentCat != null)
+                {
+                    PlayerData.SetIsHeaven(currentCat.Id, true);
+                }
                 GameManager.Instance.SwitchBackToDialogueWithAnswer(true);
             }
 

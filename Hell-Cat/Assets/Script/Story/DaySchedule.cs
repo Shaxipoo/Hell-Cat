@@ -8,6 +8,8 @@ public class DaySchedule
     public int dayId;
     //Mails (Documents)
 
+    public List<Mail> mails;
+
     //Case List
     public List<CatChapter> chapterList;
     

@@ -192,17 +192,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e7e66c16f13b6419dbb35e921ffa0b, type: 3}
---- !u!114 &583146947 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 666007753946511980, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-  m_PrefabInstance: {fileID: 6419396457341511472}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 654e82a1f09dab942bd50a3e58c194d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TypewriterEffect
 --- !u!1 &629207870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,6 +1176,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!224 &1001558070585648682 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6120524742086820122, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
+  m_PrefabInstance: {fileID: 6419396457341511472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1033749034907371750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2083,11 +2077,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!224 &2265157295642507549 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6120524742086820122, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-  m_PrefabInstance: {fileID: 6419396457341511472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2266138193067177418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3350,6 +3339,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &4016857938190170587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7973895897513041643, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
+  m_PrefabInstance: {fileID: 6419396457341511472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4040573251869127758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4520,6 +4514,17 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5775978221579197788 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 666007753946511980, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
+  m_PrefabInstance: {fileID: 6419396457341511472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 654e82a1f09dab942bd50a3e58c194d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TypewriterEffect
 --- !u!222 &5792518739191859937
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5019,7 +5024,7 @@ PrefabInstance:
     - target: {fileID: 3153112600867426499, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
       propertyPath: typewriterEffect
       value: 
-      objectReference: {fileID: 583146947}
+      objectReference: {fileID: 5775978221579197788}
     - target: {fileID: 6120524742086820122, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5157,11 +5162,12 @@ MonoBehaviour:
   dayList:
   - dayId: 1
     chapterList:
+    - {fileID: 11400000, guid: eedf57a3218269c418f4e95a7339ead3, type: 2}
     - {fileID: 11400000, guid: f69b38ca688d6c743af59350decbda7d, type: 2}
   dialogueManager: {fileID: 2214604786209937634}
   EndScreen: {fileID: 4120353118945913488}
   storyTransitionScreen: {fileID: 3827634931869816003}
-  documentCheckScreen: {fileID: 7334363023621020503}
+  documentCheckScreen: {fileID: 4016857938190170587}
   dialogueScreen: {fileID: 9145508453028128079}
   chatBackground: {fileID: 973958047701459231}
   heavenBackground: {fileID: 2086009566438649922}
@@ -5315,7 +5321,7 @@ RectTransform:
   - {fileID: 9025536683896432064}
   - {fileID: 6048214685376523}
   - {fileID: 4845304926871250692}
-  - {fileID: 2265157295642507549}
+  - {fileID: 1001558070585648682}
   - {fileID: 8763265037169904249}
   - {fileID: 2698094872767756100}
   - {fileID: 7212658286019014624}
@@ -5882,11 +5888,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8150080071684564620}
   m_CullTransparentMesh: 1
---- !u!1 &7334363023621020503 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7973895897513041643, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-  m_PrefabInstance: {fileID: 6419396457341511472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7359155743523669550
 GameObject:
   m_ObjectHideFlags: 0
