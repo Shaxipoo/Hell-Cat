@@ -5161,7 +5161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   dayList:
   - dayId: 1
-    mails: []
+    mails:
+    - {fileID: 11400000, guid: e4a2ae347e1bf9145a97382a81e7350b, type: 2}
+    - {fileID: 11400000, guid: d6d9585d76563c744bea49414d84c74a, type: 2}
     chapterList:
     - {fileID: 11400000, guid: eedf57a3218269c418f4e95a7339ead3, type: 2}
     - {fileID: 11400000, guid: f69b38ca688d6c743af59350decbda7d, type: 2}

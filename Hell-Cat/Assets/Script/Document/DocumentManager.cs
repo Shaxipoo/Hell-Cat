@@ -56,6 +56,7 @@ public class DocumentManager : MonoBehaviour
         HideChatBubble();
     }
 
+
     public void AddDocumentSets(DocumentSet docSets)
     {
         currentDocumentSet = docSets;
@@ -83,6 +84,19 @@ public class DocumentManager : MonoBehaviour
             ng.transform.position = pos;
             FillDocumentInfo(ng, ds);
             docsOnTable.Add(ng);
+        }
+    }
+
+    public void AddMails(List<Mail> mailList)
+    {
+        for (int i = 0; i < mailList.Count; i++)
+        {
+            Vector3 offset = new Vector3(i * offsetValue, i * offsetValue, 0);
+            Vector3 newPos = documentTrans.position + offset;
+
+            GameObject ng = Instantiate(mailList[i].mailPrefab, documentParent);
+
+            ng.transform.position = newPos;
         }
     }
 

@@ -1,25 +1,11 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
-public class MailController : MonoBehaviour
+public static class MailController
 {
-    public static MailController  instance;
-
-    public void Awake()
+    public static void SendMails(List<Mail> mailList)
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
-
-    public void SendMail(Mail mail)
-    {
-        
+        DocumentManager.instance.AddMails(mailList);
     }
 }

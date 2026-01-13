@@ -76,6 +76,8 @@ public class GameManager : MonoBehaviour
         currentProcess = 0;
 
         EndScreen.SetActive(true);
+
+        
     }
     public void RunProcess()
     {
@@ -85,7 +87,14 @@ public class GameManager : MonoBehaviour
             EndDay();
             return;
         }
-
+        // If the first process of the day, sent mail
+        if(currentProcess == 0)
+        {
+            if(dayList[currentDay].mails != null && dayList[currentDay].mails.Count > 0)
+            {
+                MailController.SendMails(dayList[currentDay].mails);
+            }      
+        }
         var currentCat = GetCurrentCatChapter();
         int catId = currentCat.Id;
 
@@ -167,11 +176,11 @@ public class GameManager : MonoBehaviour
     }
     public void ShowDocumentScreen()
     {
-        documentCheckScreen.SetActive(true);
+        //documentCheckScreen.SetActive(true);
     }
     public void HideDocumentScreen()
     {
-        documentCheckScreen.SetActive(false);
+        //documentCheckScreen.SetActive(false);
     }
     public void ShowDialogueScreen()
     {
