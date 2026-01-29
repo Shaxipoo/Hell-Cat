@@ -36,7 +36,6 @@ public class DialogueManager : MonoBehaviour
     {
         optionPanel.SetActive(false);
         GameManager.Instance.storyTransitionScreen.SetActive(false);
-        GameManager.Instance.HideDocumentScreen();
         
         foreach(var v in dialogueLoader.dialogueDict)
         {
@@ -98,7 +97,6 @@ public class DialogueManager : MonoBehaviour
             currentTextId = dialogueLoader.dialogueDict[currentTextId].notApproveId;
             Debug.Log("Switch to not approved text");
         }
-        // 切换到指定分支后直接更新对话，不调用 OnClick()，避免触发点击逻辑导致多跳一句
         UpdateDialogue();
     }
 

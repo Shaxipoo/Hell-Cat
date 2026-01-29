@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private int currentProcess;
 
     [Header("UI Gears")]
+
+    [SerializeField] private Button OpenSignButton;
     [SerializeField] public DialogueManager dialogueManager;
 
     [SerializeField] private GameObject EndScreen;
@@ -29,8 +31,7 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Backgrounds")]
-    [SerializeField] private GameObject chatBackground;
-    [SerializeField] private GameObject heavenBackground;
+    [SerializeField] private GameObject characterProfile;
 
     [Header("Audio")]
     [SerializeField] private MusicManager musicManager;
@@ -60,8 +61,18 @@ public class GameManager : MonoBehaviour
     {
         currentDay = 0;
         currentProcess = 0;
-        RunProcess();
         EndScreen.SetActive(false);
+        HideDialogueScreen();
+        HideCharacterProfile();
+        DocumentManager.instance.HideInterrogateButton();
+    }
+
+    public void OnClickStartTheDay()
+    {
+        ShowDialogueScreen();
+        ShowCharacterProfile();
+        RunProcess();
+        OpenSignButton.interactable = false;
     }
 
     public void NextProcess()
@@ -75,9 +86,8 @@ public class GameManager : MonoBehaviour
         currentDay += 1;
         currentProcess = 0;
 
-        EndScreen.SetActive(true);
-
-        
+        EndScreen.SetActive(true); 
+        OpenSignButton.interactable = true;    
     }
     public void RunProcess()
     {
@@ -133,8 +143,7 @@ public class GameManager : MonoBehaviour
     }
     public void SwitchBackToDialogueWithAnswer(bool isHeaven)
     {
-        HideDocumentScreen();
-
+        DocumentManager.instance.HideInterrogateButton();
         ShowDialogueScreen();
         isFastSkipEnable = true;
         isInDoc = false;
@@ -143,7 +152,6 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(EnableDialogueClickNextFrame());
     }
-
     private IEnumerator EnableDialogueClickNextFrame()
     {
         DisableDialogueClick();
@@ -152,14 +160,15 @@ public class GameManager : MonoBehaviour
     }
     public void SwitchToDocumentCheck()
     {
-        ShowDocumentScreen();
+
         DocumentManager.instance.AddDocumentSets(GetCurrentDocumentSet());
+        DocumentManager.instance.ShowInterrogateButton();
+
 
         HideDialogueScreen();
         isFastSkipEnable = false;
         isInDoc = true;
     }
-
     public DocumentSet GetCurrentDocumentSet()
     {
         ShowDayProcess();
@@ -174,14 +183,6 @@ public class GameManager : MonoBehaviour
     {
         return dayList[currentDay].chapterList[currentProcess];
     }
-    public void ShowDocumentScreen()
-    {
-        //documentCheckScreen.SetActive(true);
-    }
-    public void HideDocumentScreen()
-    {
-        //documentCheckScreen.SetActive(false);
-    }
     public void ShowDialogueScreen()
     {
         dialogueScreen.SetActive(true);
@@ -190,6 +191,14 @@ public class GameManager : MonoBehaviour
     {
         dialogueScreen.SetActive(false);
     }
+    public void ShowCharacterProfile()
+    {
+        characterProfile.SetActive(true);
+    }
+    public void HideCharacterProfile()
+    {
+        characterProfile.SetActive(false);
+    }
     public void EnableDialogueClick()
     {
         dialogueScreen.GetComponent<Button>().interactable = true;
@@ -197,6 +206,19 @@ public class GameManager : MonoBehaviour
     public void DisableDialogueClick()
     {
         dialogueScreen.GetComponent<Button>().interactable = false;
+    }
+    
+    private bool isSignOpen = false;
+    public void FlipSign()
+    {
+        if(isSignOpen)
+        {
+            isSignOpen = false;
+        }
+        else
+        {
+            isSignOpen = true;
+        }
     }
     //Debug
     private void ShowDayProcess()

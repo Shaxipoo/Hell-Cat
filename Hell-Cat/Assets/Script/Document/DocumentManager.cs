@@ -23,11 +23,13 @@ public class DocumentManager : MonoBehaviour
     [SerializeField] private GameObject Prefab_ItemApplication;
     [SerializeField] private GameObject Prefab_OtherDocument;
 
-
+    
     [HideInInspector]
     public List<GameObject> docsOnTable;
     [HideInInspector]
     public DocumentSet currentDocumentSet;
+
+    [SerializeField] private GameObject InterrogateButton;
 
 
     [Header("Interrogates")]
@@ -187,6 +189,16 @@ public class DocumentManager : MonoBehaviour
      */
     [HideInInspector]
     public bool isPen;
+
+    public void ShowInterrogateButton()
+    {
+        InterrogateButton.SetActive(true);
+    }
+    public void HideInterrogateButton()
+    {
+        InterrogateButton.SetActive(false);
+    }
+    
     public void OnClickPencilCase()
     {
         if(isPen){DropPen();}
