@@ -18,6 +18,7 @@ public class ScrollController : MonoBehaviour
 
     private InputAction scrollAction;
 
+
     private void Awake()
     {
         scrollAction = inputActions.FindActionMap("Dialogue").FindAction("Scroll");

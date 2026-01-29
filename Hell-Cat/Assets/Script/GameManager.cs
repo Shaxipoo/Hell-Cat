@@ -13,8 +13,11 @@ public class GameManager : MonoBehaviour
     private int currentDay;
     private int currentProcess;
 
+    [Header("Scroller")]
+    [SerializeField]
+    private ScrollController scrollController;
     [Header("UI Gears")]
-
+    
     [SerializeField] private Button OpenSignButton;
     [SerializeField] public DialogueManager dialogueManager;
 
@@ -73,30 +76,75 @@ public class GameManager : MonoBehaviour
         ShowCharacterProfile();
         RunProcess();
         OpenSignButton.interactable = false;
+        DisableScroller();
     }
 
     public void NextProcess()
     {
+        // Guard advancing process so we don't run past today's chapters and accidentally end the day multiple times
+        if (dayList == null || currentDay < 0 || currentDay >= dayList.Count)
+        {
+            Debug.Log("NextProcess: dayList invalid or currentDay out of range.");
+            return;
+        }
+
+        int max = dayList[currentDay].chapterList.Count;
+        if (currentProcess + 1 >= max)
+        {
+            // Reached or would exceed today's chapters — end the day instead of advancing out of bounds
+            EndDay();
+            return;
+        }
+
         currentProcess += 1;
         RunProcess();
     }
     public void EndDay()
     {
-        // Reset Everything
-        currentDay += 1;
-        currentProcess = 0;
+        EndScreen.SetActive(true);      
+        DisableScroller();
+    }
 
-        EndScreen.SetActive(true); 
-        OpenSignButton.interactable = true;    
+    public void OnClickStartNextDay()
+    {
+         currentDay += 1;
+         ResetForNewDay();
+    }
+
+    private void ResetForNewDay()
+    {
+        currentProcess = 0;
+        EndScreen.SetActive(false);
+        HideDialogueScreen();
+        HideCharacterProfile();
+        DocumentManager.instance.HideInterrogateButton();
+        storyTransitionScreen.SetActive(false);
+        OpenSignButton.interactable = true;   
+
     }
     public void RunProcess()
     {
+        // Basic guards
+        if (dayList == null || dayList.Count == 0)
+        {
+            Debug.Log("RunProcess: dayList is empty or null.");
+            return;
+        }
+        if (currentDay < 0 || currentDay >= dayList.Count)
+        {
+            Debug.Log("RunProcess: currentDay out of range: " + currentDay);
+            return;
+        }
+
         // If run out of story, DAY ENDS
         if (currentProcess >= dayList[currentDay].chapterList.Count)
         {
+            Debug.Log("Day " + currentDay + " ends.");
             EndDay();
             return;
         }
+
+        ShowDayProcess();
         // If the first process of the day, sent mail
         if(currentProcess == 0)
         {
@@ -114,15 +162,15 @@ public class GameManager : MonoBehaviour
             dialogueManager.dialogueLoader.LoadCSV(currentCat.chatText);
 
             int newChapter = PlayerData.GetCurrentChapter(catId) + 1;
-            PlayerData.SetCurrentChapter(catId, newChapter);
 
             bool found = false;
             foreach (var kv in dialogueManager.dialogueLoader.dialogueDict)
             {
                 if (kv.Value.chapterId == newChapter)
                 {
-                    // Start Chapter
+                    // Start Chapter and only then update saved player chapter
                     dialogueManager.StartDialogue(newChapter);
+                    PlayerData.SetCurrentChapter(catId, newChapter);
                     found = true;
                     break;
                 }
@@ -130,6 +178,7 @@ public class GameManager : MonoBehaviour
 
             if (!found)
             {
+                Debug.Log("RunProcess: No dialogue for cat " + catId + " chapter " + newChapter + ". dayListCount=" + dayList.Count + " currentDay=" + currentDay + " currentProcess=" + currentProcess);
                 // No dialogue for this chapter in current cat, advance process
                 NextProcess();
                 return;
@@ -171,7 +220,6 @@ public class GameManager : MonoBehaviour
     }
     public DocumentSet GetCurrentDocumentSet()
     {
-        ShowDayProcess();
         var currentCat = GetCurrentCatChapter();
         int catId = currentCat.Id;
         int curChapter = PlayerData.GetCurrentChapter(catId);
@@ -183,13 +231,24 @@ public class GameManager : MonoBehaviour
     {
         return dayList[currentDay].chapterList[currentProcess];
     }
+
+    public void EnableScroller()
+    {
+        scrollController.enabled = true;
+    }
+    public void DisableScroller()
+    {
+        scrollController.enabled = false;
+    }
     public void ShowDialogueScreen()
     {
         dialogueScreen.SetActive(true);
+        DisableScroller();
     }
     public void HideDialogueScreen()
     {
         dialogueScreen.SetActive(false);
+        EnableScroller();
     }
     public void ShowCharacterProfile()
     {
