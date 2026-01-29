@@ -81,17 +81,25 @@ public class GameManager : MonoBehaviour
 
     public void NextProcess()
     {
-        // Guard advancing process so we don't run past today's chapters and accidentally end the day multiple times
-        if (dayList == null || currentDay < 0 || currentDay >= dayList.Count)
+        // Debug info
+        if (dayList == null)
         {
-            Debug.Log("NextProcess: dayList invalid or currentDay out of range.");
+            Debug.Log("NextProcess: dayList is null.");
+            return;
+        }
+        Debug.Log("NextProcess called: currentDay=" + currentDay + " currentProcess=" + currentProcess + " dayChapterCount=" + (dayList.Count > currentDay && currentDay >= 0 ? dayList[currentDay].chapterList.Count : -1));
+
+        // Guard advancing process so we don't run past today's chapters
+        if (currentDay < 0 || currentDay >= dayList.Count)
+        {
+            Debug.Log("NextProcess: currentDay out of range: " + currentDay);
             return;
         }
 
         int max = dayList[currentDay].chapterList.Count;
         if (currentProcess + 1 >= max)
         {
-            // Reached or would exceed today's chapters — end the day instead of advancing out of bounds
+            Debug.Log("NextProcess: reached end of day's chapters — calling EndDay().");
             EndDay();
             return;
         }
@@ -120,22 +128,10 @@ public class GameManager : MonoBehaviour
         DocumentManager.instance.HideInterrogateButton();
         storyTransitionScreen.SetActive(false);
         OpenSignButton.interactable = true;   
-
     }
+
     public void RunProcess()
     {
-        // Basic guards
-        if (dayList == null || dayList.Count == 0)
-        {
-            Debug.Log("RunProcess: dayList is empty or null.");
-            return;
-        }
-        if (currentDay < 0 || currentDay >= dayList.Count)
-        {
-            Debug.Log("RunProcess: currentDay out of range: " + currentDay);
-            return;
-        }
-
         // If run out of story, DAY ENDS
         if (currentProcess >= dayList[currentDay].chapterList.Count)
         {
@@ -178,15 +174,14 @@ public class GameManager : MonoBehaviour
 
             if (!found)
             {
-                Debug.Log("RunProcess: No dialogue for cat " + catId + " chapter " + newChapter + ". dayListCount=" + dayList.Count + " currentDay=" + currentDay + " currentProcess=" + currentProcess);
-                // No dialogue for this chapter in current cat, advance process
-                NextProcess();
+                Debug.Log("RunProcess: No dialogue for cat " + catId + " chapter " + newChapter + ". dayListCount=" + dayList.Count + " currentDay=" + currentDay + " currentProcess=" + currentProcess + ". Not auto-advancing; please press Next to continue.");
+                // Do not auto-advance here — let the player press NextProcess() to go to the next chapter/process.
                 return;
             }
         }
         else
         {
-            NextProcess();
+            Debug.Log("RunProcess: cat " + catId + " is heaven; not auto-advancing. Press Next to continue.");
             return;
         }
     }
