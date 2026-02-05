@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
         HideDialogueScreen();
         HideCharacterProfile();
         DocumentManager.instance.HideInterrogateButton();
+
+        SendMailOnNewDay();
     }
 
     public void OnClickStartTheDay()
@@ -77,6 +79,17 @@ public class GameManager : MonoBehaviour
         RunProcess();
         OpenSignButton.interactable = false;
         DisableScroller();
+    }
+
+    public void SendMailOnNewDay()
+    {
+        if(currentProcess == 0)
+        {
+            if(dayList[currentDay].mails != null && dayList[currentDay].mails.Count > 0)
+            {
+                MailController.SendMails(dayList[currentDay].mails);
+            }      
+        }
     }
 
     public void NextProcess()
@@ -127,7 +140,9 @@ public class GameManager : MonoBehaviour
         HideCharacterProfile();
         DocumentManager.instance.HideInterrogateButton();
         storyTransitionScreen.SetActive(false);
-        OpenSignButton.interactable = true;   
+        OpenSignButton.interactable = true;
+
+        SendMailOnNewDay();   
     }
 
     public void RunProcess()
@@ -141,14 +156,7 @@ public class GameManager : MonoBehaviour
         }
 
         ShowDayProcess();
-        // If the first process of the day, sent mail
-        if(currentProcess == 0)
-        {
-            if(dayList[currentDay].mails != null && dayList[currentDay].mails.Count > 0)
-            {
-                MailController.SendMails(dayList[currentDay].mails);
-            }      
-        }
+
         var currentCat = GetCurrentCatChapter();
         int catId = currentCat.Id;
 
