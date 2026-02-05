@@ -201,6 +201,8 @@ public class DocumentManager : MonoBehaviour
     
     public void OnClickPencilCase()
     {
+        HideInterrogateBubbles();
+
         if(isPen){DropPen();}
         else{PickupPen();}
     }
@@ -249,7 +251,15 @@ public class DocumentManager : MonoBehaviour
     public void OnClickInterrogate()
     {
         if (isInterrogating) HideInterrogateBubbles();
-        else ShowInterrogateBubbles();
+        else 
+        {
+            if(storedInterrogateList.Count > 0)
+            {
+                ShowInterrogateBubbles();
+            }
+            else{return;}
+            
+        }
     }
     public void ShowInterrogateBubbles()
     {
@@ -335,6 +345,7 @@ public class DocumentManager : MonoBehaviour
     // Decline
     public void ClickOnWhitePaper()
     {
+        HideInterrogateBubbles();
         if(isHoldPaper)
         {
             isHoldPaper = false;
@@ -351,6 +362,7 @@ public class DocumentManager : MonoBehaviour
     // Accept
     public void ClickOnGreenPaper()
     {
+        HideInterrogateBubbles();
         if (isHoldPaper)
         {
             isHoldPaper = false;
