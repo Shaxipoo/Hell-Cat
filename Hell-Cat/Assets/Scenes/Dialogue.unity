@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 446505431}
   - component: {fileID: 446505430}
   - component: {fileID: 446505429}
+  - component: {fileID: 446505432}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -360,7 +361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -669, y: -572}
+  m_AnchoredPosition: {x: -1170, y: -576}
   m_SizeDelta: {x: 540.061, y: 381.113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &446505429
@@ -413,6 +414,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446505427}
   m_CullTransparentMesh: 1
+--- !u!114 &446505432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446505427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37bcbe24532c024e8094b2f6bdb32bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSlideOut
+  direction: 3
+  slideDistance: 200
+  lerpSpeed: 12
+  useUnscaledTime: 1
 --- !u!1 &629207870
 GameObject:
   m_ObjectHideFlags: 0
