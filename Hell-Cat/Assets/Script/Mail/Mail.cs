@@ -6,4 +6,6 @@ public class Mail : ScriptableObject
     public GameObject mailPrefab; 
 
     // Condition to receive mail
+
+    public bool ifDeleteAfterDay;
 }

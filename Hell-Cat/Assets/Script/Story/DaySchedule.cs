@@ -12,6 +12,8 @@ public class DaySchedule
 
     //Case List
     public List<CatChapter> chapterList;
+
+    public int daySuggestNumber;
     
     //End Sentense
 
