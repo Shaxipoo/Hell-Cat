@@ -99,6 +99,11 @@ public class DocumentManager : MonoBehaviour
             GameObject ng = Instantiate(mailList[i].mailPrefab, documentParent);
 
             ng.transform.position = newPos;
+
+            if(mailList[i].ifDeleteAfterDay)
+            {
+                GameManager.Instance.deleteMailList.Add(ng);
+            }
         }
     }
 

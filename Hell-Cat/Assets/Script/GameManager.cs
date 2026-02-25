@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool isInDoc = false;
 
+
+    // To store all the mails that need to be deleted at the end of the day, so we can batch delete them in DocumentManager.
+    [HideInInspector]
+    public List<GameObject> deleteMailList = new List<GameObject>();
+
     void Awake()
     {
         if (Instance == null)
@@ -124,6 +129,7 @@ public class GameManager : MonoBehaviour
     {
         EndScreen.SetActive(true);      
         DisableScroller();
+        DeleteMailsAtEndOfDay();
     }
 
     public void OnClickStartNextDay()
@@ -143,6 +149,16 @@ public class GameManager : MonoBehaviour
         OpenSignButton.interactable = true;
 
         SendMailOnNewDay();   
+    }
+
+
+    private void DeleteMailsAtEndOfDay()
+    {
+        foreach(var mail in deleteMailList)
+        {
+            Destroy(mail);
+        }
+        deleteMailList.Clear();
     }
 
     public void RunProcess()
