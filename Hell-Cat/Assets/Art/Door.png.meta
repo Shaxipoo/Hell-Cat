@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 37b9d8bf3eec692448c7551885aa9d4b
+guid: ae18fa8337c8b004a87b0eb0e96803b6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -93,17 +93,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HellCat_Background-Sheet 1_0
+      name: Door_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 398
-        height: 240
+        width: 83
+        height: 125
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fe76e2518949a14c86ac0338cf4608a
-      internalID: 1533160546
+      spriteID: c66567d9602e8e74db78120c65fbf2e4
+      internalID: 1208184725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HellCat_Background-Sheet 1_1
+      name: Door_1
       rect:
         serializedVersion: 2
-        x: 398
+        x: 83
         y: 0
-        width: 398
-        height: 240
+        width: 83
+        height: 125
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e65a001d8475134ea0912ea36253dc1
-      internalID: 1921685641
+      spriteID: 4d7e5f32c31715243afea4141a9d5a23
+      internalID: 437347806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HellCat_Background-Sheet 1_2
+      name: Door_2
       rect:
         serializedVersion: 2
-        x: 796
+        x: 166
         y: 0
-        width: 398
-        height: 240
+        width: 83
+        height: 125
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 282c5c524078ee5498ab18ec21789336
-      internalID: 652325841
+      spriteID: 52ee0af01c02f0243812e70f40cc7508
+      internalID: -317447485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HellCat_Background-Sheet 1_3
+      name: Door_3
       rect:
         serializedVersion: 2
-        x: 1194
+        x: 249
         y: 0
-        width: 398
-        height: 240
+        width: 83
+        height: 125
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca921814e8838304cb44820db7784bdd
-      internalID: 604661957
+      spriteID: 4d0e423d6a98bd7479749de3760be66f
+      internalID: -1025220498
       vertices: []
       indices: 
       edges: []
@@ -188,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5ad94acff363ade45bf375c60c9550b6
+    spriteID: 71797e4e2a3311e40be463282ec82058
     internalID: 0
     vertices: []
     indices: 
@@ -197,13 +210,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries:
+      - key: SpriteEditor.SliceOnImport
+        value: False
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":398.0,"y":240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":83.0,"y":125.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      HellCat_Background-Sheet 1_0: 1533160546
-      HellCat_Background-Sheet 1_1: 1921685641
-      HellCat_Background-Sheet 1_2: 652325841
-      HellCat_Background-Sheet 1_3: 604661957
+      Door_0: 1208184725
+      Door_1: 437347806
+      Door_2: -317447485
+      Door_3: -1025220498
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
