@@ -647,11 +647,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764362365}
   m_CullTransparentMesh: 1
---- !u!1 &1017302683 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1950725686193134440, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-  m_PrefabInstance: {fileID: 6419396457341511472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1209301464
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,8 +809,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.8, y: 104}
-  m_SizeDelta: {x: 400, y: 715}
+  m_AnchoredPosition: {x: 1.8, y: 191.384}
+  m_SizeDelta: {x: 400, y: 574.795}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1440122808
 Animator:
@@ -5399,34 +5394,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6659267268673318921}
     m_Modifications:
-    - target: {fileID: 132736918448691413, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-      propertyPath: m_Colors.m_PressedColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 132736918448691413, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-      propertyPath: m_Colors.m_PressedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 132736918448691413, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-      propertyPath: m_Colors.m_PressedColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153112600867426499, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-      propertyPath: InterrogateButton
-      value: 
-      objectReference: {fileID: 1017302683}
-    - target: {fileID: 3486092973006219773, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3486092973006219773, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3486092973006219773, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6120524742086820122, guid: bdd8a9c576b0e3a43a6db156a69aab9d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

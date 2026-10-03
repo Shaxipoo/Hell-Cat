@@ -6,7 +6,7 @@ public class CursorManager : MonoBehaviour
 
     public Texture2D cursorTexture_Normal;
     public Texture2D cursorTexture_Highlight;
-    public Texture2D cursorTexture_White;
+    public Texture2D cursorTexture_Red;
     public Texture2D cursorTexture_Green;
     public CursorMode cursorMode = CursorMode.Auto;
 
@@ -39,9 +39,9 @@ public class CursorManager : MonoBehaviour
         ChangeCursor(cursorTexture_Normal);
     }
 
-    public void ChangeCursorToWhite()
+    public void ChangeCursorToRed()
     {
-        ChangeCursor(cursorTexture_White);
+        ChangeCursor(cursorTexture_Red);
     }
 
     public void ChangeCursorToGreen()

@@ -360,7 +360,7 @@ public class DocumentManager : MonoBehaviour
         {
             isHoldPaper = true;
             isGreenPaper = false;
-            CursorManager.Instance.ChangeCursorToWhite();
+            CursorManager.Instance.ChangeCursorToRed();
         }          
     }
 

@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 3586226680664429298}
   - component: {fileID: 582418262604300522}
   m_Layer: 5
-  m_Name: white
+  m_Name: red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2556,6 +2556,7 @@ MonoBehaviour:
   Prefab_OtherDocument: {fileID: 1770205103098404180, guid: c098baf8f51383d4fbe332d04efea4a7, type: 3}
   docsOnTable: []
   currentDocumentSet: {fileID: 0}
+  InterrogateButton: {fileID: 1950725686193134440}
   storedInterrogateList: []
   interrogateBubbles:
   - {fileID: 5116901507088040015}
