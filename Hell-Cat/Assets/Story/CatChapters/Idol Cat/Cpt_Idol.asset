@@ -14,10 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CatChapter
   Id: 1
   CatName: Idol Cat
-  chatText: {fileID: 4900000, guid: 5df2bf7698920c54c8132d91776bd306, type: 3}
-  heavenText: {fileID: 4900000, guid: c90e44ec452c14bf5ac8614e1a21f603, type: 3}
+  chatText: {fileID: 4900000, guid: 74c2ce1ff4cc10f4f9f21d88e1a15dd6, type: 3}
   heavenMusic: {fileID: 8300000, guid: 6b1061dd3cd584b7ab66a5c9d43ffc32, type: 3}
-  currentChapter: 0
   documentSetList:
   - {fileID: 11400000, guid: eb34dc15c41d84b5e914f83a7a273b68, type: 2}
-  isHeaven: 0

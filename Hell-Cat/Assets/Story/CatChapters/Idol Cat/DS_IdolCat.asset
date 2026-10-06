@@ -13,15 +13,30 @@ MonoBehaviour:
   m_Name: DS_IdolCat
   m_EditorClassIdentifier: Assembly-CSharp::DocumentSet
   DocumentId: 1
-  documentList: 000000000100000002000000
+  documentList: 0000000001000000020000000300000005000000
   documentInteractions:
+  - docType: 5
+    interactType: 10
+    bubbleText: "\u9999\u8549\uFF1F"
+    answer:
+    - "\u8FD9\u662F\u6765\u81EA\u6211\u7C89\u4E1D\u7684\u793C\u7269\uFF0C\u8868\u8FBE\u4ED6\u4EEC\u5BF9\u6211\u7684\u7231\u3002"
+    - "\u5373\u4F7F\u5B83\u548C\u6211\u7684\u9020\u578B\u6709\u4E9B\u51B2\u7A81\uFF0C\u6211\u8FD8\u662F\u5F88\u73CD\u89C6\u5B83\u3002 "
+  - docType: 3
+    interactType: 8
+    bubbleText: "\u805A\u4F17\u6DEB\u4E71?"
+    answer:
+    - "\u90A3\u662F\u6C61\u8511\uFF01\u5BF9\u6211\u7684\u5F62\u8C61\u7684\u516C\u7136\u62B9\u9ED1\uFF01 "
+    - "\u4F60\u6839\u672C\u4E0D\u77E5\u9053\u771F\u76F8\uFF01\u90A3\u7FA4\u7C89\u4E1D...\u4ED6\u4EEC\u53EA\u662F\u592A\u7231\u6211\u4E86!"
+    - "\u4EE5\u81F3\u4E8E\u8FDE\u6211\u7684\u79C1\u4EBA\u751F\u6D3B\u4E5F\u60F3\u8981\u4E86\u89E3\u548C\u53C2\u4E0E\u3002"
+    - "\u6211\u7684\u5F8B\u5E08\u4E00\u5B9A\u4F1A\u91C7\u53D6\u76F8\u5E94\u63AA\u65BD\u3002 "
   - docType: 0
-    interactType: 5
-    bubbleText: name?
-    answer: []
+    interactType: 2
+    bubbleText: "\u6B7B\u56E0\uFF1F"
+    answer:
+    - "\u2026\u2026\u6211\u4E0D\u8BB0\u5F97\u4E86\u3002"
   keepList: 
   Name: Idole
-  Age: 2
+  Age: 3
   Breed: Angola
   ApplicationNo: 231241234
   Gender: F
@@ -33,13 +48,13 @@ MonoBehaviour:
   GeneralAppearance: beautiful
   Imaging: good
   MedicalHistory: have super beautiful eyes, I love this cat. Hahahahahhahahahhahahahha
-  CriminalItem1: 
+  CriminalItem1: "\u805A\u4F17\u6DEB\u4E71"
   CriminalItem1Extent: 
   CriminalItem2: 
   CriminalItem2Extent: 
   OwnerName: 
   OwnerJob: 
   Background: 
-  ItemName: 
-  ItemReason: 
+  ItemName: "\u9999\u8549"
+  ItemReason: "\u7C89\u4E1D\u793C\u7269"
   OtherItem: {fileID: 0}
